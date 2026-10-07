@@ -6,18 +6,6 @@
    e "conquistas" que aparecem no canto da tela.
    ============================================================= */
 
-/* ---------- 0. Fonte dos números ----------
-   Na Pixelify Sans o 5 parece um S e o 2 vira quase um 8.
-   Como este site é cheio de quantidades, os dígitos (0–9) usam a VT323,
-   que tem números bem claros. O resto do texto continua na Pixelify. */
-@font-face {
-  font-family: "Digitos";
-  src: url("../assets/fontes/vt323-latin.woff2") format("woff2");
-  unicode-range: U+0030-0039;
-  size-adjust: 125%;
-  font-display: swap;
-}
-
 /* ---------- 1. Variáveis ---------- */
 :root {
   /* Interface do jogo (inventário) */
@@ -49,8 +37,9 @@
   --diamante: #4aedd9;
   --netherite: #9b8a91;
 
-  --fonte: "Digitos", "Pixelify Sans", "Trebuchet MS", sans-serif;
-  --fonte-titulo: "Press Start 2P", "Courier New", monospace;
+  /* Fontes: Nunito nos textos (arredondada e fácil de ler) e Rubik nos títulos */
+  --fonte: "Nunito", "Segoe UI", system-ui, sans-serif;
+  --fonte-titulo: "Rubik", "Nunito", "Segoe UI", system-ui, sans-serif;
   --largura: 1140px;
   --altura-topo: 68px;
 }
@@ -71,8 +60,8 @@ body {
   margin: 0;
   min-height: 100vh;
   font-family: var(--fonte);
-  font-size: 18px;
-  line-height: 1.55;
+  font-size: 17px;
+  line-height: 1.6;
   color: #fff;
   background-color: #231910;
   /* Terra escurecida, igual à tela de opções do jogo */
@@ -95,6 +84,7 @@ h1,
 h2,
 h3,
 h4 {
+  font-family: var(--fonte-titulo);
   line-height: 1.25;
   margin: 0 0 0.5em;
 }
@@ -180,7 +170,8 @@ p {
   color: #fff;
   text-decoration: none;
   font-family: var(--fonte-titulo);
-  font-size: 15px;
+  font-size: 22px;
+  font-weight: 800;
   text-shadow: 2px 2px 0 #3f3f3f;
   white-space: nowrap;
 }
@@ -203,7 +194,8 @@ p {
   padding: 6px 12px;
   color: #fff;
   text-decoration: none;
-  font-size: 18px;
+  font-size: 17px;
+  font-weight: 700;
   text-shadow: 2px 2px 0 #3f3f3f;
   border: 3px solid transparent;
   white-space: nowrap;
@@ -238,8 +230,8 @@ p {
   min-height: 46px;
   padding: 8px 22px;
   font-family: var(--fonte);
-  font-size: 18px;
-  font-weight: 500;
+  font-size: 17px;
+  font-weight: 800;
   line-height: 1.2;
   color: #fff;
   text-shadow: 2px 2px 0 #3f3f3f;
@@ -368,8 +360,9 @@ p {
   position: absolute;
   right: 3px;
   bottom: 0;
-  font-size: 20px;
-  font-weight: 600;
+  font-family: var(--fonte-titulo);
+  font-size: 18px;
+  font-weight: 700;
   line-height: 1;
   color: #fff;
   text-shadow: 2px 2px 0 #3f3f3f;
@@ -377,7 +370,7 @@ p {
 }
 
 .slot--p .qtd {
-  font-size: 16px;
+  font-size: 14px;
   right: 2px;
 }
 
@@ -387,9 +380,9 @@ p {
   align-items: center;
   gap: 14px;
   font-family: var(--fonte-titulo);
-  font-size: clamp(16px, 2.6vw, 24px);
-  font-weight: 400;
-  line-height: 1.45;
+  font-size: clamp(24px, 3.2vw, 34px);
+  font-weight: 800;
+  line-height: 1.2;
   color: #fff;
   text-shadow: 3px 3px 0 #3f3f3f;
   margin-bottom: 12px;
@@ -421,7 +414,8 @@ p {
   border-image: linear-gradient(#5000ff, #28007f) 1;
   outline: 2px solid rgba(16, 0, 16, 0.96);
   color: #fff;
-  font-size: 17px;
+  font-size: 16px;
+  font-weight: 600;
   line-height: 1.35;
   text-shadow: 2px 2px 0 #3f3f3f;
   pointer-events: none;
@@ -501,7 +495,7 @@ p {
 
 .toast b {
   display: block;
-  font-weight: 500;
+  font-weight: 800;
   color: #ffff00;
   text-shadow: 2px 2px 0 #3f3f00;
 }
@@ -656,36 +650,32 @@ p {
   margin-bottom: 40px;
 }
 
-/* Letras de pedregulho em 3D, no estilo do logo do jogo */
+/* Letras grossas com contorno escuro e sombra 3D, no clima do logo do jogo */
 .logo {
   margin: 0;
   font-family: var(--fonte-titulo);
-  font-size: clamp(34px, 8.6vw, 92px);
-  font-weight: 400;
-  line-height: 1.15;
+  font-size: clamp(46px, 11vw, 116px);
+  font-weight: 900;
+  line-height: 1.05;
   letter-spacing: 0.02em;
-  color: #8f8f8f;
-  background: url("../assets/img/texturas/cobblestone.png") 0 0 / 40px 40px;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -webkit-text-stroke: 2px #262626;
-  filter: drop-shadow(0 4px 0 #4a4a4a) drop-shadow(0 4px 0 #2b2b2b)
-    drop-shadow(5px 6px 0 rgba(0, 0, 0, 0.35));
+  color: #fff;
+  -webkit-text-stroke: 4px #2a2a2a;
+  paint-order: stroke fill; /* o contorno fica por fora e não engole a letra */
+  text-shadow: 0 5px 0 #8d8d8d, 0 9px 0 #4a4a4a, 0 13px 0 #2a2a2a, 6px 18px 0 rgba(0, 0, 0, 0.28);
 }
 
 /* A frase amarela pulsando (clique nela para trocar!) */
 .splash {
-  --base: translate(42%, 0) rotate(-18deg);
+  --base: translate(72%, 0) rotate(-18deg);
   position: absolute;
   right: 0;
-  bottom: 24px;
+  bottom: 4px;
   padding: 0;
   border: 0;
   background: none;
   font-family: var(--fonte);
   font-size: clamp(15px, 2.2vw, 23px);
-  font-weight: 600;
+  font-weight: 800;
   line-height: 1.1;
   color: #ffff00;
   text-shadow: 2px 2px 0 #3f3f00;
@@ -715,7 +705,8 @@ p {
 .hero-sub {
   max-width: 640px;
   margin: 0 auto 30px;
-  font-size: clamp(18px, 2.2vw, 22px);
+  font-size: clamp(18px, 2.2vw, 21px);
+  font-weight: 600;
 }
 
 .hero-botoes {
@@ -769,14 +760,14 @@ a.aba:focus-visible {
 
 .aba h3 {
   margin: 0;
-  font-size: 23px;
+  font-size: 22px;
   font-weight: 700;
   color: var(--gui-texto);
 }
 
 .aba p {
   margin: 0;
-  font-size: 17px;
+  font-size: 16px;
   color: var(--gui-texto-suave);
 }
 
@@ -829,9 +820,11 @@ a.aba:focus-visible .arte img {
   top: 26px;
   right: 22px;
   z-index: 2;
-  padding: 4px 10px;
+  padding: 3px 10px;
   font-family: var(--fonte-titulo);
-  font-size: 11px;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
   color: #3f3f00;
   background: #ffff55;
   border: 3px solid #000;
@@ -918,16 +911,16 @@ a.aba:focus-visible .arte img {
 .placa h2 {
   margin-bottom: 10px;
   font-family: var(--fonte-titulo);
-  font-size: clamp(14px, 2vw, 18px);
-  font-weight: 400;
+  font-size: clamp(21px, 2.6vw, 26px);
+  font-weight: 800;
   color: #000;
 }
 
 .placa p {
   min-height: 3.2em;
   margin-bottom: 16px;
-  font-size: 20px;
-  font-weight: 500;
+  font-size: 19px;
+  font-weight: 700;
 }
 
 .placa-poste {
@@ -953,8 +946,9 @@ a.aba:focus-visible .arte img {
 .rodape .fim {
   margin-bottom: 14px;
   font-family: var(--fonte-titulo);
-  font-size: clamp(11px, 1.6vw, 14px);
-  line-height: 1.7;
+  font-size: clamp(17px, 2vw, 20px);
+  font-weight: 800;
+  line-height: 1.4;
   color: #fff;
   text-shadow: 2px 2px 0 #3f3f3f;
 }
@@ -971,6 +965,15 @@ a.aba:focus-visible .arte img {
 }
 
 /* ---------- 16. Telas pequenas ---------- */
+@media (max-width: 960px) {
+  .splash {
+    --base: rotate(-6deg);
+    position: static;
+    display: block;
+    margin: 22px auto 0;
+  }
+}
+
 @media (max-width: 720px) {
   .hero {
     padding: 56px 0 130px;
@@ -984,13 +987,6 @@ a.aba:focus-visible .arte img {
     box-shadow: 0 0 0 6px rgba(255, 250, 210, 0.35), 0 0 50px 20px rgba(255, 236, 140, 0.45);
   }
 
-  .splash {
-    --base: rotate(-8deg);
-    position: static;
-    display: block;
-    margin: 18px auto 0;
-  }
-
   .hero .item-flutuante:nth-of-type(n + 4) {
     display: none;
   }
@@ -1002,7 +998,7 @@ a.aba:focus-visible .arte img {
 
 @media (max-width: 520px) {
   body {
-    font-size: 17px;
+    font-size: 16px;
   }
 
   .marca span {
@@ -1011,7 +1007,7 @@ a.aba:focus-visible .arte img {
 
   .menu a {
     padding: 4px 8px;
-    font-size: 16px;
+    font-size: 15px;
   }
 
   .painel {
