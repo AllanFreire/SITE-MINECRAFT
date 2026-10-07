@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Guia rápido de minérios — MineGuia</title>
+  <meta name="description" content="Quantos minérios você precisa para a armadura completa e as ferramentas de cobre, ferro, ouro, diamante e netherite — com calculadora.">
+  <link rel="icon" type="image/png" href="assets/img/itens/diamond_pickaxe.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600;700&family=Press+Start+2P&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/minerios.css">
+</head>
+<body>
+  <a class="pular-conteudo" href="#quantidades">Pular para as quantidades</a>
+
+  <header class="topo">
+    <div class="container">
+      <a class="marca" href="index.html">
+        <img src="assets/img/itens/grass_block.png" alt="">
+        <span>MineGuia</span>
+      </a>
+      <nav class="menu" aria-label="Principal">
+        <a href="index.html"><img src="assets/img/itens/crafting_table.png" alt="">Início</a>
+        <a href="minerios.html" aria-current="page"><img src="assets/img/itens/diamond_pickaxe.png" alt="">Minérios</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===== Topo do guia: na superfície ===== -->
+    <section class="ceu guia-hero">
+      <div class="sol" aria-hidden="true"></div>
+      <div class="nuvem nuvem--1" aria-hidden="true"></div>
+
+      <div class="container">
+        <nav class="migalhas" aria-label="Você está aqui">
+          <a href="index.html">Início</a> <span aria-hidden="true">›</span> <span>Guia de minérios</span>
+        </nav>
+        <h1 class="guia-titulo">Guia rápido: até o minério mais forte</h1>
+        <p class="guia-intro chat">Do cobre à netherite em um só lugar. Veja quantos minérios cada armadura e cada ferramenta pedem, onde achar cada um e, lá embaixo, monte o <a href="#calculadora">seu próprio kit na calculadora</a>.</p>
+
+        <div class="jornada">
+          <h2 class="jornada-titulo">Sua jornada de picaretas</h2>
+          <ol class="trilha">
+            <li class="passo">
+              <span class="passo-icone"><img src="assets/img/itens/wooden_pickaxe.png" alt=""></span>
+              <b>Madeira</b>
+              <small>Todo mundo começa socando árvore</small>
+            </li>
+            <li class="passo">
+              <span class="passo-icone"><img src="assets/img/itens/stone_pickaxe.png" alt=""></span>
+              <b>Pedra</b>
+              <small>Já minera cobre e ferro</small>
+            </li>
+            <li class="passo">
+              <a href="#cobre">
+                <span class="passo-icone"><img src="assets/img/itens/copper_pickaxe.png" alt=""></span>
+                <b>Cobre</b>
+                <small>Um upgrade da pedra</small>
+              </a>
+            </li>
+            <li class="passo">
+              <a href="#ferro">
+                <span class="passo-icone"><img src="assets/img/itens/iron_pickaxe.png" alt=""></span>
+                <b>Ferro</b>
+                <small>Libera ouro e diamante</small>
+              </a>
+            </li>
+            <li class="passo passo--desvio">
+              <a href="#ouro">
+                <span class="passo-icone"><img src="assets/img/itens/golden_pickaxe.png" alt=""></span>
+                <b>Ouro</b>
+                <small>Desvio brilhante</small>
+              </a>
+            </li>
+            <li class="passo">
+              <a href="#diamante">
+                <span class="passo-icone"><img src="assets/img/itens/diamond_pickaxe.png" alt=""></span>
+                <b>Diamante</b>
+                <small>Libera os detritos</small>
+              </a>
+            </li>
+            <li class="passo passo--final">
+              <a href="#netherite">
+                <span class="passo-icone"><img src="assets/img/itens/netherite_pickaxe.png" alt=""></span>
+                <b>Netherite</b>
+                <small>O topo do jogo!</small>
+              </a>
+            </li>
+          </ol>
+          <p class="trilha-dica">Arraste para o lado para ver a jornada toda →</p>
+        </div>
+      </div>
+      <div class="chao" aria-hidden="true"></div>
+    </section>
+
+    <!-- ===== Quantidades: cada minério numa camada do subsolo ===== -->
+    <section class="secao secao--quantidades" id="quantidades" aria-labelledby="titulo-quantidades">
+      <div class="container">
+        <h2 class="titulo-secao" id="titulo-quantidades"><img src="assets/img/itens/iron_ingot.png" alt="">Quanto minério eu preciso?</h2>
+        <p class="secao-desc">Primeiro, a regra que vale para quase tudo: a receita de cada peça é sempre a mesma, só muda o material. Passe o mouse nos itens para ver os detalhes.</p>
+        <div id="regra"></div>
+      </div>
+      <div id="lista-minerios">
+        <noscript><p class="container aviso-js">Ative o JavaScript para ver as quantidades e a calculadora.</p></noscript>
+      </div>
+    </section>
+
+    <!-- ===== Calculadora ===== -->
+    <section class="secao secao--oficina" id="calculadora" aria-labelledby="titulo-calc">
+      <div class="container">
+        <h2 class="titulo-secao" id="titulo-calc"><img src="assets/img/itens/crafting_table.png" alt="">Calculadora: monte o seu kit</h2>
+        <p class="secao-desc">Clique nas peças que você quer fazer (clique de novo para tirar). A calculadora soma só o que você escolheu e mostra o total de minérios, gravetos e até o carvão da fornalha.</p>
+        <div id="calc"></div>
+      </div>
+    </section>
+
+    <!-- ===== Receitas na bancada ===== -->
+    <section class="secao" id="receitas" aria-labelledby="titulo-receitas">
+      <div class="container">
+        <h2 class="titulo-secao" id="titulo-receitas"><img src="assets/img/itens/smithing_table.png" alt="">Bônus: como montar cada peça</h2>
+        <p class="secao-desc">Escolha o material e veja onde colocar cada item na grade 3×3 da bancada. A netherite é feita na mesa de ferraria.</p>
+        <div id="receitas-app"></div>
+      </div>
+    </section>
+
+    <!-- ===== Dicas ===== -->
+    <section class="secao" id="dicas" aria-labelledby="titulo-dicas">
+      <div class="container">
+        <h2 class="titulo-secao" id="titulo-dicas"><img src="assets/img/itens/torch.png" alt="">Dicas de minerador</h2>
+        <p class="secao-desc">Pequenos truques que poupam tempo, diamantes e algumas vidas.</p>
+        <ul class="dicas">
+          <li class="painel dica-card">
+            <span class="slot"><img src="assets/img/itens/lava_bucket.png" alt=""></span>
+            <div>
+              <h3>Não cave para baixo!</h3>
+              <p>Cavar reto para baixo é o jeito mais rápido de cair numa caverna ou direto na lava. Cave em escada.</p>
+            </div>
+          </li>
+          <li class="painel dica-card">
+            <span class="slot"><img src="assets/img/itens/water_bucket.png" alt=""></span>
+            <div>
+              <h3>Leve um balde d'água</h3>
+              <p>Apaga fogo, transforma lava em obsidiana e salva você de quedas. É o item mais subestimado da mineração.</p>
+            </div>
+          </li>
+          <li class="painel dica-card">
+            <span class="slot"><img src="assets/img/itens/torch.png" alt=""></span>
+            <div>
+              <h3>Tochas sempre à direita</h3>
+              <p>Na ida, coloque as tochas na parede da direita. Para voltar, é só seguir com elas do lado esquerdo.</p>
+            </div>
+          </li>
+          <li class="painel dica-card">
+            <span class="slot"><img src="assets/img/itens/diamond_pickaxe.png" alt=""></span>
+            <div>
+              <h3>Fortuna III nos diamantes</h3>
+              <p>Rende em média 2,2 diamantes por minério. Mas não adianta nos detritos ancestrais: eles sempre dão 1.</p>
+            </div>
+          </li>
+          <li class="painel dica-card">
+            <span class="slot"><img src="assets/img/itens/blast_furnace.png" alt=""></span>
+            <div>
+              <h3>Alto-forno = 2x mais rápido</h3>
+              <p>Para minérios e itens de metal, o alto-forno funde no dobro da velocidade da fornalha comum.</p>
+            </div>
+          </li>
+          <li class="painel dica-card">
+            <span class="slot"><img src="assets/img/itens/netherite_ingot.png" alt=""></span>
+            <div>
+              <h3>Netherite boia na lava</h3>
+              <p>Itens de netherite não queimam. Caiu na lava? Seu equipamento sobrevive. Você... talvez não.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="container">
+      <p class="fim">Você chegou na bedrock.<br>Não dá pra cavar mais fundo!</p>
+      <p>MineGuia · <span data-ano>2026</span> — feito por fãs, para fãs.</p>
+      <p>Valores da Java Edition (no Bedrock a durabilidade é 1 ponto maior).</p>
+      <p>Não é um site oficial do Minecraft. Não é aprovado pela Mojang ou pela Microsoft nem associado a elas.</p>
+      <p>Imagens dos itens e texturas: <a href="https://minecraft.wiki" target="_blank" rel="noopener">Minecraft Wiki</a> · © Mojang Studios.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/dados-minerios.js"></script>
+  <script src="js/minerios.js"></script>
+</body>
+</html>

@@ -1,0 +1,1196 @@
+/* =============================================================
+   MineGuia — Guia de Minérios
+   (usa as variáveis e componentes de style.css)
+   ============================================================= */
+
+/* ---------- Topo do guia ---------- */
+.guia-hero {
+  padding: 34px 0 118px;
+}
+
+.guia-hero .nuvem--1 {
+  top: 1%;
+}
+
+.migalhas {
+  margin-bottom: 16px;
+  font-size: 17px;
+  color: #fff;
+  text-shadow: 2px 2px 0 #3f3f3f;
+}
+
+.migalhas a {
+  color: #fff;
+}
+
+.migalhas a:hover {
+  color: #ffffa0;
+}
+
+.guia-titulo {
+  max-width: 920px;
+  margin-bottom: 18px;
+  font-family: var(--fonte-titulo);
+  font-size: clamp(20px, 3.6vw, 36px);
+  font-weight: 400;
+  line-height: 1.45;
+  color: #fff;
+  text-shadow: 3px 3px 0 #3f3f3f;
+}
+
+.guia-intro {
+  display: inline-block;
+  max-width: 780px;
+  margin-bottom: 26px;
+  font-size: clamp(17px, 2vw, 20px);
+}
+
+.guia-intro a {
+  color: var(--mc-amarelo);
+}
+
+/* ---------- Jornada (parece a tela de progressos do jogo) ---------- */
+.jornada {
+  padding: 18px 18px 20px;
+  background: rgba(12, 12, 12, 0.86);
+  border: 3px solid #000;
+  box-shadow: inset 0 0 0 3px rgba(255, 255, 255, 0.12);
+}
+
+.jornada-titulo {
+  margin-bottom: 16px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff;
+  text-shadow: 2px 2px 0 #3f3f3f;
+}
+
+.trilha {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.passo {
+  position: relative;
+  padding: 0 4px;
+  text-align: center;
+}
+
+.passo > a {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Linha branca que liga um passo ao outro */
+.passo + .passo::before {
+  content: "";
+  position: absolute;
+  top: 31px;
+  right: 50%;
+  width: 100%;
+  height: 4px;
+  background: #fff;
+  box-shadow: 0 2px 0 #000, 0 -2px 0 #000;
+}
+
+.passo-icone {
+  position: relative;
+  z-index: 1;
+  display: inline-grid;
+  place-items: center;
+  width: 66px;
+  height: 66px;
+  background: var(--gui);
+  border: 3px solid #000;
+  box-shadow: inset 3px 3px 0 #fff, inset -3px -3px 0 #555;
+}
+
+.passo-icone img {
+  width: 48px;
+  height: 48px;
+}
+
+.passo a:hover .passo-icone,
+.passo a:focus-visible .passo-icone {
+  border-color: #fff;
+}
+
+.passo a:hover b {
+  color: #ffffa0;
+}
+
+.passo b {
+  display: block;
+  margin-top: 8px;
+  font-size: 19px;
+  color: #fff;
+  text-shadow: 2px 2px 0 #3f3f3f;
+}
+
+.passo small {
+  display: block;
+  font-size: 15px;
+  line-height: 1.3;
+  color: #cfcfcf;
+}
+
+.passo--desvio .passo-icone {
+  background: #f3dc78;
+  box-shadow: inset 3px 3px 0 #fff6c4, inset -3px -3px 0 #a88a1d;
+}
+
+.passo--final .passo-icone {
+  background: #b98cd9;
+  box-shadow: inset 3px 3px 0 #e4ccf5, inset -3px -3px 0 #6b3d8c, 0 0 0 3px #000, 0 0 18px 4px rgba(190, 120, 255, 0.75);
+}
+
+/* ---------- Regra geral (quanto custa cada peça) ---------- */
+.regra {
+  display: grid;
+  gap: 18px;
+  margin-bottom: 40px;
+}
+
+.regra-bloco h3 {
+  margin-bottom: 10px;
+  font-size: 21px;
+}
+
+.regra-total {
+  padding: 0 8px;
+  color: #fff;
+  background: #3f3f3f;
+  text-shadow: 2px 2px 0 #111;
+}
+
+.regra-lista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.regra-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 12px 5px 5px;
+  background: #b4b4b4;
+  box-shadow: inset 2px 2px 0 #8b8b8b, inset -2px -2px 0 #e6e6e6;
+}
+
+.regra-item b {
+  font-size: 23px;
+  color: #000;
+}
+
+.regra-item small {
+  font-size: 16px;
+  white-space: nowrap;
+}
+
+.regra-nota {
+  margin: 0;
+  font-size: 17px;
+}
+
+/* ---------- Camadas do subsolo (uma por minério) ---------- */
+.secao--quantidades {
+  padding-bottom: 0;
+}
+
+.camada {
+  --fundo: url("../assets/img/texturas/stone.png");
+  --cor: #ccc;
+  padding: 42px 0 46px;
+  background: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), var(--fundo) 0 0 / 64px 64px;
+  border-top: 4px solid #000;
+}
+
+.profundidade {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+  padding: 6px 12px;
+  font-family: var(--fonte-titulo);
+  font-size: 12px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.7);
+  border: 3px solid var(--cor);
+  text-shadow: 2px 2px 0 #3f3f3f;
+}
+
+.profundidade img {
+  width: 32px;
+  height: 32px;
+}
+
+/* faixa colorida do material no topo do card */
+.minerio::before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  right: 4px;
+  height: 8px;
+  background: var(--cor);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.25);
+}
+
+.minerio {
+  padding-top: 30px;
+}
+
+.minerio-topo {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 22px;
+  margin-bottom: 18px;
+}
+
+.minerio-blocos {
+  display: flex;
+  gap: 4px;
+}
+
+.minerio-blocos img {
+  width: 96px;
+  height: 96px;
+  filter: drop-shadow(4px 4px 0 rgba(0, 0, 0, 0.25));
+}
+
+.minerio-apelido {
+  margin: 0;
+  font-family: var(--fonte-titulo);
+  font-size: 11px;
+  line-height: 1.6;
+  color: #555;
+  text-transform: uppercase;
+}
+
+.minerio-nome h3 {
+  margin: 2px 0 6px;
+  font-size: clamp(28px, 4vw, 38px);
+  font-weight: 700;
+  color: #262626;
+}
+
+.minerio-nome p {
+  margin: 0;
+  max-width: 760px;
+  color: var(--gui-texto-suave);
+}
+
+/* Fichas: picareta, onde achar, como vira material */
+.fichas {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin: 0 0 18px;
+  padding: 0;
+  list-style: none;
+}
+
+.ficha {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.32);
+  box-shadow: inset -2px -2px 0 rgba(0, 0, 0, 0.1);
+}
+
+.ficha-titulo {
+  display: block;
+  margin-bottom: 4px;
+  font-family: var(--fonte-titulo);
+  font-size: 10px;
+  line-height: 1.6;
+  color: #5a5a5a;
+  text-transform: uppercase;
+}
+
+.ficha-texto {
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.cadeia {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 6px;
+}
+
+.seta-mini {
+  font-weight: 700;
+  color: #3f3f3f;
+}
+
+/* Passo a passo da netherite */
+.processo {
+  display: grid;
+  gap: 8px;
+  margin: 0 0 18px;
+  padding: 0;
+  list-style: none;
+}
+
+.processo li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.32);
+}
+
+.processo-n {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  font-family: var(--fonte-titulo);
+  font-size: 13px;
+  color: #fff;
+  background: #3f3f3f;
+  text-shadow: 2px 2px 0 #111;
+}
+
+.processo p {
+  margin: 2px 0 0;
+  font-size: 16px;
+  color: var(--gui-texto-suave);
+}
+
+.processo .cadeia {
+  margin: 0;
+}
+
+.mais {
+  font-weight: 700;
+  padding: 0 2px;
+}
+
+/* Armadura | Ferramentas */
+.kits {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.kit {
+  padding: 16px;
+  background: #b6b6b6;
+  box-shadow: inset 3px 3px 0 #8b8b8b, inset -3px -3px 0 #e3e3e3;
+}
+
+.kit h4 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  font-size: 21px;
+}
+
+.kit h4 img {
+  width: 32px;
+  height: 32px;
+}
+
+.kit-lista {
+  display: grid;
+  gap: 5px;
+  margin: 0 0 14px;
+  padding: 0;
+  list-style: none;
+}
+
+.kit-item {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  padding: 3px 10px 3px 3px;
+  background: rgba(255, 255, 255, 0.26);
+}
+
+.kit-item:hover {
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.kit-nome {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.kit-custo {
+  font-size: 18px;
+  white-space: nowrap;
+}
+
+.kit-custo b {
+  font-size: 21px;
+  color: #000;
+}
+
+.tag-nova {
+  display: inline-block;
+  margin-left: 4px;
+  padding: 0 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #0b3d0b;
+  background: var(--mc-verde);
+  border: 2px solid #000;
+  vertical-align: 2px;
+}
+
+.kit-total {
+  margin: 0 0 4px;
+  font-size: 19px;
+}
+
+.kit-total b {
+  color: #000;
+}
+
+.kit-equiv,
+.kit-extra {
+  margin: 0 0 4px;
+  font-size: 16px;
+  color: var(--gui-texto-suave);
+}
+
+.kit-stat {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 10px;
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+.kit-stat > span:first-child {
+  min-width: 112px;
+  color: var(--gui-texto-suave);
+}
+
+/* fundo escuro, como a barra de vida/armadura por cima do mundo */
+.icones-hud {
+  display: inline-flex;
+  gap: 1px;
+  padding: 3px 4px;
+  background: rgba(0, 0, 0, 0.62);
+}
+
+.icones-hud img {
+  width: 18px;
+  height: 18px;
+}
+
+.barra-dur {
+  display: inline-block;
+  width: 180px;
+  max-width: 100%;
+  height: 12px;
+  padding: 2px;
+  background: #000;
+}
+
+.barra-dur i {
+  display: block;
+  min-width: 3px;
+  height: 100%;
+  background: var(--cor);
+}
+
+.kit-completo {
+  margin: 18px 0 0;
+  padding: 12px 16px;
+  font-size: 18px;
+  color: #fff;
+  background: #3a3a3a;
+  text-shadow: 2px 2px 0 #151515;
+  box-shadow: inset 3px 3px 0 #555, inset -3px -3px 0 #222;
+}
+
+.kit-completo b {
+  color: var(--mc-amarelo);
+}
+
+.minerio-dica {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin: 14px 0 0;
+  padding: 12px 14px;
+  font-size: 17px;
+  color: #3b2a14;
+  background: #efe3bf;
+  border-left: 6px solid var(--cor);
+}
+
+.minerio-dica img {
+  width: 32px;
+  height: 32px;
+  flex: none;
+}
+
+/* ---------- Calculadora ---------- */
+.secao--oficina {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("../assets/img/texturas/oak_planks.png") 0 0 / 64px 64px;
+  border-top: 4px solid #000;
+  border-bottom: 4px solid #000;
+}
+
+.calc {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 22px;
+}
+
+.calc-h {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.calc-h img {
+  width: 32px;
+  height: 32px;
+}
+
+.calc-h small {
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--gui-texto-suave);
+}
+
+.calc-grade {
+  display: grid;
+  gap: 8px;
+}
+
+.calc-linha {
+  display: grid;
+  grid-template-columns: 250px minmax(0, 1fr);
+  align-items: center;
+  gap: 14px;
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.22);
+  box-shadow: inset 5px 0 0 var(--cor);
+}
+
+.calc-mat {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 6px 10px;
+}
+
+.calc-mat b {
+  font-size: 21px;
+}
+
+.calc-atalhos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  grid-column: 1 / -1;
+}
+
+.calc-atalhos .botao {
+  min-height: 30px;
+  padding: 2px 9px;
+  font-size: 15px;
+}
+
+.calc-atalhos .botao[aria-pressed="true"] {
+  --b-fundo: #3c8527;
+  --b-luz: #63b443;
+  --b-sombra: #1f5413;
+}
+
+.calc-slots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+}
+
+.calc-grupo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.slot--botao {
+  padding: 0;
+  border: 0;
+  font: inherit;
+  cursor: pointer;
+}
+
+.slot--botao > img {
+  opacity: 0.5;
+  transition: opacity 0.1s, transform 0.1s;
+}
+
+/* brilho branco ao passar o mouse, como no inventário */
+.slot--botao:hover::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  background: rgba(255, 255, 255, 0.4);
+  pointer-events: none;
+}
+
+.slot--botao[aria-pressed="true"] {
+  background: #5da43c;
+  box-shadow: inset 3px 3px 0 #2b5a17, inset -3px -3px 0 #b6f08e;
+}
+
+.slot--botao[aria-pressed="true"] > img {
+  opacity: 1;
+}
+
+.slot--botao:active > img {
+  transform: scale(0.9);
+}
+
+.slot .qtd.longa {
+  font-size: 14px;
+}
+
+/* Opções da netherite */
+.calc-opcoes {
+  padding: 16px 18px;
+  color: #fff;
+  background: #4a3e44;
+  text-shadow: 2px 2px 0 #1f1a1d;
+  box-shadow: inset 3px 3px 0 #6b5c63, inset -3px -3px 0 #2c2428;
+}
+
+.calc-opcoes[hidden] {
+  display: none;
+}
+
+.calc-opcoes .calc-h {
+  color: #fff;
+}
+
+.check {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 12px;
+  cursor: pointer;
+}
+
+.check input {
+  flex: none;
+  width: 22px;
+  height: 22px;
+  margin: 2px 0 0;
+  accent-color: #3c8527;
+  cursor: pointer;
+}
+
+.stepper-linha {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.stepper {
+  display: inline-flex;
+  align-items: center;
+  background: #555;
+  border: 2px solid #000;
+}
+
+.stepper button {
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  font: 600 22px/1 var(--fonte);
+  color: #fff;
+  text-shadow: 2px 2px 0 #3f3f3f;
+  background: #727272;
+  border: 0;
+  box-shadow: inset 2px 2px 0 #a9a9a9, inset -2px -2px 0 #4a4a4a;
+  cursor: pointer;
+}
+
+.stepper button:hover {
+  color: #ffffa0;
+}
+
+.stepper button:disabled {
+  color: #9a9a9a;
+  text-shadow: none;
+  cursor: not-allowed;
+}
+
+.stepper output {
+  min-width: 42px;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  color: #fff;
+  text-shadow: 2px 2px 0 #3f3f3f;
+}
+
+/* Resultado */
+.calc-resultado {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+  align-items: start;
+  gap: 22px;
+}
+
+.calc-total,
+.calc-lista {
+  padding: 16px;
+  background: #b6b6b6;
+  box-shadow: inset 3px 3px 0 #8b8b8b, inset -3px -3px 0 #e3e3e3;
+}
+
+.calc-recursos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(165px, 1fr));
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.recurso {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.recurso-txt {
+  min-width: 0;
+  font-size: 17px;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+.recurso-txt b {
+  display: block;
+  font-size: 24px;
+  color: #000;
+}
+
+.recurso-txt small {
+  display: block;
+  font-size: 14px;
+  color: var(--gui-texto-suave);
+}
+
+.calc-recursos > .calc-vazio {
+  grid-column: 1 / -1;
+}
+
+.calc-vazio {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  color: var(--gui-texto-suave);
+}
+
+.calc-vazio img {
+  width: 32px;
+  height: 32px;
+  flex: none;
+}
+
+.calc-detalhes {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 16px;
+}
+
+.calc-detalhes li {
+  padding: 8px 10px;
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.calc-detalhes li.alerta {
+  background: #ffe2a8;
+  box-shadow: inset 5px 0 0 var(--mc-ouro);
+}
+
+.calc-detalhes small {
+  color: var(--gui-texto-suave);
+}
+
+.calc-escolhidos {
+  display: grid;
+  gap: 5px;
+  max-height: 430px;
+  margin: 0 0 14px;
+  padding: 0;
+  overflow: auto;
+  list-style: none;
+}
+
+.calc-escolhidos li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 8px;
+  padding: 3px 6px 3px 3px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.calc-escolhidos li.calc-vazio {
+  display: block;
+  padding: 8px 10px;
+  background: none;
+}
+
+.escolhido-nome {
+  font-size: 17px;
+  line-height: 1.2;
+}
+
+.remover {
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  font: 600 20px/1 var(--fonte);
+  color: #fff;
+  text-shadow: 2px 2px 0 #3f1010;
+  background: #b03030;
+  border: 2px solid #000;
+  box-shadow: inset 2px 2px 0 #e05a5a, inset -2px -2px 0 #6e1a1a;
+  cursor: pointer;
+}
+
+.remover:hover {
+  border-color: #fff;
+}
+
+.calc-acoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Um creeper passou por aqui... */
+.calc.explodindo {
+  animation: tremer 0.45s steps(6) both;
+}
+
+.calc.explodindo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  background: #fff;
+  pointer-events: none;
+  animation: clarao 0.45s ease-out both;
+}
+
+@keyframes tremer {
+  0%, 100% { transform: translate(0, 0); }
+  20% { transform: translate(-6px, 3px); }
+  40% { transform: translate(5px, -4px); }
+  60% { transform: translate(-4px, -2px); }
+  80% { transform: translate(4px, 4px); }
+}
+
+@keyframes clarao {
+  0% { opacity: 0; }
+  30% { opacity: 0.85; }
+  100% { opacity: 0; }
+}
+
+/* ---------- Receitas ---------- */
+.abas-mat {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.aba-mat[aria-pressed="true"] {
+  --b-fundo: #3c8527;
+  --b-luz: #63b443;
+  --b-sombra: #1f5413;
+  border-color: #fff;
+}
+
+.receitas-grade {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 262px), 1fr));
+  gap: 14px;
+}
+
+.receita {
+  margin: 0;
+  padding: 12px 14px 14px;
+  background: #b6b6b6;
+  box-shadow: inset 3px 3px 0 #8b8b8b, inset -3px -3px 0 #e3e3e3;
+}
+
+.receita figcaption {
+  margin-bottom: 10px;
+}
+
+.receita figcaption b {
+  display: block;
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+.receita figcaption small {
+  font-size: 15px;
+  color: var(--gui-texto-suave);
+}
+
+.receita-corpo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.grade3 {
+  display: grid;
+  grid-template-columns: repeat(3, 38px);
+}
+
+.slot--r {
+  --t: 38px;
+  --i: 32px;
+  box-shadow: inset 2px 2px 0 var(--slot-escuro), inset -2px -2px 0 var(--slot-claro);
+}
+
+/* setinha cinza da bancada */
+.seta {
+  flex: none;
+  width: 32px;
+  height: 24px;
+  background: #8b8b8b;
+  clip-path: polygon(0 36%, 56% 36%, 56% 0, 100% 50%, 56% 100%, 56% 64%, 0 64%);
+}
+
+.ferraria {
+  display: flex;
+  gap: 4px;
+}
+
+/* ---------- Dicas ---------- */
+.dicas {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr));
+  gap: 18px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.dica-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.dica-card h3 {
+  margin-bottom: 4px;
+  font-size: 20px;
+}
+
+.dica-card p {
+  margin: 0;
+  font-size: 17px;
+  color: var(--gui-texto-suave);
+}
+
+.aviso-js {
+  padding: 20px 0;
+}
+
+/* dica de "arraste" para a trilha no celular */
+.trilha-dica {
+  display: none;
+  margin: 8px 0 0;
+  font-size: 15px;
+  color: #cfcfcf;
+}
+
+/* ---------- Telas médias e pequenas ---------- */
+@media (max-width: 980px) {
+  .trilha-dica {
+    display: block;
+  }
+
+  .trilha {
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: 118px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    scroll-snap-type: x proximity;
+  }
+
+  .passo {
+    scroll-snap-align: start;
+  }
+
+  .fichas {
+    grid-template-columns: 1fr;
+  }
+
+  .calc-resultado {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 820px) {
+  .kits {
+    grid-template-columns: 1fr;
+  }
+
+  .calc-linha {
+    grid-template-columns: 1fr;
+  }
+
+  .calc-mat {
+    grid-template-columns: auto auto 1fr;
+  }
+
+  .calc-atalhos {
+    grid-column: auto;
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: 560px) {
+  .minerio-topo {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .minerio-blocos img {
+    width: 64px;
+    height: 64px;
+  }
+
+  .kit {
+    padding: 12px;
+  }
+
+  .kit-item {
+    gap: 8px;
+    padding-right: 6px;
+  }
+
+  .kit-nome,
+  .kit-custo {
+    font-size: 16px;
+  }
+
+  .calc-linha {
+    padding: 8px;
+  }
+
+  .calc-mat {
+    grid-template-columns: auto 1fr;
+  }
+
+  .calc-atalhos {
+    grid-column: 1 / -1;
+    justify-content: flex-start;
+  }
+
+  .calc-slots .slot {
+    --t: 42px;
+    --i: 32px;
+  }
+
+  .calc-recursos {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px 8px;
+  }
+
+  .recurso {
+    gap: 6px;
+  }
+
+  .recurso .slot {
+    --t: 42px;
+    --i: 32px;
+  }
+
+  .recurso-txt {
+    font-size: 15px;
+  }
+
+  .recurso-txt b {
+    font-size: 21px;
+  }
+
+  .calc-total,
+  .calc-lista {
+    padding: 12px;
+  }
+
+  .calc-escolhidos li {
+    gap: 6px;
+  }
+
+  .stepper button {
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+  }
+
+  .stepper output {
+    min-width: 30px;
+    font-size: 18px;
+  }
+
+  .remover {
+    width: 30px;
+    height: 30px;
+  }
+
+  .escolhido-nome {
+    font-size: 16px;
+  }
+
+  .receita-corpo {
+    gap: 6px;
+  }
+
+  .grade3 {
+    grid-template-columns: repeat(3, 34px);
+  }
+
+  .slot--r {
+    --t: 34px;
+    --i: 32px;
+  }
+}
