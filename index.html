@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MineGuia — Minecraft bloco a bloco</title>
+  <meta name="description" content="Guias de Minecraft fáceis de entender, com imagens dos itens do jogo. Comece pelo guia rápido de minérios: do cobre à netherite.">
+  <link rel="icon" type="image/png" href="assets/img/itens/grass_block.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600;700&family=Press+Start+2P&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="pular-conteudo" href="#guias">Pular para os guias</a>
+
+  <header class="topo">
+    <div class="container">
+      <a class="marca" href="index.html">
+        <img src="assets/img/itens/grass_block.png" alt="">
+        <span>MineGuia</span>
+      </a>
+      <nav class="menu" aria-label="Principal">
+        <a href="index.html" aria-current="page"><img src="assets/img/itens/crafting_table.png" alt="">Início</a>
+        <a href="minerios.html"><img src="assets/img/itens/diamond_pickaxe.png" alt="">Minérios</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Céu de Minecraft com o "logo" e a frase amarela -->
+    <section class="ceu hero">
+      <div class="sol" aria-hidden="true"></div>
+      <div class="nuvem nuvem--1" aria-hidden="true"></div>
+      <div class="nuvem nuvem--2" aria-hidden="true"></div>
+      <div class="nuvem nuvem--3" aria-hidden="true"></div>
+
+      <img class="item-flutuante" src="assets/img/itens/diamond.png" alt="">
+      <img class="item-flutuante" src="assets/img/itens/iron_ingot.png" alt="">
+      <img class="item-flutuante" src="assets/img/itens/netherite_ingot.png" alt="">
+      <img class="item-flutuante" src="assets/img/itens/golden_apple.png" alt="">
+      <img class="item-flutuante" src="assets/img/itens/diamond_pickaxe.png" alt="">
+
+      <div class="container">
+        <div class="logo-wrap">
+          <h1 class="logo">MINEGUIA</h1>
+          <button class="splash" type="button" data-splash title="Clique para trocar a frase">Bloco a bloco!</button>
+        </div>
+        <p class="hero-sub chat">O jeito mais fácil de entender Minecraft. Guias rápidos, com as imagens dos itens do jogo e zero enrolação.</p>
+        <div class="hero-botoes">
+          <a class="botao botao--verde" href="#guias"><img src="assets/img/itens/compass.gif" alt="">Escolher um guia</a>
+          <a class="botao" href="minerios.html"><img src="assets/img/itens/diamond.png" alt="">Guia de minérios</a>
+        </div>
+      </div>
+      <div class="chao" aria-hidden="true"></div>
+    </section>
+
+    <!-- Abas: cada uma é um guia -->
+    <section class="secao" id="guias">
+      <div class="container">
+        <h2 class="titulo-secao"><img src="assets/img/itens/book.png" alt="">Escolha sua aba</h2>
+        <p class="secao-desc">Cada aba é um guia completo sobre um assunto do jogo. Clique e aprenda no seu ritmo — sem precisar decorar nada.</p>
+
+        <div class="grade-abas">
+          <!-- ABA ATIVA: guia de minérios -->
+          <a class="painel aba" href="minerios.html">
+            <span class="selo">NOVO!</span>
+            <div class="arte tx-ardosia" aria-hidden="true">
+              <img class="atras" src="assets/img/itens/deepslate_diamond_ore.png" alt="" style="--x: 76%; --y: 60%; --t: 25%; --d: -.3s">
+              <img src="assets/img/itens/ancient_debris.png" alt="" style="--x: 34%; --y: 58%; --t: 33%">
+              <img src="assets/img/itens/diamond_pickaxe.png" alt="" style="--x: 58%; --y: 36%; --t: 22%; --r: -10deg; --d: -.5s">
+              <img src="assets/img/itens/netherite_ingot.png" alt="" style="--x: 12%; --y: 22%; --t: 11%; --r: -14deg; --d: -.2s">
+              <img src="assets/img/itens/diamond.png" alt="" style="--x: 88%; --y: 20%; --t: 10%; --r: 10deg; --d: -.7s">
+            </div>
+            <div class="aba-corpo">
+              <h3>Guia rápido: até o minério mais forte</h3>
+              <p>Do cobre à netherite: quanto minério você precisa para a armadura completa e para cada ferramenta — com calculadora para montar só o que você quer.</p>
+              <span class="botao botao--verde botao--pequeno"><img src="assets/img/itens/iron_pickaxe.png" alt="">Abrir guia</span>
+            </div>
+          </a>
+
+          <!-- PRÓXIMAS ABAS (é só trocar <article> por <a href="..."> quando o guia ficar pronto) -->
+          <article class="painel aba aba--bloqueada" data-tip="Em construção..." data-tip-sub="Os aldeões estão trabalhando nisso!">
+            <span class="selo">EM BREVE</span>
+            <div class="arte arte--noite arte--estrelas" aria-hidden="true">
+              <img src="assets/img/itens/red_bed.png" alt="" style="--x: 50%; --y: 60%; --t: 28%">
+              <img src="assets/img/itens/torch.png" alt="" style="--x: 22%; --y: 52%; --t: 12%">
+              <img src="assets/img/itens/crafting_table.png" alt="" style="--x: 80%; --y: 56%; --t: 20%">
+            </div>
+            <div class="aba-corpo">
+              <h3>Sua primeira noite</h3>
+              <p>Soque árvores, faça uma bancada, monte um abrigo e sobreviva até o sol nascer sem virar lanche de zumbi.</p>
+              <span class="botao botao--pequeno" aria-disabled="true"><img src="assets/img/itens/barrier.png" alt="">Em breve</span>
+            </div>
+          </article>
+
+          <article class="painel aba aba--bloqueada" data-tip="Em construção..." data-tip-sub="Os aldeões estão trabalhando nisso!">
+            <span class="selo">EM BREVE</span>
+            <div class="arte tx-estante" aria-hidden="true">
+              <img src="assets/img/itens/enchanting_table.png" alt="" style="--x: 50%; --y: 56%; --t: 30%">
+              <img src="assets/img/itens/enchanted_book.png" alt="" style="--x: 20%; --y: 34%; --t: 16%; --r: -10deg">
+              <img src="assets/img/itens/lapis_lazuli.png" alt="" style="--x: 82%; --y: 34%; --t: 12%; --r: 12deg">
+            </div>
+            <div class="aba-corpo">
+              <h3>Encantamentos sem mistério</h3>
+              <p>Mesa de encantamento, estantes de livros, lápis-lazúli e quais encantamentos valem a pena em cada item.</p>
+              <span class="botao botao--pequeno" aria-disabled="true"><img src="assets/img/itens/barrier.png" alt="">Em breve</span>
+            </div>
+          </article>
+
+          <article class="painel aba aba--bloqueada" data-tip="Em construção..." data-tip-sub="Os aldeões estão trabalhando nisso!">
+            <span class="selo">EM BREVE</span>
+            <div class="arte tx-tijolos" aria-hidden="true">
+              <img src="assets/img/itens/brewing_stand.png" alt="" style="--x: 50%; --y: 52%; --t: 26%">
+              <img src="assets/img/itens/potion_of_healing.png" alt="" style="--x: 22%; --y: 58%; --t: 15%; --r: -8deg">
+              <img src="assets/img/itens/potion_of_swiftness.png" alt="" style="--x: 78%; --y: 58%; --t: 15%; --r: 8deg">
+              <img src="assets/img/itens/blaze_powder.png" alt="" style="--x: 84%; --y: 20%; --t: 10%">
+            </div>
+            <div class="aba-corpo">
+              <h3>Poções para iniciantes</h3>
+              <p>O suporte de poções, o pó de blaze e as receitas que mais salvam a sua vida (e o seu inventário).</p>
+              <span class="botao botao--pequeno" aria-disabled="true"><img src="assets/img/itens/barrier.png" alt="">Em breve</span>
+            </div>
+          </article>
+
+          <article class="painel aba aba--bloqueada" data-tip="Em construção..." data-tip-sub="Os aldeões estão trabalhando nisso!">
+            <span class="selo">EM BREVE</span>
+            <div class="arte tx-netherrack" aria-hidden="true">
+              <img src="assets/img/itens/obsidian.png" alt="" style="--x: 40%; --y: 56%; --t: 30%">
+              <img src="assets/img/itens/flint_and_steel.png" alt="" style="--x: 74%; --y: 42%; --t: 17%; --r: 12deg">
+              <img src="assets/img/itens/golden_helmet.png" alt="" style="--x: 82%; --y: 76%; --t: 12%; --r: -6deg">
+            </div>
+            <div class="aba-corpo">
+              <h3>Rumo ao Nether</h3>
+              <p>Como montar o portal de obsidiana, o que levar na mochila e como não irritar os Piglins.</p>
+              <span class="botao botao--pequeno" aria-disabled="true"><img src="assets/img/itens/barrier.png" alt="">Em breve</span>
+            </div>
+          </article>
+
+          <article class="painel aba aba--bloqueada" data-tip="Em construção..." data-tip-sub="Os aldeões estão trabalhando nisso!">
+            <span class="selo">EM BREVE</span>
+            <div class="arte arte--estrelas tx-end" aria-hidden="true">
+              <img src="assets/img/itens/dragon_egg.png" alt="" style="--x: 50%; --y: 55%; --t: 28%">
+              <img src="assets/img/itens/eye_of_ender.png" alt="" style="--x: 18%; --y: 30%; --t: 13%">
+              <img src="assets/img/itens/eye_of_ender.png" alt="" style="--x: 82%; --y: 30%; --t: 13%; --d: -.4s">
+            </div>
+            <div class="aba-corpo">
+              <h3>Derrotando o Ender Dragon</h3>
+              <p>Olhos do Ender, como achar a fortaleza, os cristais do End e a luta final contra o chefão.</p>
+              <span class="botao botao--pequeno" aria-disabled="true"><img src="assets/img/itens/barrier.png" alt="">Em breve</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Placa de curiosidades -->
+    <section class="secao placa-wrap" aria-labelledby="titulo-curiosidade">
+      <div class="placa" data-curiosidade>
+        <h2 id="titulo-curiosidade">Você sabia?</h2>
+        <p data-curiosidade-texto aria-live="polite">Um dia inteiro no Minecraft dura 20 minutos na vida real.</p>
+        <button class="botao botao--pequeno" type="button" data-curiosidade-botao><img src="assets/img/itens/book.png" alt="">Outra curiosidade</button>
+      </div>
+      <div class="placa-poste" aria-hidden="true"></div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="container">
+      <p class="fim">Você chegou na bedrock.</p>
+      <p>MineGuia · <span data-ano>2026</span> — feito por Allan Freire, para fãs.</p>
+      <p>Site guia oficial.</p>
+      <p>Imagens dos itens e texturas: <a href="https://minecraft.wiki" target="_blank" rel="noopener">Minecraft Wiki</a> · © Mojang Studios.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
