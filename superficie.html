@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>A Superfície — MineGuia</title>
+  <meta name="description" content="Todos os biomas do mundo normal do Minecraft, os animais e monstros de cada um e todas as estruturas, da vila à Cidade Ancestral, com onde encontrar e o que vem em cada baú.">
+  <link rel="icon" type="image/png" href="assets/img/itens/oak_sapling.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400..900&family=Rubik:wght@500..900&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/minerios.css">
+  <link rel="stylesheet" href="css/mundo.css">
+  <link rel="stylesheet" href="css/superficie.css">
+</head>
+<body>
+  <a class="pular-conteudo" href="#biomas">Pular para os biomas</a>
+
+  <header class="topo">
+    <div class="container">
+      <a class="marca" href="index.html">
+        <img src="assets/img/itens/grass_block.png" alt="">
+        <span>MineGuia</span>
+      </a>
+      <nav class="menu" aria-label="Principal">
+        <a href="index.html"><img src="assets/img/itens/crafting_table.png" alt=""><span>Início</span></a>
+        <a href="superficie.html" aria-current="page"><img src="assets/img/itens/oak_sapling.png" alt=""><span>Superfície</span></a>
+        <a href="minerios.html"><img src="assets/img/itens/diamond_pickaxe.png" alt=""><span>Minérios</span></a>
+        <a href="encantamentos.html"><img src="assets/img/itens/enchanted_book.png" alt=""><span>Encantamentos</span></a>
+        <a href="nether.html"><img src="assets/img/itens/netherrack.png" alt=""><span>Nether</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===== Topo: o guia rápido ===== -->
+    <section class="ceu guia-hero">
+      <div class="sol" aria-hidden="true"></div>
+      <div class="nuvem nuvem--1" aria-hidden="true"></div>
+      <div class="nuvem nuvem--3" aria-hidden="true"></div>
+
+      <div class="container">
+        <nav class="migalhas" aria-label="Você está aqui">
+          <a href="index.html">Início</a> <span aria-hidden="true">›</span> <span>A Superfície</span>
+        </nav>
+        <h1 class="guia-titulo">A Superfície</h1>
+        <p class="guia-intro chat">Tudo o que existe no mundo normal: <a href="#biomas">todos os biomas</a>, com os animais e os monstros de cada um, e <a href="#estruturas">todas as estruturas</a> — da vila à Cidade Ancestral —, com onde encontrar cada uma e o que vem nos baús.</p>
+
+        <!-- montado por js/superficie.js -->
+        <div class="jornada guia-rapido" id="guia-rapido">
+          <h2 class="jornada-titulo">Guia rápido: clique em uma estrutura ou em um tipo de bioma</h2>
+          <h3 class="atalhos-titulo">Estruturas na superfície</h3>
+          <div class="atalhos atalhos--grade" id="atalhos-superficie"></div>
+          <h3 class="atalhos-titulo">Estruturas na água</h3>
+          <div class="atalhos atalhos--grade" id="atalhos-agua"></div>
+          <h3 class="atalhos-titulo">Estruturas embaixo da terra</h3>
+          <div class="atalhos atalhos--grade" id="atalhos-subsolo"></div>
+          <h3 class="atalhos-titulo">Biomas</h3>
+          <div class="atalhos atalhos--grade" id="atalhos-biomas"></div>
+          <p class="trilha-dica">Arraste para o lado para ver todos →</p>
+        </div>
+      </div>
+      <div class="chao" aria-hidden="true"></div>
+    </section>
+
+    <!-- ===== Biomas ===== -->
+    <section class="secao" id="biomas" aria-labelledby="titulo-biomas">
+      <div class="container">
+        <h2 class="titulo-secao" id="titulo-biomas"><img src="assets/img/itens/grass_block.png" alt="">Os biomas do mundo normal</h2>
+        <div id="biomas-intro"></div>
+        <div id="lista-biomas"></div>
+      </div>
+    </section>
+
+    <!-- ===== Estruturas ===== -->
+    <section class="secao secao--pedra" id="estruturas" aria-labelledby="titulo-estruturas">
+      <div class="container">
+        <h2 class="titulo-secao" id="titulo-estruturas"><img src="assets/img/itens/chest.png" alt="">As estruturas</h2>
+        <p class="secao-desc">São as construções que o jogo espalha pelo mundo: em cima da terra, debaixo d'água e lá no fundo das cavernas. Veja onde procurar cada uma, quem mora lá e o que tem nos baús — com a chance de cada item aparecer.</p>
+        <div id="lista-estruturas"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="container">
+      <p class="fim">Você chegou na bedrock.<br>Não dá pra cavar mais fundo!</p>
+      <p>MineGuia · <span data-ano>2026</span> — feito por Allan Freire, para fãs.</p>
+      <p>Valores da Java Edition 26.3.</p>
+      <p>Imagens dos itens, texturas e capturas de tela: <a href="https://minecraft.wiki" target="_blank" rel="noopener">Minecraft Wiki</a> · © Mojang Studios.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/dados-superficie.js"></script>
+  <script src="js/superficie.js"></script>
+</body>
+</html>

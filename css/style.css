@@ -887,20 +887,26 @@ a.aba:focus-visible .arte img {
 .tx-obsidiana { --fundo: url("../assets/img/texturas/obsidian.png"); }
 
 /* Fundos especiais das ilustrações */
-.arte--noite {
+/* céu de dia com uma fileira de grama embaixo */
+.arte--dia {
   --fundo: none;
-  background: linear-gradient(#0b1033, #1d2a6b 70%, #2e3f8c);
+  --luz: radial-gradient(circle at 50% 60%, rgba(255, 255, 255, 0.12), rgba(0, 0, 0, 0.18) 80%);
+  background: linear-gradient(#5f93ff, #9cc0ff 70%, #cddfff);
 }
 
-.arte--noite::after {
+.arte--dia::after {
   content: "";
   position: absolute;
   left: 3px;
   right: 3px;
   bottom: 3px;
+  z-index: 0;
   height: 26%;
   background: url("../assets/img/texturas/grass_block_side.png") 0 0 / 48px 48px repeat-x;
-  filter: brightness(0.45);
+}
+
+.arte--dia img {
+  z-index: 1;
 }
 
 .arte--estrelas::before {
@@ -1028,7 +1034,7 @@ a.aba:focus-visible .arte img {
 
 /* No celular, só o link da página atual mostra o nome (os outros ficam só com o ícone,
    mas o nome continua lá para leitores de tela) */
-@media (max-width: 700px) {
+@media (max-width: 760px) {
   .menu a:not([aria-current]) span {
     position: absolute;
     width: 1px;

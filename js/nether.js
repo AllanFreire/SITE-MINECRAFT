@@ -114,7 +114,7 @@
 
   function cardBioma(b) {
     return (
-      `<article class="painel card-nether" id="bioma-${b.id}" style="--cor: ${b.neblina}">` +
+      `<article class="painel card-mundo" id="bioma-${b.id}" style="--cor: ${b.neblina}">` +
       topo(b) +
       foto(b, "Bioma") +
       `<div class="card-ficha">` +
@@ -177,7 +177,7 @@
       : `<p class="nenhum">Nenhum mob próprio: só os mobs do bioma em volta.</p>`;
     const icone = e.id === "fossil" ? FOTO + "mob-happy_ghast.png" : "";
     return (
-      `<article class="painel card-nether${e.baus.length ? "" : " card-nether--sem-bau"}" id="estrutura-${e.id}">` +
+      `<article class="painel card-mundo${e.baus.length ? "" : " card-mundo--sem-bau"}" id="estrutura-${e.id}">` +
       topo(e) +
       foto(e, "Estrutura") +
       `<div class="card-ficha">` +

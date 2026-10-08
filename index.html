@@ -22,6 +22,7 @@
       </a>
       <nav class="menu" aria-label="Principal">
         <a href="index.html" aria-current="page"><img src="assets/img/itens/crafting_table.png" alt=""><span>Início</span></a>
+        <a href="superficie.html"><img src="assets/img/itens/oak_sapling.png" alt=""><span>Superfície</span></a>
         <a href="minerios.html"><img src="assets/img/itens/diamond_pickaxe.png" alt=""><span>Minérios</span></a>
         <a href="encantamentos.html"><img src="assets/img/itens/enchanted_book.png" alt=""><span>Encantamentos</span></a>
         <a href="nether.html"><img src="assets/img/itens/netherrack.png" alt=""><span>Nether</span></a>
@@ -63,7 +64,23 @@
         <p class="secao-desc">Cada aba é um guia completo sobre um assunto do jogo. Clique e aprenda no seu ritmo — sem precisar decorar nada.</p>
 
         <div class="grade-abas">
-          <!-- ABA ATIVA: guia de minérios -->
+          <!-- GUIAS NO AR -->
+          <a class="painel aba" href="superficie.html">
+            <span class="selo">NOVO!</span>
+            <div class="arte arte--dia" aria-hidden="true">
+              <img class="atras" src="assets/img/itens/oak_log.png" alt="" style="--x: 80%; --y: 60%; --t: 20%; --d: -.3s">
+              <img src="assets/img/itens/grass_block.png" alt="" style="--x: 40%; --y: 62%; --t: 30%">
+              <img src="assets/img/itens/bell.png" alt="" style="--x: 66%; --y: 34%; --t: 15%; --r: -8deg; --d: -.5s">
+              <img src="assets/img/itens/filled_map.png" alt="" style="--x: 14%; --y: 30%; --t: 13%; --r: -12deg; --d: -.2s">
+              <img src="assets/img/itens/heart_of_the_sea.png" alt="" style="--x: 14%; --y: 78%; --t: 10%; --r: 6deg; --d: -.7s">
+            </div>
+            <div class="aba-corpo">
+              <h3>A Superfície</h3>
+              <p>Todos os biomas do mundo normal, os animais e monstros de cada um e todas as estruturas — da vila à Cidade Ancestral —, com onde encontrar e o que vem nos baús.</p>
+              <span class="botao botao--verde botao--pequeno"><img src="assets/img/itens/oak_sapling.png" alt="">Abrir guia</span>
+            </div>
+          </a>
+
           <a class="painel aba" href="minerios.html">
             <span class="selo">NOVO!</span>
             <div class="arte tx-ardosia" aria-hidden="true">
@@ -80,21 +97,6 @@
             </div>
           </a>
 
-          <!-- PRÓXIMAS ABAS (é só trocar <article> por <a href="..."> quando o guia ficar pronto) -->
-          <article class="painel aba aba--bloqueada" data-tip="Em construção..." data-tip-sub="Os aldeões estão trabalhando nisso!">
-            <span class="selo">EM BREVE</span>
-            <div class="arte arte--noite arte--estrelas" aria-hidden="true">
-              <img src="assets/img/itens/red_bed.png" alt="" style="--x: 50%; --y: 60%; --t: 28%">
-              <img src="assets/img/itens/torch.png" alt="" style="--x: 22%; --y: 52%; --t: 12%">
-              <img src="assets/img/itens/crafting_table.png" alt="" style="--x: 80%; --y: 56%; --t: 20%">
-            </div>
-            <div class="aba-corpo">
-              <h3>Sua primeira noite</h3>
-              <p>Soque árvores, faça uma bancada, monte um abrigo e sobreviva até o sol nascer sem virar lanche de zumbi.</p>
-              <span class="botao botao--pequeno" aria-disabled="true"><img src="assets/img/itens/barrier.png" alt="">Em breve</span>
-            </div>
-          </article>
-
           <a class="painel aba" href="encantamentos.html">
             <span class="selo">NOVO!</span>
             <div class="arte tx-estante" aria-hidden="true">
@@ -108,21 +110,6 @@
               <span class="botao botao--verde botao--pequeno"><img src="assets/img/itens/enchanted_book.png" alt="">Abrir guia</span>
             </div>
           </a>
-
-          <article class="painel aba aba--bloqueada" data-tip="Em construção..." data-tip-sub="Os aldeões estão trabalhando nisso!">
-            <span class="selo">EM BREVE</span>
-            <div class="arte tx-tijolos" aria-hidden="true">
-              <img src="assets/img/itens/brewing_stand.png" alt="" style="--x: 50%; --y: 52%; --t: 26%">
-              <img src="assets/img/itens/potion_of_healing.png" alt="" style="--x: 22%; --y: 58%; --t: 15%; --r: -8deg">
-              <img src="assets/img/itens/potion_of_swiftness.png" alt="" style="--x: 78%; --y: 58%; --t: 15%; --r: 8deg">
-              <img src="assets/img/itens/blaze_powder.png" alt="" style="--x: 84%; --y: 20%; --t: 10%">
-            </div>
-            <div class="aba-corpo">
-              <h3>Poções para iniciantes</h3>
-              <p>O suporte de poções, o pó de blaze e as receitas que mais salvam a sua vida (e o seu inventário).</p>
-              <span class="botao botao--pequeno" aria-disabled="true"><img src="assets/img/itens/barrier.png" alt="">Em breve</span>
-            </div>
-          </article>
 
           <a class="painel aba" href="nether.html">
             <span class="selo">NOVO!</span>
@@ -139,6 +126,22 @@
               <span class="botao botao--verde botao--pequeno"><img src="assets/img/itens/netherrack.png" alt="">Abrir guia</span>
             </div>
           </a>
+
+          <!-- PRÓXIMOS GUIAS (é só trocar <article> por <a href="..."> quando o guia ficar pronto) -->
+          <article class="painel aba aba--bloqueada" data-tip="Em construção..." data-tip-sub="Os aldeões estão trabalhando nisso!">
+            <span class="selo">EM BREVE</span>
+            <div class="arte tx-tijolos" aria-hidden="true">
+              <img src="assets/img/itens/brewing_stand.png" alt="" style="--x: 50%; --y: 52%; --t: 26%">
+              <img src="assets/img/itens/potion_of_healing.png" alt="" style="--x: 22%; --y: 58%; --t: 15%; --r: -8deg">
+              <img src="assets/img/itens/potion_of_swiftness.png" alt="" style="--x: 78%; --y: 58%; --t: 15%; --r: 8deg">
+              <img src="assets/img/itens/blaze_powder.png" alt="" style="--x: 84%; --y: 20%; --t: 10%">
+            </div>
+            <div class="aba-corpo">
+              <h3>Poções para iniciantes</h3>
+              <p>O suporte de poções, o pó de blaze e as receitas que mais salvam a sua vida (e o seu inventário).</p>
+              <span class="botao botao--pequeno" aria-disabled="true"><img src="assets/img/itens/barrier.png" alt="">Em breve</span>
+            </div>
+          </article>
 
           <article class="painel aba aba--bloqueada" data-tip="Em construção..." data-tip-sub="Os aldeões estão trabalhando nisso!">
             <span class="selo">EM BREVE</span>
