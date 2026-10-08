@@ -269,15 +269,6 @@ E acesse `http://localhost:8000` (ou o endereço que o `serve` mostrar).
 
 > A internet só é usada para carregar as fontes do Google Fonts. Sem conexão, o site usa as fontes do sistema.
 
-## Como publicar no GitHub Pages
-
-O site é 100% estático, então pode ser publicado direto deste repositório (o GitHub Pages é gratuito para repositórios públicos):
-
-1. No GitHub, abra **Settings → Pages**.
-2. Em **Source**, escolha **Deploy from a branch**.
-3. Selecione a branch **main**, a pasta **/ (root)** e clique em **Save**.
-
-Em alguns minutos o site fica no ar em `https://allanfreire.github.io/SITE-MINECRAFT/`.
 
 ## Estrutura do projeto
 
@@ -312,74 +303,6 @@ SITE-MINECRAFT/
 └── docs/img/              Imagens deste README
 ```
 
-## Como editar e crescer o site
-
-### Mudar números e textos do guia
-
-Tudo o que aparece no Guia até o Topo — cards, calculadora e receitas — é gerado a partir de `js/dados-minerios.js`. Mudou um número lá, ele muda no site inteiro.
-
-- `pecas`: as 10 peças, com o custo em material, os gravetos e o desenho na bancada (`M` = material, `G` = graveto, `.` = vazio).
-- `materiais`: um objeto por material, do mais fraco ao mais forte.
-
-<details>
-<summary>Exemplo de um material</summary>
-
-```js
-{
-  id: "ferro",                  // âncora da seção: minerios.html#ferro
-  prefixo: "iron",              // começo do nome das imagens: iron_helmet.png, iron_sword.png...
-  nome: "Ferro",
-  cor: "#d8d8d8",               // faixa do card, etiqueta de profundidade e barras
-  textura: "tx-pedra",          // fundo da camada (classes .tx-* em css/style.css)
-  profundidade: "Y 16",
-  material: { id: "iron_ingot", sing: "barra de ferro", plur: "barras de ferro" },
-  drop: [1, 1],                 // itens por bloco de minério, sem Fortuna: [mínimo, máximo]
-  picareta: { id: "stone_pickaxe", texto: "Pedra (ou cobre) ou melhor" },
-  protecao: [2, 6, 5, 2],       // capacete, peitoral, calças, botas
-  durArmadura: [165, 240, 225, 195],
-  durFerramenta: 250,
-  danoEspada: 6,
-  conquistas: { armadura: "Vestido de ferro", ferramentas: "Hora do equipamento" },
-  // ...e os textos: apelido, descricao, onde e dica
-}
-```
-
-</details>
-
-### Mudar as trocas dos aldeões
-
-As trocas ficam em `js/dados-aldeoes.js`, uma por linha:
-
-```js
-{"nivel": 1, "voceDa": [["20", "wheat"]], "voceRecebe": [["1", "emerald"]], "estoque": 16}
-```
-
-`nivel` vai de 1 (Novato) a 5 (Mestre); `voceDa` é o que você entrega e `voceRecebe` é o que o aldeão te dá, sempre como `[quantidade, item]`. Os nomes e as imagens dos itens ficam na lista `itens`, no fim do arquivo. Os textos de cada aldeão (apelido, descrição, melhor troca e dica) ficam no mesmo arquivo.
-
-### Mudar os encantamentos
-
-Os encantamentos e as combinações recomendadas ficam em `js/dados-encantamentos.js`. Cada encantamento tem `niveis` (o efeito de cada nível, do I ao máximo), `aceitos` (os itens que podem recebê-lo) e `conflitos`. Em `melhores`, cada item tem a `lista` de encantamentos que vão juntos, as `escolha` (escolha um entre as opções) e os `extras` opcionais.
-
-### Mudar o guia do Nether
-
-Tudo fica em `js/dados-nether.js`. Cada bioma tem `descricao`, `blocos`, `perigo` (de 1 a 5), `dica` e a lista de `mobs`, sempre como `[mob, frequência]`. Cada estrutura tem `mobs`, `destaques` e `baus`; cada item de baú é `[item, quantidade mínima, quantidade máxima, chance em %]`, com um `1` no fim quando o item vem encantado. Os textos dos mobs ficam em `mobs`, e os nomes e as imagens dos itens na lista `itens`, no fim do arquivo.
-
-### Abrir uma nova aba (novo guia)
-
-1. Crie a página do guia (por exemplo, `primeira-noite.html`) reaproveitando o cabeçalho e o rodapé de `minerios.html`. Inclua `css/style.css` e `js/main.js` para ganhar o visual, as tooltips e as conquistas.
-2. No `index.html`, ache o card "Em breve" do guia e troque `<article class="painel aba aba--bloqueada">` por `<a class="painel aba" href="primeira-noite.html">` (e feche com `</a>`).
-3. No card, mude o selo para `NOVO!`, tire os atributos `data-tip` e use o botão verde: `<span class="botao botao--verde botao--pequeno">Abrir guia</span>`.
-4. Se quiser, adicione o link no menu do topo das páginas.
-
-### Adicionar imagens de itens
-
-As imagens vêm da [Minecraft Wiki](https://minecraft.wiki), dos arquivos `Invicon_<Nome_Do_Item>.png` (por exemplo, `Invicon_Diamond_Sword.png`). Salve em `assets/img/itens/` com o ID do jogo em minúsculas (`diamond_sword.png`). Itens têm 16×16 px e blocos 32×32 px; mostre sempre em múltiplos de 16 px para o pixel ficar nítido.
-
-Para uma textura de fundo nova, salve em `assets/img/texturas/` e crie uma classe `.tx-*` em `css/style.css`, como as que já existem.
-
-### Frases e curiosidades
-
-As frases amarelas da página inicial (`SPLASHES`) e as curiosidades da placa (`CURIOSIDADES`) ficam em `js/main.js`. É só acrescentar itens às listas.
 
 ## De onde vêm os dados
 
