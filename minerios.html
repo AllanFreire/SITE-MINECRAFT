@@ -4,13 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Guia até o Topo — MineGuia</title>
-  <meta name="description" content="Quantos minérios você precisa para a armadura completa e as ferramentas de cobre, ferro, ouro, diamante e netherite — com calculadora.">
+  <meta name="description" content="Quantos minérios você precisa para a armadura completa e as ferramentas de cobre, ferro, ouro, diamante e netherite — com calculadora e as trocas de cada aldeão.">
   <link rel="icon" type="image/png" href="assets/img/itens/diamond_pickaxe.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400..900&family=Rubik:wght@500..900&display=swap">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/minerios.css">
+  <link rel="stylesheet" href="css/aldeoes.css">
 </head>
 <body>
   <a class="pular-conteudo" href="#quantidades">Pular para as quantidades</a>
@@ -39,7 +40,7 @@
           <a href="index.html">Início</a> <span aria-hidden="true">›</span> <span>Guia até o Topo</span>
         </nav>
         <h1 class="guia-titulo">Guia até o Topo</h1>
-        <p class="guia-intro chat">Do cobre à netherite em um só lugar. Veja quantos minérios cada armadura e cada ferramenta pedem, onde achar cada um e, lá embaixo, monte o <a href="#calculadora">seu próprio kit na calculadora</a>.</p>
+        <p class="guia-intro chat">Do cobre à netherite em um só lugar. Veja quantos minérios cada armadura e cada ferramenta pedem, onde achar cada um, monte o <a href="#calculadora">seu próprio kit na calculadora</a> e descubra <a href="#aldeoes">o que cada aldeão troca</a>.</p>
 
         <div class="jornada">
           <h2 class="jornada-titulo">Sua jornada de picaretas</h2>
@@ -92,6 +93,13 @@
           </ol>
           <p class="trilha-dica">Arraste para o lado para ver a jornada toda →</p>
         </div>
+
+        <!-- Um botão por aldeão: clicar abre as trocas dele lá embaixo (montado por js/aldeoes.js) -->
+        <div class="jornada jornada--vila">
+          <h2 class="jornada-titulo">Quem é quem na vila</h2>
+          <ul class="vila" id="vila-atalhos"></ul>
+          <p class="trilha-dica">Arraste para o lado para ver todos os aldeões →</p>
+        </div>
       </div>
       <div class="chao" aria-hidden="true"></div>
     </section>
@@ -123,6 +131,15 @@
         <h2 class="titulo-secao" id="titulo-receitas"><img src="assets/img/itens/smithing_table.png" alt="">Bônus: como montar cada peça</h2>
         <p class="secao-desc">Escolha o material e veja onde colocar cada item na grade 3×3 da bancada. A netherite é feita na mesa de ferraria.</p>
         <div id="receitas-app"></div>
+      </div>
+    </section>
+
+    <!-- ===== Aldeões e trocas (montado por js/aldeoes.js) ===== -->
+    <section class="secao secao--vila" id="aldeoes" aria-labelledby="titulo-aldeoes">
+      <div class="container">
+        <h2 class="titulo-secao" id="titulo-aldeoes"><img src="assets/img/itens/emerald.png" alt="">Trocas com os aldeões</h2>
+        <p class="secao-desc">Os aldeões também levam você até o topo: dá para comprar até armadura e ferramentas de diamante encantadas. Aqui está o que cada um faz e todas as trocas, em ordem, do nível Novato ao Mestre.</p>
+        <div id="aldeoes-app"></div>
       </div>
     </section>
 
@@ -191,5 +208,7 @@
   <script src="js/main.js"></script>
   <script src="js/dados-minerios.js"></script>
   <script src="js/minerios.js"></script>
+  <script src="js/dados-aldeoes.js"></script>
+  <script src="js/aldeoes.js"></script>
 </body>
 </html>

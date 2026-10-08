@@ -26,6 +26,7 @@ imagens dos itens do próprio jogo, números conferidos e uma interface que pare
 - [Guia até o Topo](#guia-até-o-topo)
 - [Calculadora de kit](#calculadora-de-kit)
 - [Receitas e dicas](#receitas-e-dicas)
+- [Trocas com os aldeões](#trocas-com-os-aldeões)
 - [No celular](#no-celular)
 - [Identidade visual](#identidade-visual)
 - [Como rodar](#como-rodar)
@@ -60,6 +61,7 @@ O projeto segue seis princípios:
 | **Guia até o Topo** | Do cobre à netherite: quanto minério cada armadura e cada ferramenta pedem, onde achar cada minério, que picareta usar e o passo a passo da netherite. |
 | **Calculadora de kit** | Você marca as peças que quer e ela soma só o que você precisa — até o carvão da fornalha. |
 | **Receitas** | A posição de cada item na grade 3×3 da bancada e os upgrades na mesa de ferraria. |
+| **Trocas com os aldeões** | O que cada um dos 13 profissionais e o mercador ambulante faz, a estação de trabalho de cada um e todas as trocas em ordem, do nível Novato ao Mestre. |
 | **Dicas e curiosidades** | Truques de mineração e fatos divertidos do jogo. |
 
 ## Página inicial e as abas
@@ -171,11 +173,25 @@ Logo abaixo das quantidades, a calculadora responde à pergunta "e se eu quiser 
 - **Como montar cada peça.** Escolha o material e veja a posição de cada item na grade 3×3 da bancada. Na opção netherite aparecem a receita da barra, a cópia do molde e os upgrades da mesa de ferraria.
 - **Dicas de minerador.** Não cavar para baixo, levar um balde d'água, tochas sempre à direita, Fortuna III nos diamantes, alto-forno 2x mais rápido e a netherite que boia na lava.
 
+## Trocas com os aldeões
+
+![Painel "Quem é quem na vila" com os 14 aldeões](docs/img/vila.png)
+
+Logo abaixo da trilha de picaretas, o painel **Quem é quem na vila** funciona do mesmo jeito: clique em um aldeão e a página abre o card dele e rola até lá. O link fica no endereço (por exemplo, `minerios.html#aldeao-bibliotecario`), então dá para mandar direto para um amigo.
+
+![Card do armeiro de armaduras aberto, com a estação de trabalho e as trocas por nível](docs/img/aldeao.png)
+
+- **Como funcionam as trocas.** Um resumo de como contratar um aldeão, como o sorteio das ofertas funciona, quando eles reabastecem, como conseguir descontos e os 5 níveis (Novato, Aprendiz, Qualificado, Especialista e Mestre), com as insígnias do jogo.
+- **Um card por aldeão,** organizados em grupos: equipamento, comida, magia e mapas, construção e o visitante. Cada card mostra o que ele faz, a melhor troca, uma dica e a **estação de trabalho com a receita** na bancada.
+- **Todas as trocas em ordem,** nível por nível, no formato "você dá → você recebe". Verde é quando você ganha esmeraldas e dourado quando gasta; itens encantados brilham como no jogo e as trocas com detalhes extras (livro encantado, mapas, cores sorteadas) ganham uma observação.
+- **Mercador ambulante** com o que ele compra, as ofertas especiais e a lojinha de ofertas comuns organizada por preço.
+- Os nomes são os oficiais do jogo em português. Detalhe curioso: o Armorer e o Weaponsmith se chamam os dois "Armeiro" no jogo, por isso aqui eles aparecem como Armeiro de Armaduras e Armeiro de Armas.
+
 ## No celular
 
 ![O site no celular: página inicial, card do cobre e resultado da calculadora](docs/img/celular.png)
 
-O layout se adapta de 320 px até telas grandes. A trilha de picaretas vira uma faixa que desliza para o lado, os cards e a calculadora se empilham e os slots diminuem para caber na tela, sem rolagem lateral.
+O layout se adapta de 320 px até telas grandes. A trilha de picaretas e o painel dos aldeões viram faixas que deslizam para o lado, os cards e a calculadora se empilham e os slots diminuem para caber na tela, sem rolagem lateral.
 
 ## Identidade visual
 
@@ -190,7 +206,7 @@ O layout se adapta de 320 px até telas grandes. A trilha de picaretas vira uma 
 - Dá para usar tudo pelo teclado, com foco visível; os slots da calculadora são botões com `aria-pressed`.
 - As imagens que trazem informação têm texto alternativo; as ilustrações decorativas ficam escondidas dos leitores de tela.
 - Respeita a opção "reduzir movimento" do sistema, desligando nuvens, itens boiando e animações.
-- É leve: 122 imagens que somam cerca de 210 KB, sem frameworks e sem etapa de build.
+- É leve: 381 imagens que somam cerca de 1,1 MB, sem frameworks e sem etapa de build.
 
 ## Como rodar
 
@@ -232,18 +248,22 @@ Em alguns minutos o site fica no ar em `https://allanfreire.github.io/SITE-MINEC
 ```text
 SITE-MINECRAFT/
 ├── index.html             Página inicial: céu, logo, abas dos guias e curiosidades
-├── minerios.html          Guia até o Topo: quantidades, calculadora, receitas e dicas
+├── minerios.html          Guia até o Topo: quantidades, calculadora, receitas, aldeões e dicas
 ├── css/
 │   ├── style.css          Estilo global: cores, painéis, slots, botões, tooltip, conquistas e página inicial
-│   └── minerios.css       Estilo do guia, das camadas de minério, da calculadora e das receitas
+│   ├── minerios.css       Estilo do guia, das camadas de minério, da calculadora e das receitas
+│   └── aldeoes.css        Estilo do painel da vila e dos cards dos aldeões
 ├── js/
 │   ├── main.js            Usado em todas as páginas: frase amarela, tooltips, conquistas e curiosidades
 │   ├── dados-minerios.js  Todos os números e textos do guia (é aqui que se edita)
-│   └── minerios.js        Monta o guia, a calculadora e as receitas a partir dos dados
+│   ├── minerios.js        Monta o guia, a calculadora e as receitas a partir dos dados
+│   ├── dados-aldeoes.js   Todas as trocas dos aldeões, uma por linha, com os nomes oficiais em português
+│   └── aldeoes.js         Monta o painel da vila e os cards dos aldeões
 ├── assets/img/
 │   ├── itens/             Ícones de itens e blocos, com o ID do jogo no nome (ex.: diamond_sword.png)
 │   ├── texturas/          Texturas de fundo: terra, pedra, ardósia, netherrack, bedrock...
-│   └── gui/               Ícones do HUD: armadura e corações
+│   ├── aldeoes/           Retrato e rosto de cada aldeão
+│   └── gui/               Ícones do HUD (armadura e corações) e insígnias de nível dos aldeões
 └── docs/img/              Imagens deste README
 ```
 
@@ -281,6 +301,16 @@ Tudo o que aparece no Guia até o Topo — cards, calculadora e receitas — é 
 
 </details>
 
+### Mudar as trocas dos aldeões
+
+As trocas ficam em `js/dados-aldeoes.js`, uma por linha:
+
+```js
+{"nivel": 1, "voceDa": [["20", "wheat"]], "voceRecebe": [["1", "emerald"]], "estoque": 16}
+```
+
+`nivel` vai de 1 (Novato) a 5 (Mestre); `voceDa` é o que você entrega e `voceRecebe` é o que o aldeão te dá, sempre como `[quantidade, item]`. Os nomes e as imagens dos itens ficam na lista `itens`, no fim do arquivo. Os textos de cada aldeão (apelido, descrição, melhor troca e dica) ficam no mesmo arquivo.
+
 ### Abrir uma nova aba (novo guia)
 
 1. Crie a página do guia (por exemplo, `primeira-noite.html`) reaproveitando o cabeçalho e o rodapé de `minerios.html`. Inclua `css/style.css` e `js/main.js` para ganhar o visual, as tooltips e as conquistas.
@@ -302,6 +332,7 @@ As frases amarelas da página inicial (`SPLASHES`) e as curiosidades da placa (`
 
 - Custos, proteção, resistência, durabilidade, dano, alturas e drops foram conferidos na [Minecraft Wiki](https://minecraft.wiki) para a **Java Edition**. No Bedrock, a durabilidade é 1 ponto maior.
 - O guia já inclui as novidades recentes: os equipamentos de **cobre** (The Copper Age, versão 1.21.9) e a **lança** (versão 1.21.11).
+- As trocas dos aldeões são as da **Java Edition 26.3**, tiradas das tabelas de [Trading](https://minecraft.wiki/w/Trading) da Minecraft Wiki, e os nomes em português vêm do arquivo de idioma oficial do jogo. Elas já incluem as mudanças recentes: o cartógrafo e o mercador ambulante atualizados (1.21.5) e a etiqueta, que saiu do bibliotecário e foi para o mercador (26.1).
 - As contas da calculadora seguem as regras do jogo: 1 carvão funde 8 itens, 2 tábuas fazem 4 gravetos, 1 tronco vira 4 tábuas, cada barra de netherite pede 4 fragmentos e 4 barras de ouro, e copiar um molde custa 7 diamantes e 1 netherrack.
 
 ## Próximos guias

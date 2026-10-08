@@ -1,0 +1,640 @@
+/* =============================================================
+   MineGuia — Aldeões e trocas
+   (usa os componentes de style.css e minerios.css)
+   ============================================================= */
+
+/* ---------- "Quem é quem na vila" no topo do guia ---------- */
+.jornada--vila {
+  margin-top: 18px;
+}
+
+.vila {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 16px 4px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.morador {
+  text-align: center;
+}
+
+.morador > a {
+  display: block;
+  padding: 0 2px;
+  color: inherit;
+  text-decoration: none;
+}
+
+/* faixa colorida do grupo embaixo do rosto */
+.morador .passo-icone {
+  box-shadow: inset 3px 3px 0 #fff, inset -3px -3px 0 #555, 0 6px 0 -1px var(--cor);
+}
+
+.morador a:hover .passo-icone,
+.morador a:focus-visible .passo-icone {
+  border-color: #fff;
+}
+
+.morador b {
+  display: block;
+  margin-top: 10px;
+  font-family: var(--fonte-titulo);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #fff;
+  text-shadow: 2px 2px 0 #3f3f3f;
+}
+
+.morador a:hover b {
+  color: #ffffa0;
+}
+
+.morador small {
+  display: block;
+  font-size: 13px;
+  line-height: 1.3;
+  color: #cfcfcf;
+}
+
+/* ---------- Seção ---------- */
+.secao--vila {
+  background: linear-gradient(rgba(0, 0, 0, 0.62), rgba(0, 0, 0, 0.62)),
+    url("../assets/img/texturas/cobblestone.png") 0 0 / 64px 64px;
+  border-top: 4px solid #000;
+  border-bottom: 4px solid #000;
+}
+
+/* Como funciona + níveis */
+.vila-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: 28px;
+}
+
+.vila-intro h3 {
+  margin-bottom: 12px;
+  font-size: 21px;
+}
+
+.vila-regras {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.vila-regras li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 16px;
+  line-height: 1.45;
+}
+
+.vila-niveis {
+  display: grid;
+  gap: 6px;
+  margin: 0 0 12px;
+  padding: 0;
+  list-style: none;
+}
+
+.vila-niveis li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 4px 10px 4px 6px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* a insígnia é desenhada em blocos de 8 px: 40 px mantém o pixel nítido */
+.vila-niveis img {
+  width: 40px;
+  height: 40px;
+}
+
+.vila-niveis b {
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+}
+
+.vila-niveis small {
+  display: block;
+  font-size: 14px;
+  color: var(--gui-texto-suave);
+}
+
+.vila-obs {
+  margin: 8px 0 0;
+  font-size: 15px;
+  color: var(--gui-texto-suave);
+}
+
+.vila-legenda {
+  display: grid;
+  gap: 6px;
+  margin: 14px 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 15px;
+}
+
+.vila-legenda li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.amostra {
+  position: relative;
+  flex: none;
+  width: 34px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.amostra--ganha {
+  box-shadow: inset 5px 0 0 #3c8527;
+}
+
+.amostra--gasta {
+  box-shadow: inset 5px 0 0 #d4a017;
+}
+
+.amostra--nota::after,
+.troca--nota::after {
+  content: "!";
+  position: absolute;
+  top: -7px;
+  right: -7px;
+  display: grid;
+  place-items: center;
+  width: 17px;
+  height: 17px;
+  font-family: var(--fonte-titulo);
+  font-size: 12px;
+  font-weight: 800;
+  color: #3f3f00;
+  background: #ffff55;
+  border: 2px solid #000;
+}
+
+.vila-acoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 26px 0 8px;
+}
+
+/* Grupos */
+.vila-grupo {
+  margin-top: 30px;
+}
+
+.vila-grupo-titulo {
+  margin-bottom: 4px;
+  padding-left: 12px;
+  font-size: clamp(21px, 2.6vw, 27px);
+  font-weight: 800;
+  color: #fff;
+  text-shadow: 3px 3px 0 #3f3f3f;
+  border-left: 8px solid var(--cor);
+}
+
+.vila-grupo-desc {
+  margin-bottom: 14px;
+  padding-left: 20px;
+  color: #e3e3e3;
+  text-shadow: 2px 2px 0 #2b2b2b;
+}
+
+/* ---------- Card de cada aldeão ---------- */
+.aldeao {
+  margin-bottom: 14px;
+  padding-top: 26px;
+}
+
+.aldeao::before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  right: 4px;
+  height: 8px;
+  background: var(--cor);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.25);
+}
+
+.aldeao-resumo {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 16px;
+  list-style: none;
+  cursor: pointer;
+}
+
+.aldeao-resumo::-webkit-details-marker {
+  display: none;
+}
+
+.aldeao-resumo:focus-visible {
+  outline-offset: -2px;
+}
+
+.aldeao-resumo:hover .aldeao-nome {
+  color: #000;
+  text-decoration: underline;
+}
+
+.aldeao-apelido {
+  display: block;
+  font-family: var(--fonte-titulo);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #555;
+}
+
+.aldeao-nome {
+  display: block;
+  font-family: var(--fonte-titulo);
+  font-size: clamp(22px, 3vw, 28px);
+  font-weight: 800;
+  line-height: 1.15;
+  color: #262626;
+}
+
+.aldeao-mini {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 2px;
+  font-size: 15px;
+  color: var(--gui-texto-suave);
+}
+
+.aldeao-mini img {
+  width: 32px;
+  height: 32px;
+}
+
+.aldeao .quando-aberto,
+.aldeao[open] .quando-fechado {
+  display: none;
+}
+
+.aldeao[open] .quando-aberto {
+  display: inline;
+}
+
+.aldeao-corpo {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.aldeao-topo {
+  display: grid;
+  grid-template-columns: 140px minmax(0, 1fr) 290px;
+  align-items: start;
+  gap: 22px;
+}
+
+.aldeao-retrato {
+  width: 140px;
+  height: auto;
+  image-rendering: auto;
+  filter: drop-shadow(5px 6px 0 rgba(0, 0, 0, 0.25));
+}
+
+.aldeao-info p {
+  margin-bottom: 12px;
+}
+
+.aldeao-obs {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-style: italic;
+  color: var(--gui-texto-suave);
+}
+
+.aldeao-destaque {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px 8px 8px;
+  background: rgba(255, 255, 255, 0.35);
+  box-shadow: inset 5px 0 0 var(--cor);
+}
+
+.aldeao-dica {
+  margin-top: 0;
+}
+
+.aldeao-estacao {
+  padding: 12px 14px 14px;
+  background: #b6b6b6;
+  box-shadow: inset 3px 3px 0 #8b8b8b, inset -3px -3px 0 #e3e3e3;
+}
+
+.aldeao-estacao > b {
+  display: block;
+  margin-bottom: 10px;
+  font-family: var(--fonte-titulo);
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.aldeao-estacao small,
+.aldeao-estacao p {
+  display: block;
+  margin: 10px 0 0;
+  font-size: 14px;
+  color: var(--gui-texto-suave);
+}
+
+/* ---------- Trocas por nível ---------- */
+.aldeao-trocas {
+  margin-top: 22px;
+}
+
+.trocas-legenda {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 4px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--gui-texto-suave);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.nivel-linha {
+  display: grid;
+  grid-template-columns: 175px minmax(0, 1fr);
+  align-items: start;
+  gap: 14px;
+  padding: 12px 0;
+  border-top: 2px dashed rgba(0, 0, 0, 0.18);
+}
+
+.nivel-rotulo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-top: 6px;
+}
+
+.nivel-rotulo img {
+  width: 40px;
+  height: 40px;
+  flex: none;
+}
+
+.nivel-rotulo b {
+  display: block;
+  font-family: var(--fonte-titulo);
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.sorteio {
+  display: block;
+  font-size: 13px;
+  color: var(--gui-texto-suave);
+}
+
+.trocas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.troca {
+  --tipo: #d4a017;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px 4px 9px;
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: inset 5px 0 0 var(--tipo);
+}
+
+.troca--ganha {
+  --tipo: #3c8527;
+}
+
+.troca:hover {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.troca-mais {
+  font-weight: 800;
+  color: #3f3f3f;
+}
+
+.troca-seta {
+  display: inline-block;
+  flex: none;
+  width: 20px;
+  height: 14px;
+  margin: 0 2px;
+  background: #6b6b6b;
+  clip-path: polygon(0 34%, 55% 34%, 55% 0, 100% 50%, 55% 100%, 55% 66%, 0 66%);
+}
+
+/* quantidade em faixa de preço (ex.: 5–64) */
+.slot .qtd.faixa {
+  right: 1px;
+  bottom: 1px;
+  padding: 0 2px;
+  font-size: 11px;
+  white-space: nowrap;
+  background: rgba(0, 0, 0, 0.6);
+  text-shadow: none;
+}
+
+.nivel-notas {
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 14px;
+  color: var(--gui-texto-suave);
+}
+
+.nivel-notas li {
+  position: relative;
+  margin-top: 4px;
+  padding-left: 26px;
+}
+
+.nivel-notas li::before {
+  content: "!";
+  position: absolute;
+  left: 0;
+  top: 1px;
+  display: grid;
+  place-items: center;
+  width: 17px;
+  height: 17px;
+  font-family: var(--fonte-titulo);
+  font-size: 12px;
+  font-weight: 800;
+  color: #3f3f00;
+  background: #ffff55;
+  border: 2px solid #000;
+}
+
+/* Brilho de encantamento passando pelo item */
+.slot .brilho {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: var(--i);
+  height: var(--i);
+  translate: -50% -50%;
+  /* faixa clara que passa + tom roxo fixo, como o brilho do jogo */
+  background:
+    linear-gradient(115deg, transparent 25%, rgba(168, 85, 255, 0.75) 42%, rgba(255, 205, 255, 0.95) 50%, rgba(168, 85, 255, 0.75) 58%, transparent 75%) 0 0 / 300% 100%,
+    rgba(150, 70, 255, 0.32);
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  animation: brilho 2.6s linear infinite;
+}
+
+@keyframes brilho {
+  from {
+    background-position: 130% 0, 0 0;
+  }
+  to {
+    background-position: -30% 0, 0 0;
+  }
+}
+
+/* ---------- Mercador ambulante: lojinha por preço ---------- */
+.loja-preco {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  align-items: start;
+  gap: 10px;
+  padding: 6px 0;
+}
+
+.loja-etiqueta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.loja-etiqueta b {
+  font-family: var(--fonte-titulo);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.loja-itens {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.loja-item .slot:hover::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/* ---------- Telas médias e pequenas ---------- */
+@media (max-width: 980px) {
+  .vila {
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: 112px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    scroll-snap-type: x proximity;
+  }
+
+  .morador {
+    scroll-snap-align: start;
+  }
+
+  .vila-intro {
+    grid-template-columns: 1fr;
+  }
+
+  .aldeao-topo {
+    grid-template-columns: 110px minmax(0, 1fr);
+  }
+
+  .aldeao-retrato {
+    width: 110px;
+  }
+
+  .aldeao-estacao {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 720px) {
+  .nivel-linha,
+  .loja-preco {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .nivel-rotulo {
+    padding-top: 0;
+  }
+}
+
+@media (max-width: 560px) {
+  .aldeao-resumo {
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 10px 12px;
+  }
+
+  .aldeao-abrir {
+    grid-column: 2;
+    justify-self: start;
+  }
+
+  .aldeao-topo {
+    grid-template-columns: 1fr;
+  }
+
+  .aldeao-retrato {
+    display: none;
+  }
+
+  .troca {
+    padding-right: 6px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slot .brilho {
+    background: rgba(168, 85, 255, 0.35);
+  }
+}
