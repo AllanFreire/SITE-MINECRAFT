@@ -17,13 +17,14 @@ imagens dos itens do próprio jogo, números conferidos e uma interface que pare
 
 </div>
 
-![Topo da página inicial do MineGuia: céu do Minecraft, logo, frase amarela e botões](docs/img/inicio.png)
+![Topo da página inicial do MineGuia: céu do Minecraft, logo, frase amarela e o botão para escolher um guia](docs/img/inicio.png)
 
 ## Sumário
 
 - [A proposta](#a-proposta)
 - [O que tem no site](#o-que-tem-no-site)
 - [Página inicial e as abas](#página-inicial-e-as-abas)
+- [A Superfície](#a-superfície)
 - [Guia até o Topo](#guia-até-o-topo)
 - [Calculadora de kit](#calculadora-de-kit)
 - [Receitas e dicas](#receitas-e-dicas)
@@ -33,9 +34,7 @@ imagens dos itens do próprio jogo, números conferidos e uma interface que pare
 - [No celular](#no-celular)
 - [Identidade visual](#identidade-visual)
 - [Como rodar](#como-rodar)
-- [Como publicar no GitHub Pages](#como-publicar-no-github-pages)
 - [Estrutura do projeto](#estrutura-do-projeto)
-- [Como editar e crescer o site](#como-editar-e-crescer-o-site)
 - [De onde vêm os dados](#de-onde-vêm-os-dados)
 - [Próximos guias](#próximos-guias)
 - [Tecnologias](#tecnologias)
@@ -61,6 +60,7 @@ O projeto segue seis princípios:
 | Parte | O que faz |
 |:--|:--|
 | **Página inicial** | Céu do Minecraft com o logo e as **abas**: cada aba é um guia, com título, descrição e uma ilustração montada com itens reais. |
+| **A Superfície** | Todos os biomas do mundo normal com os animais e os monstros de cada um, e as 20 estruturas — com onde encontrar cada uma, quem mora lá e o que vem nos baús —, mais um guia rápido para ir direto a cada uma. |
 | **Guia até o Topo** | Do cobre à netherite: quanto minério cada armadura e cada ferramenta pedem, onde achar cada minério, que picareta usar e o passo a passo da netherite. |
 | **Calculadora de kit** | Você marca as peças que quer e ela soma só o que você precisa — até o carvão da fornalha. |
 | **Receitas** | A posição de cada item na grade 3×3 da bancada e os upgrades na mesa de ferraria. |
@@ -71,13 +71,27 @@ O projeto segue seis princípios:
 
 ## Página inicial e as abas
 
-![Abas da página inicial: Guia até o Topo ativo e os próximos guias marcados como "em breve"](docs/img/abas.png)
+![Abas da página inicial: A Superfície, Guia até o Topo, Encantamentos sem mistério e Rumo ao Nether no ar, e os próximos guias marcados como "em breve"](docs/img/abas.png)
 
 - **Céu com chão de grama.** Nuvens andando, sol quadrado e uma fileira de blocos de grama. Ao rolar a página, você "desce" para a terra.
 - **Frase amarela.** Pulsa ao lado do logo, igual à tela inicial do jogo. São 18 frases diferentes; clique nela para trocar.
-- **Abas dos guias.** Os guias prontos (Guia até o Topo e Encantamentos sem mistério) ganham o selo "NOVO!". Os próximos aparecem como "EM BREVE", com a ilustração em tons apagados e um bloco de barreira no botão.
+- **Abas dos guias.** Os quatro guias prontos vêm primeiro, nesta ordem: A Superfície, Guia até o Topo, Encantamentos sem mistério e Rumo ao Nether, todos com o selo "NOVO!". Depois vêm os próximos, Poções para iniciantes e Derrotando o Ender Dragon, marcados como "EM BREVE", com a ilustração em tons apagados e um bloco de barreira no botão.
 - **Placa "Você sabia?"** Feita com a textura de tábuas de carvalho, mostra curiosidades do jogo que mudam com um clique.
 - **Rodapé de bedrock.** O fundo do mundo é o fim da página.
+
+## A Superfície
+
+![Topo da página A Superfície com o guia rápido de estruturas e biomas](docs/img/superficie.png)
+
+A primeira aba da página inicial, em `superficie.html`, com o céu azul e o chão de grama de sempre.
+
+- **Guia rápido.** No topo, as 20 estruturas separadas em *na superfície*, *na água* e *embaixo da terra*, mais os 10 tipos de bioma. Um clique leva direto ao card, que pisca para você achar na hora. O link fica no endereço (por exemplo, `superficie.html#estrutura-vila`).
+- **Os biomas.** Os 56 biomas do mundo normal, em 10 grupos: planícies, florestas, selvas, pântanos, lugares quentes e secos, taigas e neve, montanhas, rios e praias, oceanos e cavernas. Cada card tem uma captura de tela, uma descrição, o clima (chove, neva ou nunca chove), os animais, os **monstros diferentes** daquele bioma (como os Cascosos do deserto ou os Errantes da neve), as estruturas que aparecem nele e uma dica. Os oceanos e as suas versões profundas dividem o mesmo card. Já estão aqui as novidades da 26.x: a Floresta salpicada, as Cavernas de enxofre e mobs como o Cubo de Enxofre, o Ressecado e o Náutilo.
+- **As estruturas.** Vila, posto avançado de saqueadores, mansão da floresta, templos do deserto e da selva, cabana da bruxa, iglu, acampamento abandonado, portal em ruínas, ruínas de trilha, poço do deserto, monumento oceânico, ruínas oceânicas, naufrágio, tesouro enterrado, mina abandonada, masmorra, fortaleza, cidade ancestral e câmaras do desafio. Cada uma mostra onde encontrar (com os biomas clicáveis), os mobs, os destaques e **o que vem nos baús**, com quantidade e chance. Estruturas com vários baús têm uma aba para cada um: são 16 na vila (um por profissão e um por estilo de casa) e 7 nas câmaras do desafio, incluindo o Cofre e o Cofre Sombrio. Na arqueologia (areia e cascalho suspeitos), a porcentagem é a chance de sair o item em cada bloco.
+
+![Cards dos pântanos com os animais, os monstros diferentes e as estruturas](docs/img/biomas.png)
+
+![Card do Templo do Deserto com o baú da sala secreta e a areia suspeita](docs/img/estrutura.png)
 
 ## Guia até o Topo
 
@@ -196,7 +210,7 @@ Logo abaixo da trilha de picaretas, o painel **Quem é quem na vila** funciona d
 
 ![Seletor "Qual o melhor encantamento?" com a espada escolhida](docs/img/encantamentos.png)
 
-A segunda aba do site, em `encantamentos.html`.
+A terceira aba da página inicial, em `encantamentos.html`.
 
 - **Qual o melhor encantamento?** No topo, 18 itens para clicar: as quatro peças de armadura, élitros, escudo, espada, machado, picareta, pá, enxada, lança, maça, arco, besta, tridente, vara de pesca e tesoura. O item escolhido mostra a combinação ideal, o que pode escolher entre dois encantamentos que não combinam (como Multidisparo ou Perfuração na besta), os opcionais, uma dica e se ele vai na mesa de encantamentos ou só na bigorna. O link fica no endereço (por exemplo, `encantamentos.html#melhor-espada`).
 - **Como encantar.** A mesa de encantamentos com a receita e a posição das 15 estantes, a bigorna (e o famoso "Muito caro!"), onde conseguir livros encantados, o rebolo para tirar encantamentos e como ler os números romanos.
@@ -210,7 +224,7 @@ As combinações recomendadas partiram de uma imagem de "melhores encantamentos"
 
 ![Topo da página do Nether com o guia rápido de biomas e estruturas](docs/img/nether.png)
 
-A terceira aba do site, em `nether.html`, com o céu vermelho, as faíscas subindo da lava e a pedra-luminosa pendurada no teto.
+A quarta aba da página inicial, em `nether.html`, com o céu vermelho, as faíscas subindo da lava e a pedra-luminosa pendurada no teto.
 
 - **Guia rápido.** No topo, os 5 biomas e as 4 estruturas em ícones. Um clique leva direto ao card escolhido, que pisca para você achar na hora. O link fica no endereço (por exemplo, `nether.html#estrutura-bastiao`).
 - **Os biomas.** Descampado do Nether, Vale de areia das almas, Floresta carmesim, Floresta distorcida e Deltas de basalto. Cada card tem uma captura de tela do jogo, o que tem por lá, o nível de perigo, a cor da neblina, os blocos que você encontra, as estruturas que podem aparecer e uma dica. Os mobs vêm do mais comum para o mais raro, com a frequência marcada (muito comum, comum, pouco comum, raro) — e o Marchador aparece "na lava".
@@ -225,9 +239,9 @@ Os mobs, os biomas e as estruturas são chips clicáveis: do bioma você vai par
 
 ## No celular
 
-![O site no celular: página inicial, card do cobre e resultado da calculadora](docs/img/celular.png)
+![O site no celular: página inicial, card de um bioma da Superfície e guia rápido do Nether](docs/img/celular.png)
 
-O layout se adapta de 320 px até telas grandes. A trilha de picaretas, o painel dos aldeões, o seletor de encantamentos e o guia rápido do Nether viram faixas que deslizam para o lado, o menu mostra só os ícones (e o nome da página atual), os cards e a calculadora se empilham e os slots diminuem para caber na tela, sem rolagem lateral.
+O layout se adapta de 320 px até telas grandes. A trilha de picaretas, o painel dos aldeões, o seletor de encantamentos e os guias rápidos do Nether e da Superfície viram faixas que deslizam para o lado, o menu mostra só os ícones (e o nome da página atual), os cards e a calculadora se empilham e os slots diminuem para caber na tela, sem rolagem lateral.
 
 ## Identidade visual
 
@@ -242,7 +256,7 @@ O layout se adapta de 320 px até telas grandes. A trilha de picaretas, o painel
 - Dá para usar tudo pelo teclado, com foco visível; os slots da calculadora são botões com `aria-pressed`.
 - As imagens que trazem informação têm texto alternativo; as ilustrações decorativas ficam escondidas dos leitores de tela.
 - Respeita a opção "reduzir movimento" do sistema, desligando nuvens, itens boiando e animações.
-- É leve: 461 imagens que somam cerca de 1 MB, sem frameworks e sem etapa de build.
+- É leve para o tanto de conteúdo: 751 imagens que somam cerca de 4,2 MB, sem frameworks e sem etapa de build. As capturas de tela só carregam quando aparecem na tela.
 
 ## Como rodar
 
@@ -269,7 +283,6 @@ E acesse `http://localhost:8000` (ou o endereço que o `serve` mostrar).
 
 > A internet só é usada para carregar as fontes do Google Fonts. Sem conexão, o site usa as fontes do sistema.
 
-
 ## Estrutura do projeto
 
 ```text
@@ -278,12 +291,15 @@ SITE-MINECRAFT/
 ├── minerios.html          Guia até o Topo: quantidades, calculadora, receitas, aldeões e dicas
 ├── encantamentos.html     Encantamentos sem mistério: melhor combinação por item, como encantar e todos os encantamentos
 ├── nether.html            Rumo ao Nether: guia rápido, biomas, estruturas com os baús e mobs
+├── superficie.html        A Superfície: guia rápido, todos os biomas do mundo normal e as estruturas com os baús
 ├── css/
 │   ├── style.css          Estilo global: cores, painéis, slots, botões, tooltip, conquistas e página inicial
 │   ├── minerios.css       Estilo do guia, das camadas de minério, da calculadora e das receitas
 │   ├── aldeoes.css        Estilo do painel da vila e dos cards dos aldeões
 │   ├── encantamentos.css  Estilo da página de encantamentos
-│   └── nether.css         Estilo da página do Nether: céu vermelho, cards dos biomas e das estruturas, baús e mobs
+│   ├── mundo.css          Peças dos guias de mundo (Nether e Superfície): guia rápido, cards, chips de mobs e baús
+│   ├── nether.css         Estilo da página do Nether: céu vermelho, faíscas e a seção de mobs
+│   └── superficie.css     Estilo da página da Superfície: cards dos biomas e grupos de estruturas
 ├── js/
 │   ├── main.js            Usado em todas as páginas: frase amarela, tooltips, conquistas e curiosidades
 │   ├── dados-minerios.js  Todos os números e textos do guia (é aqui que se edita)
@@ -293,16 +309,18 @@ SITE-MINECRAFT/
 │   ├── dados-encantamentos.js  Todos os encantamentos e as melhores combinações por item
 │   ├── encantamentos.js   Monta o seletor, a seção "Como encantar" e a lista com filtro e ordem
 │   ├── dados-nether.js    Biomas, mobs, estruturas e o que vem em cada baú do Nether
-│   └── nether.js          Monta o guia rápido, os cards dos biomas, das estruturas e dos mobs
+│   ├── nether.js          Monta o guia rápido, os cards dos biomas, das estruturas e dos mobs
+│   ├── dados-superficie.js  Biomas, mobs, estruturas e o que vem em cada baú do mundo normal
+│   └── superficie.js      Monta o guia rápido, os cards dos biomas e das estruturas
 ├── assets/img/
 │   ├── itens/             Ícones de itens e blocos, com o ID do jogo no nome (ex.: diamond_sword.png)
 │   ├── texturas/          Texturas de fundo: terra, pedra, ardósia, netherrack, tijolos do Nether, lava, bedrock...
 │   ├── nether/            Capturas de tela dos biomas e das estruturas e o rosto de cada mob do Nether
+│   ├── superficie/        Capturas de tela dos biomas e das estruturas e o rosto de cada mob do mundo normal
 │   ├── aldeoes/           Retrato e rosto de cada aldeão
 │   └── gui/               Ícones do HUD (armadura e corações) e insígnias de nível dos aldeões
 └── docs/img/              Imagens deste README
 ```
-
 
 ## De onde vêm os dados
 
@@ -311,17 +329,18 @@ SITE-MINECRAFT/
 - As trocas dos aldeões são as da **Java Edition 26.3**, tiradas das tabelas de [Trading](https://minecraft.wiki/w/Trading) da Minecraft Wiki, e os nomes em português vêm do arquivo de idioma oficial do jogo. Elas já incluem as mudanças recentes: o cartógrafo e o mercador ambulante atualizados (1.21.5) e a etiqueta, que saiu do bibliotecário e foi para o mercador (26.1).
 - Os encantamentos (nível máximo, itens aceitos, quais não combinam, quais são tesouro ou maldição e os números de cada nível) saíram dos arquivos de dados do próprio jogo, versão 26.3, e os nomes são os oficiais em português.
 - O guia do Nether também saiu dos arquivos do jogo, versão 26.3: os mobs de cada bioma e a frequência de cada um vêm das regras de geração do mundo, as estruturas de cada bioma vêm das listas de estruturas, e as chances dos baús foram calculadas a partir das tabelas de loot (é a chance de o item aparecer em um baú). As capturas de tela são da Minecraft Wiki.
+- O guia da Superfície veio do mesmo lugar: os animais e os monstros de cada bioma, as estruturas de cada bioma e as chances dos baús e da arqueologia (calculadas das tabelas de loot, inclusive as tabelas dentro de tabelas dos cofres das câmaras do desafio). Os nomes de biomas, mobs e itens são os oficiais em português.
 - As contas da calculadora seguem as regras do jogo: 1 carvão funde 8 itens, 2 tábuas fazem 4 gravetos, 1 tronco vira 4 tábuas, cada barra de netherite pede 4 fragmentos e 4 barras de ouro, e copiar um molde custa 7 diamantes e 1 netherrack.
 
 ## Próximos guias
 
 | Guia | Situação |
 |:--|:--|
+| A Superfície | ✅ No ar |
 | Guia até o Topo — do cobre à netherite | ✅ No ar |
-| Sua primeira noite | ⏳ Em breve |
 | Encantamentos sem mistério | ✅ No ar |
-| Poções para iniciantes | ⏳ Em breve |
 | Rumo ao Nether | ✅ No ar |
+| Poções para iniciantes | ⏳ Em breve |
 | Derrotando o Ender Dragon | ⏳ Em breve |
 
 ## Tecnologias
