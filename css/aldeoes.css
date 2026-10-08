@@ -498,36 +498,6 @@
   border: 2px solid #000;
 }
 
-/* Brilho de encantamento passando pelo item */
-.slot .brilho {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: var(--i);
-  height: var(--i);
-  translate: -50% -50%;
-  /* faixa clara que passa + tom roxo fixo, como o brilho do jogo */
-  background:
-    linear-gradient(115deg, transparent 25%, rgba(168, 85, 255, 0.75) 42%, rgba(255, 205, 255, 0.95) 50%, rgba(168, 85, 255, 0.75) 58%, transparent 75%) 0 0 / 300% 100%,
-    rgba(150, 70, 255, 0.32);
-  -webkit-mask-size: 100% 100%;
-  mask-size: 100% 100%;
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  mix-blend-mode: screen;
-  pointer-events: none;
-  animation: brilho 2.6s linear infinite;
-}
-
-@keyframes brilho {
-  from {
-    background-position: 130% 0, 0 0;
-  }
-  to {
-    background-position: -30% 0, 0 0;
-  }
-}
-
 /* ---------- Mercador ambulante: lojinha por preço ---------- */
 .loja-preco {
   display: grid;
@@ -630,11 +600,5 @@
 
   .troca {
     padding-right: 6px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .slot .brilho {
-    background: rgba(168, 85, 255, 0.35);
   }
 }

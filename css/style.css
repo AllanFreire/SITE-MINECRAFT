@@ -374,6 +374,36 @@ p {
   right: 2px;
 }
 
+/* Brilho de encantamento passando pelo item */
+.brilho {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: var(--i, 48px);
+  height: var(--i, 48px);
+  translate: -50% -50%;
+  /* faixa clara que passa + tom roxo fixo, como o brilho do jogo */
+  background:
+    linear-gradient(115deg, transparent 25%, rgba(168, 85, 255, 0.75) 42%, rgba(255, 205, 255, 0.95) 50%, rgba(168, 85, 255, 0.75) 58%, transparent 75%) 0 0 / 300% 100%,
+    rgba(150, 70, 255, 0.32);
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  animation: brilho 2.6s linear infinite;
+}
+
+@keyframes brilho {
+  from {
+    background-position: 130% 0, 0 0;
+  }
+  to {
+    background-position: -30% 0, 0 0;
+  }
+}
+
 /* ---------- 8. Títulos de seção ---------- */
 .titulo-secao {
   display: flex;
@@ -996,6 +1026,29 @@ a.aba:focus-visible .arte img {
   .hero .item-flutuante:nth-of-type(3) { right: 5%; top: auto; bottom: 90px; width: 40px; }
 }
 
+/* No celular, só o link da página atual mostra o nome (os outros ficam só com o ícone,
+   mas o nome continua lá para leitores de tela) */
+@media (max-width: 600px) {
+  .menu a:not([aria-current]) span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 400px) {
+  .marca {
+    display: none;
+  }
+
+  .topo .container {
+    justify-content: center;
+  }
+}
+
 @media (max-width: 520px) {
   body {
     font-size: 16px;
@@ -1017,6 +1070,10 @@ a.aba:focus-visible .arte img {
 
 /* ---------- 17. Quem prefere menos movimento ---------- */
 @media (prefers-reduced-motion: reduce) {
+  .brilho {
+    background: rgba(168, 85, 255, 0.35);
+  }
+
   html {
     scroll-behavior: auto;
   }
