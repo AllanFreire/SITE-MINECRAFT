@@ -1,5 +1,5 @@
 /* =============================================================
-   Encantamentos sem mistério
+   Os Encantamentos
    Monta, a partir de js/dados-encantamentos.js:
      1. o seletor "Qual o melhor encantamento?" (clique num item)
      2. a seção "Como encantar"
