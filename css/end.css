@@ -1,0 +1,417 @@
+/* =============================================================
+   MineGuia — The End
+   (usa style.css, a trilha de minerios.css e as peças de mundo.css)
+   ============================================================= */
+
+/* A página fica em cima de pedra do End bem escura */
+body.pagina-end {
+  background-color: #0d0816;
+  background-image: linear-gradient(rgba(10, 4, 20, 0.84), rgba(10, 4, 20, 0.84)),
+    url("../assets/img/texturas/end_stone.png");
+}
+
+/* ---------- Topo: o céu escuro do End ---------- */
+.ceu--end {
+  background: linear-gradient(180deg, #05020b 0%, #140a24 50%, #2a1640 100%);
+}
+
+.estrelas {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-image:
+    radial-gradient(1.5px 1.5px at 10% 20%, #fff 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 24% 64%, #d9c6ff 50%, transparent 51%),
+    radial-gradient(2px 2px at 38% 12%, #fff 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 52% 42%, #fff 50%, transparent 51%),
+    radial-gradient(2px 2px at 66% 22%, #e9dcff 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 78% 58%, #fff 50%, transparent 51%),
+    radial-gradient(2px 2px at 90% 14%, #fff 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 6% 78%, #fff 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 46% 80%, #d9c6ff 50%, transparent 51%);
+  background-size: 420px 300px;
+  animation: piscar-estrelas 4s ease-in-out infinite alternate;
+}
+
+@keyframes piscar-estrelas {
+  from {
+    opacity: 0.55;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Torres de obsidiana com o cristal brilhando no topo */
+.torre {
+  position: absolute;
+  bottom: 64px;
+  z-index: -1;
+  width: 48px;
+  background: url("../assets/img/texturas/obsidian.png") 0 0 / 48px 48px;
+  box-shadow: inset -6px 0 0 rgba(0, 0, 0, 0.35);
+}
+
+.torre::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -34px;
+  width: 22px;
+  height: 22px;
+  translate: -50% 0;
+  rotate: 45deg;
+  background: #f3b6ff;
+  border: 3px solid #fff;
+  box-shadow: 0 0 22px 8px rgba(230, 140, 255, 0.65);
+  animation: cristal 2.4s ease-in-out infinite alternate;
+}
+
+@keyframes cristal {
+  to {
+    translate: -50% -8px;
+  }
+}
+
+.torre--1 {
+  left: 4%;
+  height: 300px;
+}
+
+.torre--2 {
+  right: 6%;
+  height: 230px;
+}
+
+.torre--3 {
+  right: 15%;
+  height: 150px;
+  width: 40px;
+}
+
+.chao--end {
+  background: url("../assets/img/texturas/end_stone.png") 0 0 / 64px 64px repeat-x;
+}
+
+/* ---------- Guia rápido ---------- */
+@media (min-width: 981px) {
+  .trilha--end {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+}
+
+.trilha--end {
+  margin-bottom: 22px;
+}
+
+.trilha--end .passo b {
+  font-size: 16px;
+}
+
+.atalhos--grade {
+  grid-auto-flow: row;
+  grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
+  gap: 16px 4px;
+}
+
+.atalhos--grade .atalho b,
+#atalhos-lugares .atalho b {
+  font-size: 14px;
+}
+
+/* ---------- Seções ---------- */
+.secao--end {
+  background: linear-gradient(rgba(30, 12, 45, 0.82), rgba(30, 12, 45, 0.82)),
+    url("../assets/img/texturas/end_stone.png") 0 0 / 64px 64px;
+  border-top: 4px solid #000;
+  border-bottom: 4px solid #000;
+}
+
+/* ---------- Passo a passo ---------- */
+.passos-end {
+  display: grid;
+  gap: 24px;
+}
+
+.passo-end {
+  display: grid;
+  grid-template-areas: "topo" "corpo";
+  gap: 14px;
+  padding: 20px;
+}
+
+.passo-end--foto {
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  grid-template-areas: "topo topo" "corpo foto";
+  align-items: start;
+  column-gap: 26px;
+}
+
+.passo-end-topo {
+  grid-area: topo;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.passo-end-topo h3 {
+  margin: 0;
+  font-size: clamp(24px, 3vw, 30px);
+  font-weight: 800;
+}
+
+.passo-num {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  font-family: var(--fonte-titulo);
+  font-size: 22px;
+  font-weight: 800;
+  color: #fff;
+  background: #6b3d8c;
+  text-shadow: 2px 2px 0 #2b1550;
+  box-shadow: inset 3px 3px 0 #9b6dbf, inset -3px -3px 0 #3b1d55;
+}
+
+.passo-end-corpo {
+  grid-area: corpo;
+}
+
+.passo-foto {
+  grid-area: foto;
+  margin: 0;
+  border: 3px solid #000;
+}
+
+.passo-foto img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  image-rendering: auto;
+}
+
+.passo-intro {
+  margin: 0 0 14px;
+  font-size: 17px;
+}
+
+.lista-passo {
+  display: grid;
+  gap: 8px;
+  margin: 0 0 14px;
+  padding-left: 22px;
+  font-size: 17px;
+}
+
+.lista-passo li::marker {
+  color: #6b3d8c;
+}
+
+.passo-end .minerio-dica {
+  margin-top: 14px;
+  border-left-color: #9b5de5;
+}
+
+.passo-end a.botao,
+.item-end a.botao {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* kit para levar */
+.kit {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.kit-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 10px 8px 8px;
+  background: rgba(255, 255, 255, 0.4);
+  border-left: 5px solid #3c8527;
+}
+
+.kit-item--extra {
+  border-left-color: #8a8a8a;
+}
+
+.kit-item b {
+  display: block;
+  font-family: var(--fonte-titulo);
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+.kit-item small {
+  display: block;
+  margin-top: 2px;
+  font-size: 14px;
+  line-height: 1.35;
+  color: var(--gui-texto-suave);
+}
+
+.kit-tag {
+  display: inline-block;
+  margin-top: 3px;
+  padding: 0 6px;
+  font-family: var(--fonte-titulo);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #fff;
+  background: #3c8527;
+}
+
+.kit-item--extra .kit-tag {
+  background: #6b6b6b;
+}
+
+/* caixas do jeito fácil e do jeito rápido */
+.caixa-facil,
+.caixa-avancado {
+  margin: 14px 0;
+  padding: 12px 14px 14px;
+  border: 3px solid;
+}
+
+.caixa-facil {
+  background: rgba(99, 180, 67, 0.22);
+  border-color: #3c8527;
+}
+
+.caixa-avancado {
+  background: rgba(230, 120, 40, 0.18);
+  border-color: #b5651d;
+}
+
+.caixa-facil h4,
+.caixa-avancado h4 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 8px;
+  font-size: 19px;
+}
+
+.caixa-facil ol {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding-left: 24px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.caixa-avancado p {
+  margin: 0;
+  font-size: 16px;
+}
+
+/* ---------- Itens ---------- */
+.itens-end {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+  gap: 16px;
+}
+
+.item-end {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px;
+}
+
+.item-end-topo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.item-end-topo h3 {
+  margin: 0;
+  font-size: 21px;
+  font-weight: 800;
+  color: #2b1550;
+}
+
+.item-onde,
+.item-uso {
+  margin: 0;
+  font-size: 15px;
+}
+
+.item-rodape {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+}
+
+/* ---------- Lugares ---------- */
+.onde {
+  margin: 0 0 10px;
+  font-size: 16px;
+}
+
+.biomas-end {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.biomas-end li {
+  padding: 2px 8px;
+  font-size: 14px;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.45);
+  border-left: 4px solid #9b5de5;
+}
+
+.card-mundo .minerio-dica,
+.item-end .minerio-dica {
+  border-left-color: #9b5de5;
+}
+
+/* ---------- Telas médias e pequenas ---------- */
+@media (max-width: 980px) {
+  .atalhos--grade {
+    grid-auto-flow: column;
+    grid-template-columns: none;
+  }
+
+  .torre--3 {
+    display: none;
+  }
+}
+
+@media (max-width: 820px) {
+  .passo-end--foto {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "topo" "foto" "corpo";
+  }
+}
+
+@media (max-width: 600px) {
+  .torre {
+    display: none;
+  }
+
+  .passo-end {
+    padding: 16px;
+  }
+}
