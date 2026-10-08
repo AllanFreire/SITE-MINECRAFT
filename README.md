@@ -28,6 +28,7 @@ imagens dos itens do próprio jogo, números conferidos e uma interface que pare
 - [Receitas e dicas](#receitas-e-dicas)
 - [Trocas com os aldeões](#trocas-com-os-aldeões)
 - [Encantamentos sem mistério](#encantamentos-sem-mistério)
+- [Rumo ao Nether](#rumo-ao-nether)
 - [No celular](#no-celular)
 - [Identidade visual](#identidade-visual)
 - [Como rodar](#como-rodar)
@@ -64,6 +65,7 @@ O projeto segue seis princípios:
 | **Receitas** | A posição de cada item na grade 3×3 da bancada e os upgrades na mesa de ferraria. |
 | **Trocas com os aldeões** | O que cada um dos 13 profissionais e o mercador ambulante faz, a estação de trabalho de cada um e todas as trocas em ordem, do nível Novato ao Mestre. |
 | **Encantamentos sem mistério** | O melhor encantamento para cada item com um clique, como usar a mesa de encantamentos, a bigorna e o rebolo, e todos os 43 encantamentos do jogo, nível por nível. |
+| **Rumo ao Nether** | Os 5 biomas do Nether e os mobs de cada um, as 4 estruturas com tudo o que vem nos baús e um guia rápido que leva direto ao bioma ou à estrutura. |
 | **Dicas e curiosidades** | Truques de mineração e fatos divertidos do jogo. |
 
 ## Página inicial e as abas
@@ -203,11 +205,28 @@ A segunda aba do site, em `encantamentos.html`.
 
 As combinações recomendadas partiram de uma imagem de "melhores encantamentos", mas foram conferidas com os arquivos do jogo e corrigidas onde ela errava: Repulsão vai só até o nível II, Peso-Pena e Passos Profundos são só das botas, Multidisparo não combina com Perfuração, Densidade não combina com Ruptura e Correnteza não combina com Lealdade nem com Condutividade.
 
+## Rumo ao Nether
+
+![Topo da página do Nether com o guia rápido de biomas e estruturas](docs/img/nether.png)
+
+A terceira aba do site, em `nether.html`, com o céu vermelho, as faíscas subindo da lava e a pedra-luminosa pendurada no teto.
+
+- **Guia rápido.** No topo, os 5 biomas e as 4 estruturas em ícones. Um clique leva direto ao card escolhido, que pisca para você achar na hora. O link fica no endereço (por exemplo, `nether.html#estrutura-bastiao`).
+- **Os biomas.** Descampado do Nether, Vale de areia das almas, Floresta carmesim, Floresta distorcida e Deltas de basalto. Cada card tem uma captura de tela do jogo, o que tem por lá, o nível de perigo, a cor da neblina, os blocos que você encontra, as estruturas que podem aparecer e uma dica. Os mobs vêm do mais comum para o mais raro, com a frequência marcada (muito comum, comum, pouco comum, raro) — e o Marchador aparece "na lava".
+- **As estruturas.** Fortaleza do Nether, Bastião em Ruínas, Fóssil do Nether e Portal em Ruínas: onde cada uma aparece, os mobs que moram lá, os destaques (geradores de Blaze, o molde de melhoria de netherita, o Ghast Seco...) e **o que vem nos baús**, com a quantidade e a chance de cada item. O bastião tem 4 tipos de baú, um em cada aba: sala do tesouro, ponte, estábulo de Hoglins e os outros baús.
+- **Os mobs.** Os 11 mobs do Nether separados em passivos, neutros e hostis, com o que fazem, onde aparecem e o que podem soltar.
+
+Os mobs, os biomas e as estruturas são chips clicáveis: do bioma você vai para o mob, do mob para a estrutura e assim por diante.
+
+![Card da Floresta carmesim com os mobs em ordem de frequência](docs/img/bioma.png)
+
+![Baús do Bastião em Ruínas com a chance de cada item](docs/img/bau.png)
+
 ## No celular
 
 ![O site no celular: página inicial, card do cobre e resultado da calculadora](docs/img/celular.png)
 
-O layout se adapta de 320 px até telas grandes. A trilha de picaretas, o painel dos aldeões e o seletor de encantamentos viram faixas que deslizam para o lado, o menu mostra só os ícones (e o nome da página atual), os cards e a calculadora se empilham e os slots diminuem para caber na tela, sem rolagem lateral.
+O layout se adapta de 320 px até telas grandes. A trilha de picaretas, o painel dos aldeões, o seletor de encantamentos e o guia rápido do Nether viram faixas que deslizam para o lado, o menu mostra só os ícones (e o nome da página atual), os cards e a calculadora se empilham e os slots diminuem para caber na tela, sem rolagem lateral.
 
 ## Identidade visual
 
@@ -222,7 +241,7 @@ O layout se adapta de 320 px até telas grandes. A trilha de picaretas, o painel
 - Dá para usar tudo pelo teclado, com foco visível; os slots da calculadora são botões com `aria-pressed`.
 - As imagens que trazem informação têm texto alternativo; as ilustrações decorativas ficam escondidas dos leitores de tela.
 - Respeita a opção "reduzir movimento" do sistema, desligando nuvens, itens boiando e animações.
-- É leve: 389 imagens que somam cerca de 1,2 MB, sem frameworks e sem etapa de build.
+- É leve: 461 imagens que somam cerca de 1 MB, sem frameworks e sem etapa de build.
 
 ## Como rodar
 
@@ -266,11 +285,13 @@ SITE-MINECRAFT/
 ├── index.html             Página inicial: céu, logo, abas dos guias e curiosidades
 ├── minerios.html          Guia até o Topo: quantidades, calculadora, receitas, aldeões e dicas
 ├── encantamentos.html     Encantamentos sem mistério: melhor combinação por item, como encantar e todos os encantamentos
+├── nether.html            Rumo ao Nether: guia rápido, biomas, estruturas com os baús e mobs
 ├── css/
 │   ├── style.css          Estilo global: cores, painéis, slots, botões, tooltip, conquistas e página inicial
 │   ├── minerios.css       Estilo do guia, das camadas de minério, da calculadora e das receitas
 │   ├── aldeoes.css        Estilo do painel da vila e dos cards dos aldeões
-│   └── encantamentos.css  Estilo da página de encantamentos
+│   ├── encantamentos.css  Estilo da página de encantamentos
+│   └── nether.css         Estilo da página do Nether: céu vermelho, cards dos biomas e das estruturas, baús e mobs
 ├── js/
 │   ├── main.js            Usado em todas as páginas: frase amarela, tooltips, conquistas e curiosidades
 │   ├── dados-minerios.js  Todos os números e textos do guia (é aqui que se edita)
@@ -278,10 +299,13 @@ SITE-MINECRAFT/
 │   ├── dados-aldeoes.js   Todas as trocas dos aldeões, uma por linha, com os nomes oficiais em português
 │   ├── aldeoes.js         Monta o painel da vila e os cards dos aldeões
 │   ├── dados-encantamentos.js  Todos os encantamentos e as melhores combinações por item
-│   └── encantamentos.js   Monta o seletor, a seção "Como encantar" e a lista com filtro e ordem
+│   ├── encantamentos.js   Monta o seletor, a seção "Como encantar" e a lista com filtro e ordem
+│   ├── dados-nether.js    Biomas, mobs, estruturas e o que vem em cada baú do Nether
+│   └── nether.js          Monta o guia rápido, os cards dos biomas, das estruturas e dos mobs
 ├── assets/img/
 │   ├── itens/             Ícones de itens e blocos, com o ID do jogo no nome (ex.: diamond_sword.png)
-│   ├── texturas/          Texturas de fundo: terra, pedra, ardósia, netherrack, bedrock...
+│   ├── texturas/          Texturas de fundo: terra, pedra, ardósia, netherrack, tijolos do Nether, lava, bedrock...
+│   ├── nether/            Capturas de tela dos biomas e das estruturas e o rosto de cada mob do Nether
 │   ├── aldeoes/           Retrato e rosto de cada aldeão
 │   └── gui/               Ícones do HUD (armadura e corações) e insígnias de nível dos aldeões
 └── docs/img/              Imagens deste README
@@ -335,6 +359,10 @@ As trocas ficam em `js/dados-aldeoes.js`, uma por linha:
 
 Os encantamentos e as combinações recomendadas ficam em `js/dados-encantamentos.js`. Cada encantamento tem `niveis` (o efeito de cada nível, do I ao máximo), `aceitos` (os itens que podem recebê-lo) e `conflitos`. Em `melhores`, cada item tem a `lista` de encantamentos que vão juntos, as `escolha` (escolha um entre as opções) e os `extras` opcionais.
 
+### Mudar o guia do Nether
+
+Tudo fica em `js/dados-nether.js`. Cada bioma tem `descricao`, `blocos`, `perigo` (de 1 a 5), `dica` e a lista de `mobs`, sempre como `[mob, frequência]`. Cada estrutura tem `mobs`, `destaques` e `baus`; cada item de baú é `[item, quantidade mínima, quantidade máxima, chance em %]`, com um `1` no fim quando o item vem encantado. Os textos dos mobs ficam em `mobs`, e os nomes e as imagens dos itens na lista `itens`, no fim do arquivo.
+
 ### Abrir uma nova aba (novo guia)
 
 1. Crie a página do guia (por exemplo, `primeira-noite.html`) reaproveitando o cabeçalho e o rodapé de `minerios.html`. Inclua `css/style.css` e `js/main.js` para ganhar o visual, as tooltips e as conquistas.
@@ -358,6 +386,7 @@ As frases amarelas da página inicial (`SPLASHES`) e as curiosidades da placa (`
 - O guia já inclui as novidades recentes: os equipamentos de **cobre** (The Copper Age, versão 1.21.9) e a **lança** (versão 1.21.11).
 - As trocas dos aldeões são as da **Java Edition 26.3**, tiradas das tabelas de [Trading](https://minecraft.wiki/w/Trading) da Minecraft Wiki, e os nomes em português vêm do arquivo de idioma oficial do jogo. Elas já incluem as mudanças recentes: o cartógrafo e o mercador ambulante atualizados (1.21.5) e a etiqueta, que saiu do bibliotecário e foi para o mercador (26.1).
 - Os encantamentos (nível máximo, itens aceitos, quais não combinam, quais são tesouro ou maldição e os números de cada nível) saíram dos arquivos de dados do próprio jogo, versão 26.3, e os nomes são os oficiais em português.
+- O guia do Nether também saiu dos arquivos do jogo, versão 26.3: os mobs de cada bioma e a frequência de cada um vêm das regras de geração do mundo, as estruturas de cada bioma vêm das listas de estruturas, e as chances dos baús foram calculadas a partir das tabelas de loot (é a chance de o item aparecer em um baú). As capturas de tela são da Minecraft Wiki.
 - As contas da calculadora seguem as regras do jogo: 1 carvão funde 8 itens, 2 tábuas fazem 4 gravetos, 1 tronco vira 4 tábuas, cada barra de netherite pede 4 fragmentos e 4 barras de ouro, e copiar um molde custa 7 diamantes e 1 netherrack.
 
 ## Próximos guias
@@ -368,7 +397,7 @@ As frases amarelas da página inicial (`SPLASHES`) e as curiosidades da placa (`
 | Sua primeira noite | ⏳ Em breve |
 | Encantamentos sem mistério | ✅ No ar |
 | Poções para iniciantes | ⏳ Em breve |
-| Rumo ao Nether | ⏳ Em breve |
+| Rumo ao Nether | ✅ No ar |
 | Derrotando o Ender Dragon | ⏳ Em breve |
 
 ## Tecnologias
@@ -384,5 +413,5 @@ As frases amarelas da página inicial (`SPLASHES`) e as curiosidades da placa (`
 
 Feito por **Allan Freire** ([@AllanFreire](https://github.com/AllanFreire)).
 
-- Imagens dos itens, blocos e texturas: [Minecraft Wiki](https://minecraft.wiki) · © Mojang Studios.
+- Imagens dos itens, blocos, texturas e capturas de tela: [Minecraft Wiki](https://minecraft.wiki) · © Mojang Studios.
 - Fontes: [Rubik](https://fonts.google.com/specimen/Rubik) e [Nunito](https://fonts.google.com/specimen/Nunito), via Google Fonts (SIL Open Font License).

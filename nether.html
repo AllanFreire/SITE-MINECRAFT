@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rumo ao Nether — MineGuia</title>
+  <meta name="description" content="Os 5 biomas do Nether, os mobs que aparecem em cada um e as estruturas do Nether: fortaleza, bastião em ruínas, fóssil e portal em ruínas, com o que vem em cada baú.">
+  <link rel="icon" type="image/png" href="assets/img/itens/netherrack.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400..900&family=Rubik:wght@500..900&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/minerios.css">
+  <link rel="stylesheet" href="css/nether.css">
+</head>
+<body class="pagina-nether">
+  <a class="pular-conteudo" href="#biomas">Pular para os biomas</a>
+
+  <header class="topo">
+    <div class="container">
+      <a class="marca" href="index.html">
+        <img src="assets/img/itens/grass_block.png" alt="">
+        <span>MineGuia</span>
+      </a>
+      <nav class="menu" aria-label="Principal">
+        <a href="index.html"><img src="assets/img/itens/crafting_table.png" alt=""><span>Início</span></a>
+        <a href="minerios.html"><img src="assets/img/itens/diamond_pickaxe.png" alt=""><span>Minérios</span></a>
+        <a href="encantamentos.html"><img src="assets/img/itens/enchanted_book.png" alt=""><span>Encantamentos</span></a>
+        <a href="nether.html" aria-current="page"><img src="assets/img/itens/netherrack.png" alt=""><span>Nether</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===== Topo: o guia rápido ===== -->
+    <section class="ceu ceu--nether guia-hero">
+      <div class="cinzas" aria-hidden="true"></div>
+      <img class="pendurado pendurado--1" src="assets/img/itens/glowstone.png" alt="">
+      <img class="pendurado pendurado--2" src="assets/img/itens/glowstone.png" alt="">
+
+      <div class="container">
+        <nav class="migalhas" aria-label="Você está aqui">
+          <a href="index.html">Início</a> <span aria-hidden="true">›</span> <span>Rumo ao Nether</span>
+        </nav>
+        <h1 class="guia-titulo">Rumo ao Nether</h1>
+        <p class="guia-intro chat">Passou pelo portal? Bem-vindo ao lugar mais quente do Minecraft! Aqui estão <a href="#biomas">os 5 biomas</a>, os mobs que aparecem em cada um, <a href="#estruturas">as estruturas</a> com tudo o que vem nos baús e <a href="#mobs">todos os mobs do Nether</a>.</p>
+
+        <!-- montado por js/nether.js -->
+        <div class="jornada guia-rapido" id="guia-rapido">
+          <h2 class="jornada-titulo">Guia rápido: clique em um bioma ou em uma estrutura</h2>
+          <h3 class="atalhos-titulo">Biomas</h3>
+          <div class="atalhos" id="atalhos-biomas"></div>
+          <h3 class="atalhos-titulo">Estruturas</h3>
+          <div class="atalhos" id="atalhos-estruturas"></div>
+          <p class="trilha-dica">Arraste para o lado para ver todos →</p>
+        </div>
+      </div>
+      <div class="chao chao--nether" aria-hidden="true"></div>
+    </section>
+
+    <!-- ===== Biomas ===== -->
+    <section class="secao" id="biomas" aria-labelledby="titulo-biomas">
+      <div class="container">
+        <h2 class="titulo-secao" id="titulo-biomas"><img src="assets/img/itens/crimson_nylium.png" alt="">Os biomas do Nether</h2>
+        <p class="secao-desc">O Nether tem 5 biomas, cada um com a sua cor, os seus blocos e os seus mobs. Os mobs estão do mais comum para o mais raro, do jeito que o jogo sorteia quem aparece.</p>
+        <div class="lista-cards" id="lista-biomas"></div>
+      </div>
+    </section>
+
+    <!-- ===== Estruturas ===== -->
+    <section class="secao secao--tijolos" id="estruturas" aria-labelledby="titulo-estruturas">
+      <div class="container">
+        <h2 class="titulo-secao" id="titulo-estruturas"><img src="assets/img/itens/nether_bricks.png" alt="">As estruturas do Nether</h2>
+        <p class="secao-desc">São 4 construções que o jogo espalha pelo Nether. Veja onde cada uma aparece, quem mora lá e o que tem nos baús — com a chance de cada item aparecer em um baú.</p>
+        <div class="lista-cards" id="lista-estruturas"></div>
+      </div>
+    </section>
+
+    <!-- ===== Mobs ===== -->
+    <section class="secao" id="mobs" aria-labelledby="titulo-mobs">
+      <div class="container">
+        <h2 class="titulo-secao" id="titulo-mobs"><img src="assets/img/itens/ghast_tear.png" alt="">Os mobs do Nether</h2>
+        <p class="secao-desc">Quem você vai encontrar por lá, quem é de boa e quem vai te atacar assim que te ver.</p>
+        <div id="lista-mobs"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="container">
+      <p class="fim">Você chegou na bedrock.<br>Não dá pra cavar mais fundo!</p>
+      <p>MineGuia · <span data-ano>2026</span> — feito por Allan Freire, para fãs.</p>
+      <p>Valores da Java Edition 26.3.</p>
+      <p>Imagens dos itens, texturas e capturas de tela: <a href="https://minecraft.wiki" target="_blank" rel="noopener">Minecraft Wiki</a> · © Mojang Studios.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/dados-nether.js"></script>
+  <script src="js/nether.js"></script>
+</body>
+</html>
