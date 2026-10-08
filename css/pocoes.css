@@ -1,0 +1,383 @@
+/* =============================================================
+   MineGuia — As Poções
+   (usa style.css, minerios.css e o seletor e os painéis de encantamentos.css)
+   ============================================================= */
+
+/* ---------- Topo: céu de fim de tarde, com bolhas subindo ---------- */
+.ceu--pocoes {
+  background: linear-gradient(180deg, #2a1a5e 0%, #5b3a9a 45%, #b36fb8 82%, #e7a6c2 100%);
+}
+
+.lua {
+  position: absolute;
+  top: 46px;
+  right: 12%;
+  z-index: -2;
+  width: 56px;
+  height: 56px;
+  background: #f4f1dc;
+  box-shadow: inset -12px -8px 0 #d9d3b3, 0 0 0 8px rgba(255, 255, 230, 0.12), 0 0 60px 20px rgba(255, 250, 220, 0.25);
+}
+
+.bolhas {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    radial-gradient(circle, rgba(255, 180, 255, 0.55) 3px, transparent 4px),
+    radial-gradient(circle, rgba(170, 220, 255, 0.45) 2px, transparent 3px),
+    radial-gradient(circle, rgba(255, 255, 255, 0.35) 4px, transparent 5px);
+  background-size: 210px 260px, 150px 190px, 290px 330px;
+  background-position: 30px 0, 90px 70px, 160px 30px;
+  animation: bolhas 30s linear infinite;
+}
+
+@keyframes bolhas {
+  to {
+    background-position: 30px -260px, 90px -310px, 160px -630px;
+  }
+}
+
+/* ---------- Seletor ---------- */
+.grupo-escolha + .grupo-escolha {
+  margin-top: 18px;
+}
+
+.grupo-escolha-titulo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 12px;
+  margin: 0 0 12px;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #e4b4ff;
+}
+
+.grupo-escolha-titulo small {
+  font-family: var(--fonte);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
+  color: #cfcfcf;
+}
+
+@media (min-width: 981px) {
+  .seletor--pocoes {
+    grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
+  }
+}
+
+/* o ícone fica sempre no alto, mesmo quando o nome ocupa duas linhas */
+.seletor--pocoes .escolha-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.seletor--pocoes .escolha-item b {
+  font-size: 14px;
+}
+
+#receita-resultado {
+  margin-top: 22px;
+}
+
+/* ---------- Painel do passo a passo ---------- */
+.efeito-tag {
+  display: inline-block;
+  padding: 1px 8px;
+  font-family: var(--fonte-titulo);
+  font-size: 13px;
+  font-weight: 800;
+  color: #fff;
+  background: #6b3d8c;
+  border: 2px solid #000;
+}
+
+.receita-efeito {
+  margin: 0 0 18px;
+  font-size: 17px;
+}
+
+.passos-pocao {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.passo-pocao {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr);
+  gap: 12px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.passo-num {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  font-family: var(--fonte-titulo);
+  font-size: 18px;
+  font-weight: 800;
+  color: #fff;
+  background: #6b3d8c;
+  text-shadow: 1px 1px 0 #2b1550;
+}
+
+.passo-pocao p {
+  margin: 8px 0 0;
+  font-size: 15px;
+  color: var(--gui-texto-suave);
+}
+
+.receita-pocao {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.receita-pocao .seta {
+  margin-top: 24px;
+}
+
+.peca {
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+  width: 92px;
+  text-align: center;
+}
+
+.peca small {
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.mais {
+  font-family: var(--fonte-titulo);
+  font-size: 22px;
+  font-weight: 800;
+  color: #3f3f3f;
+}
+
+.receita-pocao .mais {
+  margin-top: 20px;
+}
+
+.variantes {
+  display: grid;
+  gap: 8px;
+  margin: 0 0 14px;
+  padding: 0;
+  list-style: none;
+}
+
+.variantes li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 8px;
+  padding: 6px 10px 6px 6px;
+  font-size: 15px;
+  line-height: 1.35;
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.variantes li > span:last-child {
+  flex: 1 1 200px;
+}
+
+.variantes .mais {
+  font-size: 18px;
+}
+
+.obs {
+  margin: 0 0 14px;
+  font-size: 14px;
+  color: var(--gui-texto-suave);
+}
+
+.receita-painel .minerio-dica {
+  border-left-color: #9b5de5;
+}
+
+.receita-painel > h4 {
+  margin: 20px 0 8px;
+}
+
+/* tabela de durações: rola de lado no celular em vez de apertar */
+.tabela-rolagem {
+  overflow-x: auto;
+}
+
+.tempos {
+  width: 100%;
+  min-width: 420px;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+
+.tempos th,
+.tempos td {
+  padding: 6px 10px;
+  text-align: left;
+  border: 2px solid rgba(0, 0, 0, 0.18);
+}
+
+.tempos tr:first-child th {
+  font-family: var(--fonte-titulo);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #fff;
+  background: #6b3d8c;
+}
+
+.tempos td {
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.35);
+}
+
+/* ---------- Como fazer ---------- */
+.como h3 .slot {
+  flex: none;
+}
+
+.como--largo {
+  grid-column: 1 / -1;
+}
+
+.como-fontes .slot {
+  flex: none;
+}
+
+/* ---------- Todas as poções ---------- */
+.secao--pocoes {
+  background: linear-gradient(rgba(30, 10, 45, 0.78), rgba(30, 10, 45, 0.78)),
+    url("../assets/img/texturas/stone_bricks.png") 0 0 / 64px 64px;
+  border-top: 4px solid #000;
+}
+
+.grupo-pocoes + .grupo-pocoes {
+  margin-top: 32px;
+}
+
+.pocoes-grade {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+  gap: 16px;
+}
+
+.pocao-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px;
+}
+
+.pocao-card.piscar {
+  animation: piscar 1.8s ease-out;
+}
+
+.pocao-topo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pocao-topo h4 {
+  margin: 0 0 2px;
+  font-size: 19px;
+  font-weight: 800;
+  color: #2b1550;
+}
+
+.pocao-desc {
+  margin: 0;
+  font-size: 15px;
+}
+
+.mini-receita {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 6px;
+}
+
+.mini-receita small {
+  flex: 1 1 100%;
+  font-size: 13px;
+  color: var(--gui-texto-suave);
+}
+
+.pocao-tempos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 14px;
+}
+
+.pocao-tempos li {
+  padding: 2px 8px;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.pocao-tempos b {
+  font-family: var(--fonte-titulo);
+  color: #4b1d8f;
+}
+
+.pocao-card .botao {
+  align-self: flex-start;
+  margin-top: auto;
+}
+
+.pocao-card a.botao {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* ---------- Telas médias e pequenas ---------- */
+@media (max-width: 980px) {
+  .seletor--pocoes {
+    grid-auto-columns: 96px;
+  }
+}
+
+@media (max-width: 560px) {
+  .como-grade {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .como .receita-corpo {
+    flex-wrap: wrap;
+  }
+
+  .como .receita-corpo .slot--g {
+    --t: 54px;
+    --i: 48px;
+  }
+
+  .peca {
+    width: 74px;
+  }
+
+  .receita-pocao {
+    gap: 4px;
+  }
+}

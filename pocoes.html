@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>As Poções — MineGuia</title>
+  <meta name="description" content="Como fazer cada poção do Minecraft, passo a passo: o suporte de poções, os ingredientes, as versões mais fortes e mais longas, as arremessáveis e as flechas com efeito.">
+  <link rel="icon" type="image/png" href="assets/img/itens/potion_healing.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400..900&family=Rubik:wght@500..900&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/minerios.css">
+  <link rel="stylesheet" href="css/encantamentos.css">
+  <link rel="stylesheet" href="css/pocoes.css">
+</head>
+<body>
+  <a class="pular-conteudo" href="#todas">Pular para todas as poções</a>
+
+  <header class="topo">
+    <div class="container">
+      <a class="marca" href="index.html">
+        <img src="assets/img/itens/grass_block.png" alt="">
+        <span>MineGuia</span>
+      </a>
+      <nav class="menu" aria-label="Principal">
+        <a href="index.html"><img src="assets/img/itens/crafting_table.png" alt=""><span>Início</span></a>
+        <a href="superficie.html"><img src="assets/img/itens/oak_sapling.png" alt=""><span>Superfície</span></a>
+        <a href="minerios.html"><img src="assets/img/itens/diamond_pickaxe.png" alt=""><span>Minérios</span></a>
+        <a href="encantamentos.html"><img src="assets/img/itens/enchanted_book.png" alt=""><span>Encantamentos</span></a>
+        <a href="nether.html"><img src="assets/img/itens/netherrack.png" alt=""><span>Nether</span></a>
+        <a href="pocoes.html" aria-current="page"><img src="assets/img/itens/potion_healing.png" alt=""><span>Poções</span></a>
+        <a href="end.html"><img src="assets/img/itens/eye_of_ender.png" alt=""><span>The End</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===== Topo: escolha uma poção e veja como fazer ===== -->
+    <section class="ceu ceu--pocoes guia-hero">
+      <div class="bolhas" aria-hidden="true"></div>
+      <div class="lua" aria-hidden="true"></div>
+
+      <div class="container">
+        <nav class="migalhas" aria-label="Você está aqui">
+          <a href="index.html">Início</a> <span aria-hidden="true">›</span> <span>As Poções</span>
+        </nav>
+        <h1 class="guia-titulo">As Poções</h1>
+        <p class="guia-intro chat">Escolha uma poção e veja o passo a passo, do frasco de água até a versão mais forte. Mais abaixo: <a href="#como-fazer">como montar o seu laboratório</a> e <a href="#todas">todas as poções do jogo</a>.</p>
+
+        <!-- montado por js/pocoes.js -->
+        <div class="jornada escolha-pocao" id="escolher">
+          <h2 class="jornada-titulo">Qual poção você quer fazer? Clique em uma</h2>
+          <div id="seletor-pocoes"></div>
+          <p class="trilha-dica">Arraste para o lado para ver todas →</p>
+          <div id="receita-resultado" aria-live="polite"></div>
+        </div>
+      </div>
+      <div class="chao" aria-hidden="true"></div>
+    </section>
+
+    <!-- ===== Como fazer poções ===== -->
+    <section class="secao" id="como-fazer" aria-labelledby="titulo-como">
+      <div class="container">
+        <h2 class="titulo-secao" id="titulo-como"><img src="assets/img/itens/brewing_stand.png" alt="">Como fazer poções</h2>
+        <p class="secao-desc">Tudo começa no suporte de poções. Monte o seu laboratório uma vez e faça qualquer poção do jogo.</p>
+        <div id="como-app"></div>
+      </div>
+    </section>
+
+    <!-- ===== Todas as poções ===== -->
+    <section class="secao secao--pocoes" id="todas" aria-labelledby="titulo-todas">
+      <div class="container">
+        <h2 class="titulo-secao" id="titulo-todas"><img src="assets/img/itens/potion_regeneration.png" alt="">Todas as poções</h2>
+        <p class="secao-desc">As 19 poções que dá para fazer no suporte, com o ingrediente, o que cada uma faz e quanto tempo dura cada versão.</p>
+        <div id="todas-app"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="container">
+      <p class="fim">Você chegou na bedrock.<br>Não dá pra cavar mais fundo!</p>
+      <p>MineGuia · <span data-ano>2026</span> — feito por Allan Freire, para fãs.</p>
+      <p>Valores da Java Edition 26.3.</p>
+      <p>Imagens dos itens e texturas: <a href="https://minecraft.wiki" target="_blank" rel="noopener">Minecraft Wiki</a> · © Mojang Studios.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/dados-pocoes.js"></script>
+  <script src="js/pocoes.js"></script>
+</body>
+</html>
