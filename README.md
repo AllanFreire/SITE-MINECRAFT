@@ -29,14 +29,16 @@ imagens dos itens do próprio jogo, números conferidos e uma interface que pare
 - [Calculadora de kit](#calculadora-de-kit)
 - [Receitas e dicas](#receitas-e-dicas)
 - [Trocas com os aldeões](#trocas-com-os-aldeões)
-- [Encantamentos sem mistério](#encantamentos-sem-mistério)
+- [Os Encantamentos](#os-encantamentos)
 - [Rumo ao Nether](#rumo-ao-nether)
+- [As Poções](#as-poções)
+- [The End](#the-end)
 - [No celular](#no-celular)
 - [Identidade visual](#identidade-visual)
 - [Como rodar](#como-rodar)
 - [Estrutura do projeto](#estrutura-do-projeto)
 - [De onde vêm os dados](#de-onde-vêm-os-dados)
-- [Próximos guias](#próximos-guias)
+- [Os guias do site](#os-guias-do-site)
 - [Tecnologias](#tecnologias)
 - [Autor e créditos](#autor-e-créditos)
 
@@ -65,17 +67,19 @@ O projeto segue seis princípios:
 | **Calculadora de kit** | Você marca as peças que quer e ela soma só o que você precisa — até o carvão da fornalha. |
 | **Receitas** | A posição de cada item na grade 3×3 da bancada e os upgrades na mesa de ferraria. |
 | **Trocas com os aldeões** | O que cada um dos 13 profissionais e o mercador ambulante faz, a estação de trabalho de cada um e todas as trocas em ordem, do nível Novato ao Mestre. |
-| **Encantamentos sem mistério** | O melhor encantamento para cada item com um clique, como usar a mesa de encantamentos, a bigorna e o rebolo, e todos os 43 encantamentos do jogo, nível por nível. |
+| **Os Encantamentos** | O melhor encantamento para cada item com um clique, como usar a mesa de encantamentos, a bigorna e o rebolo, e todos os 43 encantamentos do jogo, nível por nível. |
 | **Rumo ao Nether** | Os 5 biomas do Nether e os mobs de cada um, as 4 estruturas com tudo o que vem nos baús e um guia rápido que leva direto ao bioma ou à estrutura. |
+| **As Poções** | Clique numa poção e veja o passo a passo, do frasco de água à versão mais forte, além de como montar o laboratório e as 19 poções do jogo com a duração de cada versão. |
+| **The End** | O jeito mais fácil de derrotar o Dragão de Ender, o kit para levar e tudo o que dá para conseguir no End — com onde encontrar cada coisa e o que vem nos baús das Cidades do End. |
 | **Dicas e curiosidades** | Truques de mineração e fatos divertidos do jogo. |
 
 ## Página inicial e as abas
 
-![Abas da página inicial: A Superfície, Guia até o Topo, Encantamentos sem mistério e Rumo ao Nether no ar, e os próximos guias marcados como "em breve"](docs/img/abas.png)
+![Abas da página inicial: A Superfície, Guia até o Topo, Os Encantamentos, Rumo ao Nether, As Poções e The End](docs/img/abas.png)
 
 - **Céu com chão de grama.** Nuvens andando, sol quadrado e uma fileira de blocos de grama. Ao rolar a página, você "desce" para a terra.
 - **Frase amarela.** Pulsa ao lado do logo, igual à tela inicial do jogo. São 18 frases diferentes; clique nela para trocar.
-- **Abas dos guias.** Os quatro guias prontos vêm primeiro, nesta ordem: A Superfície, Guia até o Topo, Encantamentos sem mistério e Rumo ao Nether, todos com o selo "NOVO!". Depois vêm os próximos, Poções para iniciantes e Derrotando o Ender Dragon, marcados como "EM BREVE", com a ilustração em tons apagados e um bloco de barreira no botão.
+- **Abas dos guias.** Os seis guias, nesta ordem: A Superfície, Guia até o Topo, Os Encantamentos, Rumo ao Nether, As Poções e The End, todos com o selo "NOVO!". Um guia que ainda não está pronto pode aparecer como "EM BREVE", com a ilustração em tons apagados e um bloco de barreira no botão.
 - **Placa "Você sabia?"** Feita com a textura de tábuas de carvalho, mostra curiosidades do jogo que mudam com um clique.
 - **Rodapé de bedrock.** O fundo do mundo é o fim da página.
 
@@ -206,7 +210,7 @@ Logo abaixo da trilha de picaretas, o painel **Quem é quem na vila** funciona d
 - **Mercador ambulante** com o que ele compra, as ofertas especiais e a lojinha de ofertas comuns organizada por preço.
 - Os nomes são os oficiais do jogo em português. Detalhe curioso: o Armorer e o Weaponsmith se chamam os dois "Armeiro" no jogo, por isso aqui eles aparecem como Armeiro de Armaduras e Armeiro de Armas.
 
-## Encantamentos sem mistério
+## Os Encantamentos
 
 ![Seletor "Qual o melhor encantamento?" com a espada escolhida](docs/img/encantamentos.png)
 
@@ -237,11 +241,36 @@ Os mobs, os biomas e as estruturas são chips clicáveis: do bioma você vai par
 
 ![Baús do Bastião em Ruínas com a chance de cada item](docs/img/bau.png)
 
+## As Poções
+
+![Topo da página As Poções com o seletor de poções](docs/img/pocoes.png)
+
+A quinta aba da página inicial, em `pocoes.html`, feita do mesmo jeito que Os Encantamentos.
+
+- **Qual poção você quer fazer?** No topo, as 19 poções que dá para fazer no suporte, separadas em *para você beber*, *para jogar nos inimigos* e *efeitos especiais*. Um clique mostra o **passo a passo** completo: do Frasco de Água até a poção, com cada ingrediente — inclusive as que dependem de outra poção, como a de Invisibilidade, que nasce da de Visão Noturna. Embaixo vêm as versões mais longas (redstone), mais fortes (pedra-luminosa), arremessáveis, prolongadas e as flechas com efeito, e uma tabela com quanto tempo cada versão dura. O link fica no endereço (por exemplo, `pocoes.html#receita-forca`).
+- **Como fazer poções.** O suporte de poções, o pó de blaze, os frascos de água, a Poção Estranha (a base de quase tudo), os modificadores e as flechas com efeito.
+- **Todas as poções.** Um card para cada poção, com o que ela faz, o ingrediente, a duração de cada versão e um botão que leva direto ao passo a passo.
+
+![Passo a passo da Poção de Invisibilidade, da água até as flechas](docs/img/pocao.png)
+
+## The End
+
+![Topo da página The End com o guia rápido](docs/img/end.png)
+
+A sexta aba da página inicial, em `end.html`, com o céu escuro e as torres de obsidiana do End.
+
+- **Guia rápido.** Os 6 passos até o dragão numa trilha, os itens que dá para conseguir no End e os lugares, tudo clicável.
+- **Como derrotar o Dragão de Ender.** Preparar o kit (com o que é essencial e o que só ajuda), achar a fortaleza com os Olhos de Ender, ativar o portal, destruir os 10 cristais, derrotar o dragão e o que fazer depois da vitória. O passo do dragão traz **o jeito mais fácil**, em 5 passos, e o jeito rápido das camas, para quem já tem experiência.
+- **O que dá para conseguir no End.** Élitros, Cabeça do Dragão, Ovo do Dragão, Bafo do Dragão, casco de Shulker, fruta-do-coro, pérolas, cristais do End, purpur, os baús do tesouro e os 12.000 de experiência — com onde encontrar, para que serve e a receita, quando tem.
+- **Os lugares do End.** Ilha principal, Passagens do End, ilhas externas, Cidade do End e Navio do End, com os mobs, os destaques e o que vem nos baús.
+
+![Passo do dragão com o jeito mais fácil e o jeito rápido](docs/img/dragao.png)
+
 ## No celular
 
-![O site no celular: página inicial, card de um bioma da Superfície e guia rápido do Nether](docs/img/celular.png)
+![O site no celular: página inicial, seletor das Poções e guia rápido do The End](docs/img/celular.png)
 
-O layout se adapta de 320 px até telas grandes. A trilha de picaretas, o painel dos aldeões, o seletor de encantamentos e os guias rápidos do Nether e da Superfície viram faixas que deslizam para o lado, o menu mostra só os ícones (e o nome da página atual), os cards e a calculadora se empilham e os slots diminuem para caber na tela, sem rolagem lateral.
+O layout se adapta de 320 px até telas grandes. A trilha de picaretas, o painel dos aldeões, os seletores de encantamentos e de poções e os guias rápidos do Nether, da Superfície e do End viram faixas que deslizam para o lado, o menu mostra só os 7 ícones (a página atual fica com a borda branca), os cards e a calculadora se empilham e os slots diminuem para caber na tela, sem rolagem lateral.
 
 ## Identidade visual
 
@@ -256,7 +285,7 @@ O layout se adapta de 320 px até telas grandes. A trilha de picaretas, o painel
 - Dá para usar tudo pelo teclado, com foco visível; os slots da calculadora são botões com `aria-pressed`.
 - As imagens que trazem informação têm texto alternativo; as ilustrações decorativas ficam escondidas dos leitores de tela.
 - Respeita a opção "reduzir movimento" do sistema, desligando nuvens, itens boiando e animações.
-- É leve para o tanto de conteúdo: 751 imagens que somam cerca de 4,2 MB, sem frameworks e sem etapa de build. As capturas de tela só carregam quando aparecem na tela.
+- É leve para o tanto de conteúdo: 859 imagens que somam cerca de 4,5 MB, sem frameworks e sem etapa de build. As capturas de tela só carregam quando aparecem na tela.
 
 ## Como rodar
 
@@ -289,9 +318,11 @@ E acesse `http://localhost:8000` (ou o endereço que o `serve` mostrar).
 SITE-MINECRAFT/
 ├── index.html             Página inicial: céu, logo, abas dos guias e curiosidades
 ├── minerios.html          Guia até o Topo: quantidades, calculadora, receitas, aldeões e dicas
-├── encantamentos.html     Encantamentos sem mistério: melhor combinação por item, como encantar e todos os encantamentos
+├── encantamentos.html     Os Encantamentos: melhor combinação por item, como encantar e todos os encantamentos
 ├── nether.html            Rumo ao Nether: guia rápido, biomas, estruturas com os baús e mobs
 ├── superficie.html        A Superfície: guia rápido, todos os biomas do mundo normal e as estruturas com os baús
+├── pocoes.html            As Poções: seletor com o passo a passo, como fazer poções e todas as poções
+├── end.html               The End: guia rápido, como derrotar o dragão, o que dá para conseguir e os lugares do End
 ├── css/
 │   ├── style.css          Estilo global: cores, painéis, slots, botões, tooltip, conquistas e página inicial
 │   ├── minerios.css       Estilo do guia, das camadas de minério, da calculadora e das receitas
@@ -299,7 +330,9 @@ SITE-MINECRAFT/
 │   ├── encantamentos.css  Estilo da página de encantamentos
 │   ├── mundo.css          Peças dos guias de mundo (Nether e Superfície): guia rápido, cards, chips de mobs e baús
 │   ├── nether.css         Estilo da página do Nether: céu vermelho, faíscas e a seção de mobs
-│   └── superficie.css     Estilo da página da Superfície: cards dos biomas e grupos de estruturas
+│   ├── superficie.css     Estilo da página da Superfície: cards dos biomas e grupos de estruturas
+│   ├── pocoes.css         Estilo da página das Poções: céu roxo, passo a passo, tabela de durações e cards
+│   └── end.css            Estilo da página do End: céu estrelado, torres, passos, kit e itens
 ├── js/
 │   ├── main.js            Usado em todas as páginas: frase amarela, tooltips, conquistas e curiosidades
 │   ├── dados-minerios.js  Todos os números e textos do guia (é aqui que se edita)
@@ -311,12 +344,17 @@ SITE-MINECRAFT/
 │   ├── dados-nether.js    Biomas, mobs, estruturas e o que vem em cada baú do Nether
 │   ├── nether.js          Monta o guia rápido, os cards dos biomas, das estruturas e dos mobs
 │   ├── dados-superficie.js  Biomas, mobs, estruturas e o que vem em cada baú do mundo normal
-│   └── superficie.js      Monta o guia rápido, os cards dos biomas e das estruturas
+│   ├── superficie.js      Monta o guia rápido, os cards dos biomas e das estruturas
+│   ├── dados-pocoes.js    As 19 poções: ingrediente, de onde vem, durações e textos
+│   ├── pocoes.js          Monta o seletor, o passo a passo, a seção "Como fazer" e a lista de poções
+│   ├── dados-end.js       Passos, kit, itens e lugares do End, com os baús das Cidades do End
+│   └── end.js             Monta o guia rápido, os passos, os itens e os lugares
 ├── assets/img/
 │   ├── itens/             Ícones de itens e blocos, com o ID do jogo no nome (ex.: diamond_sword.png)
 │   ├── texturas/          Texturas de fundo: terra, pedra, ardósia, netherrack, tijolos do Nether, lava, bedrock...
 │   ├── nether/            Capturas de tela dos biomas e das estruturas e o rosto de cada mob do Nether
 │   ├── superficie/        Capturas de tela dos biomas e das estruturas e o rosto de cada mob do mundo normal
+│   ├── end/               Capturas de tela do End e o rosto do dragão, dos Shulkers e dos Endermen
 │   ├── aldeoes/           Retrato e rosto de cada aldeão
 │   └── gui/               Ícones do HUD (armadura e corações) e insígnias de nível dos aldeões
 └── docs/img/              Imagens deste README
@@ -330,18 +368,20 @@ SITE-MINECRAFT/
 - Os encantamentos (nível máximo, itens aceitos, quais não combinam, quais são tesouro ou maldição e os números de cada nível) saíram dos arquivos de dados do próprio jogo, versão 26.3, e os nomes são os oficiais em português.
 - O guia do Nether também saiu dos arquivos do jogo, versão 26.3: os mobs de cada bioma e a frequência de cada um vêm das regras de geração do mundo, as estruturas de cada bioma vêm das listas de estruturas, e as chances dos baús foram calculadas a partir das tabelas de loot (é a chance de o item aparecer em um baú). As capturas de tela são da Minecraft Wiki.
 - O guia da Superfície veio do mesmo lugar: os animais e os monstros de cada bioma, as estruturas de cada bioma e as chances dos baús e da arqueologia (calculadas das tabelas de loot, inclusive as tabelas dentro de tabelas dos cofres das câmaras do desafio). Os nomes de biomas, mobs e itens são os oficiais em português.
+- As receitas e as durações das poções são as da Java Edition 26.3, conferidas nas páginas de poções e de preparo da Minecraft Wiki, com os nomes oficiais em português.
+- No End, as receitas (Olho de Ender, Cristal do End, Caixa de Shulker, purpur, Vara do End), os baús das Cidades do End, os drops dos mobs e os mobs de cada bioma saíram dos arquivos do jogo; a luta contra o dragão foi conferida na Minecraft Wiki (200 de vida, imune a flechas quando pousa, cristais que curam).
 - As contas da calculadora seguem as regras do jogo: 1 carvão funde 8 itens, 2 tábuas fazem 4 gravetos, 1 tronco vira 4 tábuas, cada barra de netherite pede 4 fragmentos e 4 barras de ouro, e copiar um molde custa 7 diamantes e 1 netherrack.
 
-## Próximos guias
+## Os guias do site
 
 | Guia | Situação |
 |:--|:--|
 | A Superfície | ✅ No ar |
 | Guia até o Topo — do cobre à netherite | ✅ No ar |
-| Encantamentos sem mistério | ✅ No ar |
+| Os Encantamentos | ✅ No ar |
 | Rumo ao Nether | ✅ No ar |
-| Poções para iniciantes | ⏳ Em breve |
-| Derrotando o Ender Dragon | ⏳ Em breve |
+| As Poções | ✅ No ar |
+| The End | ✅ No ar |
 
 ## Tecnologias
 
