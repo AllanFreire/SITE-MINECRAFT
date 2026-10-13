@@ -17,13 +17,13 @@ imagens dos itens do próprio jogo, números conferidos e uma interface que pare
 
 </div>
 
-![Topo da página inicial do MineGuia: céu do Minecraft, logo, frase amarela e o botão para escolher um guia](docs/img/inicio.png)
+![Página inicial atual do MineGuia, com o título Domine cada bloco, chamadas para ação e uma paisagem do Minecraft](docs/img/inicio.png)
 
 ## Sumário
 
 - [A proposta](#a-proposta)
 - [O que tem no site](#o-que-tem-no-site)
-- [Página inicial e as abas](#página-inicial-e-as-abas)
+- [Página inicial e os guias](#página-inicial-e-os-guias)
 - [A Superfície](#a-superfície)
 - [Guia até o Topo](#guia-até-o-topo)
 - [Calculadora de kit](#calculadora-de-kit)
@@ -61,7 +61,7 @@ O projeto segue seis princípios:
 
 | Parte | O que faz |
 |:--|:--|
-| **Página inicial** | Céu do Minecraft com o logo e as **abas**: cada aba é um guia, com título, descrição e uma ilustração montada com itens reais. |
+| **Página inicial** | Apresentação editorial inspirada na Apple, com chamadas claras, animações suaves e uma vitrine visual para acessar os seis guias. |
 | **A Superfície** | Todos os biomas do mundo normal com os animais e os monstros de cada um, e as 20 estruturas — com onde encontrar cada uma, quem mora lá e o que vem nos baús —, mais um guia rápido para ir direto a cada uma. |
 | **Guia até o Topo** | Do cobre à netherite: quanto minério cada armadura e cada ferramenta pedem, onde achar cada minério, que picareta usar e o passo a passo da netherite. |
 | **Calculadora de kit** | Você marca as peças que quer e ela soma só o que você precisa — até o carvão da fornalha. |
@@ -73,21 +73,20 @@ O projeto segue seis princípios:
 | **The End** | O jeito mais fácil de derrotar o Dragão de Ender, o kit para levar e tudo o que dá para conseguir no End — com onde encontrar cada coisa e o que vem nos baús das Cidades do End. |
 | **Dicas e curiosidades** | Truques de mineração e fatos divertidos do jogo. |
 
-## Página inicial e as abas
+## Página inicial e os guias
 
-![Abas da página inicial: A Superfície, Guia até o Topo, Os Encantamentos, Rumo ao Nether, As Poções e The End](docs/img/abas.png)
+![Vitrine atual dos seis guias na página inicial, com imagens, ícones e chamadas para cada mundo do MineGuia](docs/img/abas.png)
 
-- **Céu com chão de grama.** Nuvens andando, sol quadrado e uma fileira de blocos de grama. Ao rolar a página, você "desce" para a terra.
-- **Frase amarela.** Pulsa ao lado do logo, igual à tela inicial do jogo. São 18 frases diferentes; clique nela para trocar.
-- **Abas dos guias.** Os seis guias, nesta ordem: A Superfície, Guia até o Topo, Os Encantamentos, Rumo ao Nether, As Poções e The End, todos com o selo "NOVO!". Um guia que ainda não está pronto pode aparecer como "EM BREVE", com a ilustração em tons apagados e um bloco de barreira no botão.
-- **Placa "Você sabia?"** Feita com a textura de tábuas de carvalho, mostra curiosidades do jogo que mudam com um clique.
-- **Rodapé de bedrock.** O fundo do mundo é o fim da página.
+- **Apresentação direta.** O topo destaca a mensagem “Domine cada bloco” e leva o jogador para a exploração dos conteúdos ou diretamente para A Superfície.
+- **Navegação simplificada.** Na Home aparecem apenas a marca MineGuia e o botão **Explorar guias**, reduzindo distrações e deixando a entrada no site mais clara.
+- **Vitrine dos guias.** A Superfície, Minérios, Encantamentos, Nether, Poções e The End aparecem em cards editoriais com imagens, ícones, cores próprias e links visíveis.
+- **Movimento suave.** Elementos entram durante a rolagem, as imagens ganham profundidade e os botões respondem às interações sem prejudicar a leitura.
 
 ## A Superfície
 
 ![Topo da página A Superfície com o guia rápido de estruturas e biomas](docs/img/superficie.png)
 
-A primeira aba da página inicial, em `superficie.html`, com o céu azul e o chão de grama de sempre.
+O guia da Superfície, em `superficie.html`, segue o mesmo visual atual das demais páginas e dá acesso rápido a estruturas e biomas.
 
 - **Guia rápido.** No topo, as 20 estruturas separadas em *na superfície*, *na água* e *embaixo da terra*, mais os 10 tipos de bioma. Um clique leva direto ao card, que pisca para você achar na hora. O link fica no endereço (por exemplo, `superficie.html#estrutura-vila`).
 - **Os biomas.** Os 56 biomas do mundo normal, em 10 grupos: planícies, florestas, selvas, pântanos, lugares quentes e secos, taigas e neve, montanhas, rios e praias, oceanos e cavernas. Cada card tem uma captura de tela, uma descrição, o clima (chove, neva ou nunca chove), os animais, os **monstros diferentes** daquele bioma (como os Cascosos do deserto ou os Errantes da neve), as estruturas que aparecem nele e uma dica. Os oceanos e as suas versões profundas dividem o mesmo card. Já estão aqui as novidades da 26.x: a Floresta salpicada, as Cavernas de enxofre e mobs como o Cubo de Enxofre, o Ressecado e o Náutilo.
@@ -214,7 +213,7 @@ Logo abaixo da trilha de picaretas, o painel **Quem é quem na vila** funciona d
 
 ![Seletor "Qual o melhor encantamento?" com a espada escolhida](docs/img/encantamentos.png)
 
-A terceira aba da página inicial, em `encantamentos.html`.
+O guia de encantamentos fica em `encantamentos.html`.
 
 - **Qual o melhor encantamento?** No topo, 18 itens para clicar: as quatro peças de armadura, élitros, escudo, espada, machado, picareta, pá, enxada, lança, maça, arco, besta, tridente, vara de pesca e tesoura. O item escolhido mostra a combinação ideal, o que pode escolher entre dois encantamentos que não combinam (como Multidisparo ou Perfuração na besta), os opcionais, uma dica e se ele vai na mesa de encantamentos ou só na bigorna. O link fica no endereço (por exemplo, `encantamentos.html#melhor-espada`).
 - **Como encantar.** A mesa de encantamentos com a receita e a posição das 15 estantes, a bigorna (e o famoso "Muito caro!"), onde conseguir livros encantados, o rebolo para tirar encantamentos e como ler os números romanos.
@@ -228,7 +227,7 @@ As combinações recomendadas partiram de uma imagem de "melhores encantamentos"
 
 ![Topo da página do Nether com o guia rápido de biomas e estruturas](docs/img/nether.png)
 
-A quarta aba da página inicial, em `nether.html`, com o céu vermelho, as faíscas subindo da lava e a pedra-luminosa pendurada no teto.
+O guia do Nether fica em `nether.html`, com identidade visual própria e acesso rápido a biomas e estruturas.
 
 - **Guia rápido.** No topo, os 5 biomas e as 4 estruturas em ícones. Um clique leva direto ao card escolhido, que pisca para você achar na hora. O link fica no endereço (por exemplo, `nether.html#estrutura-bastiao`).
 - **Os biomas.** Descampado do Nether, Vale de areia das almas, Floresta carmesim, Floresta distorcida e Deltas de basalto. Cada card tem uma captura de tela do jogo, o que tem por lá, o nível de perigo, a cor da neblina, os blocos que você encontra, as estruturas que podem aparecer e uma dica. Os mobs vêm do mais comum para o mais raro, com a frequência marcada (muito comum, comum, pouco comum, raro) — e o Marchador aparece "na lava".
@@ -245,7 +244,7 @@ Os mobs, os biomas e as estruturas são chips clicáveis: do bioma você vai par
 
 ![Topo da página As Poções com o seletor de poções](docs/img/pocoes.png)
 
-A quinta aba da página inicial, em `pocoes.html`, feita do mesmo jeito que Os Encantamentos.
+O guia de poções fica em `pocoes.html`, com um seletor visual que abre cada receita passo a passo.
 
 - **Qual poção você quer fazer?** No topo, as 19 poções que dá para fazer no suporte, separadas em *para você beber*, *para jogar nos inimigos* e *efeitos especiais*. Um clique mostra o **passo a passo** completo: do Frasco de Água até a poção, com cada ingrediente — inclusive as que dependem de outra poção, como a de Invisibilidade, que nasce da de Visão Noturna. Embaixo vêm as versões mais longas (redstone), mais fortes (pedra-luminosa), arremessáveis, prolongadas e as flechas com efeito, e uma tabela com quanto tempo cada versão dura. O link fica no endereço (por exemplo, `pocoes.html#receita-forca`).
 - **Como fazer poções.** O suporte de poções, o pó de blaze, os frascos de água, a Poção Estranha (a base de quase tudo), os modificadores e as flechas com efeito.
@@ -257,7 +256,7 @@ A quinta aba da página inicial, em `pocoes.html`, feita do mesmo jeito que Os E
 
 ![Topo da página The End com o guia rápido](docs/img/end.png)
 
-A sexta aba da página inicial, em `end.html`, com o céu escuro e as torres de obsidiana do End.
+O guia do End fica em `end.html`, com um painel rápido para navegar pela progressão, recompensas e lugares dessa dimensão.
 
 - **Guia rápido.** Os 6 passos até o dragão numa trilha, os itens que dá para conseguir no End e os lugares, tudo clicável.
 - **Como derrotar o Dragão de Ender.** Preparar o kit (com o que é essencial e o que só ajuda), achar a fortaleza com os Olhos de Ender, ativar o portal, destruir os 10 cristais, derrotar o dragão e o que fazer depois da vitória. O passo do dragão traz **o jeito mais fácil**, em 5 passos, e o jeito rápido das camas, para quem já tem experiência.
@@ -270,7 +269,7 @@ A sexta aba da página inicial, em `end.html`, com o céu escuro e as torres de 
 
 ![O site no celular: página inicial, seletor das Poções e guia rápido do The End](docs/img/celular.png)
 
-O layout se adapta de 320 px até telas grandes. A trilha de picaretas, o painel dos aldeões, os seletores de encantamentos e de poções e os guias rápidos do Nether, da Superfície e do End viram faixas que deslizam para o lado, o menu mostra só os 7 ícones (a página atual fica com a borda branca), os cards e a calculadora se empilham e os slots diminuem para caber na tela, sem rolagem lateral.
+O layout se adapta de 320 px até telas grandes. A Home reorganiza título, botões e imagem principal; nas páginas internas, o menu vira um botão compacto. A trilha de picaretas, o painel dos aldeões, os seletores e os guias rápidos passam a usar faixas horizontais, enquanto cards e calculadora se empilham para preservar leitura e toque confortável.
 
 ## Identidade visual
 
