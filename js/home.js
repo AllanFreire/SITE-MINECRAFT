@@ -1,78 +1,105 @@
+/* =============================================================
+   MineGuia — página inicial
+     1. a foto do topo cresce enquanto você rola (e os itens flutuam)
+     2. os números contam até o valor quando aparecem
+     3. as abas das três dimensões
+   ============================================================= */
 (function () {
   "use strict";
 
-  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const header = document.querySelector("[data-header]");
-  const progress = document.querySelector("[data-scroll-progress]");
+  const reduzir = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  function updateScrollUi() {
-    const top = window.scrollY;
-    const max = document.documentElement.scrollHeight - window.innerHeight;
-    if (header) header.classList.toggle("is-scrolled", top > 20);
-    if (progress) progress.style.transform = `scaleX(${max > 0 ? top / max : 0})`;
+  /* ---------- 1. Foto que cresce ---------- */
+  const palco = document.querySelector("[data-palco]");
+  if (palco && !reduzir) {
+    let pedido = 0;
+    const atualizar = () => {
+      pedido = 0;
+      const r = palco.getBoundingClientRect();
+      const alto = window.innerHeight;
+      // 0 quando o topo da foto está a 85% da tela; 1 quando chega a 10%
+      const p = Math.min(1, Math.max(0, (alto * 0.85 - r.top) / (alto * 0.75)));
+      palco.style.setProperty("--p", p.toFixed(4));
+      palco.style.setProperty("--rolagem", Math.round(alto - r.top));
+    };
+    const agendar = () => {
+      if (!pedido) pedido = requestAnimationFrame(atualizar);
+    };
+    atualizar();
+    window.addEventListener("scroll", agendar, { passive: true });
+    window.addEventListener("resize", agendar);
   }
 
-  updateScrollUi();
-  window.addEventListener("scroll", updateScrollUi, { passive: true });
-
-  const revealItems = document.querySelectorAll("[data-reveal]");
-  if (reduceMotion || !("IntersectionObserver" in window)) {
-    revealItems.forEach((item) => item.classList.add("is-visible"));
-  } else {
-    const revealObserver = new IntersectionObserver((entries, observer) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add("is-visible");
-        observer.unobserve(entry.target);
-      });
-    }, { threshold: .12, rootMargin: "0px 0px -8%" });
-    revealItems.forEach((item) => revealObserver.observe(item));
+  /* ---------- 2. Números que contam ---------- */
+  const numeros = document.querySelectorAll("[data-conta]");
+  const contar = (el) => {
+    const alvo = Number(el.dataset.conta);
+    const inicio = performance.now();
+    const duracao = 1400;
+    const passo = (agora) => {
+      const t = Math.min(1, (agora - inicio) / duracao);
+      const suave = 1 - Math.pow(1 - t, 4);
+      el.textContent = Math.round(alvo * suave);
+      if (t < 1) requestAnimationFrame(passo);
+    };
+    requestAnimationFrame(passo);
+  };
+  if (!reduzir && "IntersectionObserver" in window) {
+    numeros.forEach((el) => (el.textContent = "0"));
+    const obs = new IntersectionObserver(
+      (entradas, o) => {
+        entradas.forEach((e) => {
+          if (!e.isIntersecting) return;
+          contar(e.target);
+          o.unobserve(e.target);
+        });
+      },
+      { threshold: 0.6 }
+    );
+    numeros.forEach((el) => obs.observe(el));
   }
 
-  const tabList = document.querySelector("[data-world-tabs]");
-  const tabs = tabList ? Array.from(tabList.querySelectorAll("[data-world-tab]")) : [];
-  const panels = Array.from(document.querySelectorAll("[data-world-panel]"));
+  /* ---------- 3. Abas das dimensões ---------- */
+  const lista = document.querySelector("[data-abas]");
+  if (!lista) return;
+  const abas = Array.from(lista.querySelectorAll("[data-aba]"));
+  const paineis = Array.from(document.querySelectorAll("[data-painel]"));
+  const marcador = lista.querySelector(".h-abas-marcador");
 
-  function activateWorld(name, focusTab) {
-    tabs.forEach((tab) => {
-      const active = tab.dataset.worldTab === name;
-      tab.setAttribute("aria-selected", String(active));
-      tab.tabIndex = active ? 0 : -1;
-      if (active && focusTab) tab.focus();
+  function moverMarcador() {
+    const ativa = abas.find((a) => a.getAttribute("aria-selected") === "true");
+    if (!ativa || !marcador) return;
+    marcador.style.setProperty("--x", `${ativa.offsetLeft}px`);
+    marcador.style.setProperty("--w", `${ativa.offsetWidth}px`);
+  }
+
+  function ativar(nome, focar) {
+    abas.forEach((a) => {
+      const ativa = a.dataset.aba === nome;
+      a.setAttribute("aria-selected", String(ativa));
+      a.tabIndex = ativa ? 0 : -1;
+      if (ativa && focar) a.focus();
     });
-
-    panels.forEach((panel) => {
-      const active = panel.dataset.worldPanel === name;
-      panel.hidden = !active;
-      panel.classList.toggle("is-active", active);
+    paineis.forEach((p) => {
+      const ativo = p.dataset.painel === nome;
+      p.hidden = !ativo;
+      p.classList.toggle("is-ativo", ativo);
     });
+    moverMarcador();
   }
 
-  tabs.forEach((tab, index) => {
-    tab.addEventListener("click", () => activateWorld(tab.dataset.worldTab, false));
-    tab.addEventListener("keydown", (event) => {
-      if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) return;
-      event.preventDefault();
-      let next = index;
-      if (event.key === "ArrowRight") next = (index + 1) % tabs.length;
-      if (event.key === "ArrowLeft") next = (index - 1 + tabs.length) % tabs.length;
-      if (event.key === "Home") next = 0;
-      if (event.key === "End") next = tabs.length - 1;
-      activateWorld(tabs[next].dataset.worldTab, true);
+  abas.forEach((aba, i) => {
+    aba.addEventListener("click", () => ativar(aba.dataset.aba, false));
+    aba.addEventListener("keydown", (e) => {
+      const teclas = { ArrowRight: i + 1, ArrowLeft: i - 1, Home: 0, End: abas.length - 1 };
+      if (!(e.key in teclas)) return;
+      e.preventDefault();
+      const prox = (teclas[e.key] + abas.length) % abas.length;
+      ativar(abas[prox].dataset.aba, true);
     });
   });
 
-  const track = document.querySelector("[data-guide-track]");
-  const prev = document.querySelector("[data-carousel-prev]");
-  const next = document.querySelector("[data-carousel-next]");
-
-  function moveGuides(direction) {
-    if (!track) return;
-    const card = track.querySelector(".guide-card");
-    const amount = card ? card.getBoundingClientRect().width + 22 : 380;
-    track.scrollBy({ left: amount * direction, behavior: reduceMotion ? "auto" : "smooth" });
-  }
-
-  if (prev) prev.addEventListener("click", () => moveGuides(-1));
-  if (next) next.addEventListener("click", () => moveGuides(1));
+  moverMarcador();
+  window.addEventListener("resize", moverMarcador);
+  if (document.fonts) document.fonts.ready.then(moverMarcador);
 })();

@@ -1,0 +1,740 @@
+/* =============================================================
+   MineGuia — base do site (todas as páginas)
+   -------------------------------------------------------------
+   Cores, fonte, menu do topo, barra de seções dos guias, rodapé,
+   botões e animações de entrada. As páginas de guia carregam
+   depois css/guias.css; a página inicial, css/home.css.
+   ============================================================= */
+
+/* ---------- 1. Tokens ---------- */
+:root {
+  --fonte: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --fonte-titulo: var(--fonte);
+
+  --texto: #1d1d1f;
+  --texto-2: #6e6e73;
+  --texto-3: #86868b;
+  --fundo: #ffffff;
+  --fundo-2: #f5f5f7;
+  --fundo-3: #e8e8ed;
+  --linha: rgba(0, 0, 0, 0.08);
+  --linha-forte: #d2d2d7;
+
+  --escuro: #000000;
+  --escuro-2: #161617;
+  --escuro-3: #1d1d1f;
+  --texto-claro: #f5f5f7;
+  --texto-claro-2: #a1a1a6;
+  --linha-clara: rgba(255, 255, 255, 0.14);
+
+  --link: #0066cc;
+  --link-claro: #2997ff;
+  --verde: #248a3d;
+  --verde-vivo: #30d158;
+
+  /* cor de destaque de cada guia (troca em cada página) */
+  --acento: #30d158;
+  --acento-texto: #248a3d;
+
+  --raio-xl: 32px;
+  --raio-l: 24px;
+  --raio-m: 18px;
+  --raio-s: 12px;
+
+  --gnav: 48px;
+  --subnav: 52px;
+  --altura-topo: var(--gnav);
+  --largura: 1180px;
+  --pagina: min(var(--largura), calc(100% - 48px));
+  --largura-nav: min(var(--largura), calc(100% - 48px));
+  --ease: cubic-bezier(0.22, 0.8, 0.24, 1);
+}
+
+/* ---------- 2. Base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--gnav) + 16px);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--texto);
+  background: var(--fundo-2);
+  font-family: var(--fonte);
+  font-size: 17px;
+  font-optical-sizing: auto;
+  line-height: 1.5;
+  letter-spacing: -0.011em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: clip;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* pixel art sempre nítida; fotos ficam suaves */
+img[src$=".png"],
+img[src$=".gif"] {
+  image-rendering: pixelated;
+}
+
+img[src$=".jpg"] {
+  image-rendering: auto;
+}
+
+a {
+  color: var(--link);
+}
+
+button {
+  font: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid var(--link-claro);
+  outline-offset: 3px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+.pular-conteudo,
+.skip-link {
+  position: absolute;
+  left: 12px;
+  top: -60px;
+  z-index: 1000;
+  padding: 10px 16px;
+  color: #fff;
+  background: var(--escuro-3);
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: top 0.2s var(--ease);
+}
+
+.pular-conteudo:focus,
+.skip-link:focus {
+  top: 12px;
+}
+
+/* ---------- 3. Menu do topo ---------- */
+.gnav {
+  position: relative;
+  z-index: 100;
+  height: var(--gnav);
+  color: var(--texto-claro);
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+}
+
+/* na página inicial o menu fica sempre à vista */
+.gnav--fixo {
+  position: sticky;
+  top: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.gnav-barra {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  width: var(--largura-nav);
+  height: 100%;
+  margin: 0 auto;
+}
+
+.gnav-marca {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  gap: 8px;
+  color: inherit;
+  font-size: 15px;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+}
+
+.gnav-marca img {
+  width: 22px;
+  height: 22px;
+}
+
+.gnav-links {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: flex-end;
+  gap: clamp(14px, 2.6vw, 34px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.gnav-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: rgba(245, 245, 247, 0.8);
+  font-size: 12.5px;
+  font-weight: 450;
+  letter-spacing: -0.005em;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.gnav-links a:hover {
+  color: #fff;
+}
+
+.gnav-links a[aria-current="page"] {
+  color: #fff;
+  font-weight: 600;
+}
+
+/* o ícone só aparece no menu do celular */
+.gnav-links img {
+  display: none;
+  width: 28px;
+  height: 28px;
+}
+
+.gnav-abrir {
+  display: none;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  margin-right: -10px;
+  padding: 0;
+  color: inherit;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+.gnav-abrir span {
+  position: absolute;
+  left: 12px;
+  width: 16px;
+  height: 1.5px;
+  background: currentColor;
+  border-radius: 2px;
+  transition: transform 0.3s var(--ease), top 0.3s var(--ease);
+}
+
+.gnav-abrir span:first-child {
+  top: 16px;
+}
+
+.gnav-abrir span:last-child {
+  top: 23px;
+}
+
+.gnav-abrir[aria-expanded="true"] span:first-child {
+  top: 19.5px;
+  transform: rotate(45deg);
+}
+
+.gnav-abrir[aria-expanded="true"] span:last-child {
+  top: 19.5px;
+  transform: rotate(-45deg);
+}
+
+/* ---------- 4. Barra de seções dos guias (montada por js/site.js) ---------- */
+.subnav {
+  position: sticky;
+  top: 0;
+  z-index: 90;
+  height: var(--subnav);
+  color: var(--texto-claro);
+  background: rgba(22, 22, 23, 0.72);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  transition: background 0.35s ease, color 0.35s ease, border-color 0.35s ease;
+}
+
+/* depois do topo escuro, a barra fica clara como o conteúdo */
+.subnav.is-claro {
+  color: var(--texto);
+  background: rgba(251, 251, 253, 0.82);
+  border-bottom-color: rgba(0, 0, 0, 0.1);
+}
+
+.subnav-barra {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  width: var(--largura-nav);
+  height: 100%;
+  margin: 0 auto;
+}
+
+.subnav-titulo {
+  flex: 0 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: inherit;
+  font-size: 20px;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+}
+
+.subnav-links {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 22px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.subnav-links a {
+  position: relative;
+  color: inherit;
+  font-size: 12.5px;
+  font-weight: 450;
+  text-decoration: none;
+  opacity: 0.78;
+  transition: opacity 0.2s ease;
+}
+
+.subnav-links a:hover,
+.subnav-links a.is-ativo {
+  opacity: 1;
+}
+
+.subnav-links a.is-ativo::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -17px;
+  height: 1px;
+  background: currentColor;
+}
+
+.subnav-acao {
+  flex: none;
+  white-space: nowrap;
+  padding: 5px 12px;
+  color: #000;
+  background: var(--acento);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: filter 0.2s ease;
+}
+
+.subnav-acao:hover {
+  filter: brightness(1.08);
+}
+
+.subnav-abrir {
+  display: none;
+  width: 32px;
+  height: 32px;
+  margin-left: -10px;
+  padding: 0;
+  color: inherit;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+.subnav-abrir svg {
+  width: 12px;
+  height: 12px;
+  transition: transform 0.3s var(--ease);
+}
+
+.subnav-abrir[aria-expanded="true"] svg {
+  transform: rotate(180deg);
+}
+
+/* ---------- 5. Botões e links ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 44px;
+  padding: 11px 22px;
+  border: 0;
+  border-radius: 999px;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s var(--ease), filter 0.2s ease;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn--verde {
+  color: #fff;
+  background: var(--verde);
+}
+
+.btn--verde:hover {
+  background: #1f7a35;
+}
+
+.btn--claro {
+  color: var(--texto);
+  background: #fff;
+}
+
+.btn--claro:hover {
+  background: #e8e8ed;
+}
+
+.btn--escuro {
+  color: #fff;
+  background: var(--escuro-3);
+}
+
+.btn--escuro:hover {
+  background: #333336;
+}
+
+.btn--vidro {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.btn--vidro:hover {
+  background: rgba(255, 255, 255, 0.26);
+}
+
+/* link com setinha, do jeito das páginas da Apple */
+.mais-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--link);
+  font-size: 17px;
+  font-weight: 450;
+  text-decoration: none;
+}
+
+.mais-link::after {
+  content: "›";
+  font-size: 1.25em;
+  line-height: 1;
+  transition: transform 0.2s var(--ease);
+}
+
+.mais-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.mais-link:hover::after {
+  transform: translateX(2px);
+}
+
+.mais-link--claro {
+  color: var(--link-claro);
+}
+
+/* ---------- 6. Rodapé ---------- */
+.gfoot {
+  color: var(--texto-2);
+  background: var(--fundo-2);
+  border-top: 1px solid var(--linha-forte);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.gfoot-dentro {
+  width: var(--largura-nav);
+  margin: 0 auto;
+  padding: 40px 0 24px;
+}
+
+.gfoot-topo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 32px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid var(--linha-forte);
+}
+
+.gfoot-marca {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--texto);
+  font-size: 15px;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+}
+
+.gfoot-marca img {
+  width: 22px;
+  height: 22px;
+}
+
+.gfoot-frase {
+  margin: 0;
+  font-size: 13px;
+}
+
+.gfoot-colunas {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--linha-forte);
+}
+
+.gfoot-colunas h2 {
+  margin: 0 0 8px;
+  color: var(--texto);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.gfoot-colunas ul {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.gfoot-colunas a {
+  color: var(--texto-2);
+  text-decoration: none;
+}
+
+.gfoot-colunas a:hover {
+  color: var(--texto);
+  text-decoration: underline;
+}
+
+.gfoot-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 24px;
+  padding-top: 18px;
+}
+
+.gfoot-meta a {
+  color: var(--texto);
+}
+
+.gfoot-meta p {
+  margin: 0;
+}
+
+/* ---------- 7. Entrada suave ao rolar ---------- */
+.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
+  transition-delay: var(--atraso, 0s);
+}
+
+.js [data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---------- 8. Celular ---------- */
+@media (max-width: 560px) {
+  :root {
+    --largura-nav: calc(100% - 32px);
+  }
+}
+
+@media (max-width: 833px) {
+  .gnav-barra {
+    justify-content: space-between;
+  }
+
+  .gnav-abrir {
+    display: block;
+  }
+
+  .gnav-links {
+    position: fixed;
+    inset: var(--gnav) 0 0;
+    z-index: 99;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 0;
+    padding: 18px 28px 40px;
+    background: #000;
+    overflow-y: auto;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0s 0.3s;
+  }
+
+  .gnav-links.is-aberto {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease;
+  }
+
+  .gnav-links li {
+    opacity: 0;
+    transform: translateY(-8px);
+    transition: opacity 0.4s var(--ease), transform 0.4s var(--ease);
+  }
+
+  .gnav-links.is-aberto li {
+    opacity: 1;
+    transform: none;
+  }
+
+  .gnav-links.is-aberto li:nth-child(2) { transition-delay: 0.03s; }
+  .gnav-links.is-aberto li:nth-child(3) { transition-delay: 0.06s; }
+  .gnav-links.is-aberto li:nth-child(4) { transition-delay: 0.09s; }
+  .gnav-links.is-aberto li:nth-child(5) { transition-delay: 0.12s; }
+  .gnav-links.is-aberto li:nth-child(6) { transition-delay: 0.15s; }
+  .gnav-links.is-aberto li:nth-child(7) { transition-delay: 0.18s; }
+
+  .gnav-links a {
+    display: flex;
+    gap: 14px;
+    padding: 12px 0;
+    color: #e8e8ed;
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+  }
+
+  .gnav-links img {
+    display: block;
+  }
+
+  body.menu-aberto {
+    overflow: hidden;
+  }
+
+  /* o desfoque da barra prenderia o menu dentro dela: com o menu aberto, a barra fica sólida */
+  body.menu-aberto .gnav {
+    background: #000;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .subnav-titulo {
+    font-size: 17px;
+  }
+
+  .subnav-abrir {
+    display: grid;
+    place-items: center;
+  }
+
+  .subnav-links {
+    position: absolute;
+    top: calc(100% + 1px);
+    left: -22px;
+    right: -22px;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 8px 22px 18px;
+    background: inherit;
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+  }
+
+  .subnav {
+    --fundo-lista: #161617;
+  }
+
+  .subnav.is-claro {
+    --fundo-lista: #fbfbfd;
+  }
+
+  .subnav-links.is-aberto {
+    display: flex;
+    background: var(--fundo-lista);
+    border-bottom: 1px solid rgba(128, 128, 128, 0.25);
+    box-shadow: 0 18px 30px rgba(0, 0, 0, 0.12);
+  }
+
+  .subnav-links a {
+    display: block;
+    padding: 11px 0;
+    font-size: 17px;
+    opacity: 1;
+  }
+
+  .subnav-links a.is-ativo::after {
+    display: none;
+  }
+
+  .subnav-acao {
+    margin-left: auto;
+  }
+
+  .gfoot-colunas {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .js [data-reveal] {
+    opacity: 1;
+    transform: none;
+  }
+}

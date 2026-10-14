@@ -3,228 +3,364 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#080a0c">
+  <meta name="theme-color" content="#000000">
   <title>MineGuia — Minecraft, bloco a bloco</title>
-  <meta name="description" content="Explore guias visuais de Minecraft sobre a Superfície, minérios, encantamentos, poções, Nether e The End.">
+  <meta name="description" content="Guias visuais de Minecraft: todos os biomas e estruturas, minérios e calculadora de kit, encantamentos, poções, o Nether e como derrotar o Dragão do End.">
   <link rel="icon" type="image/png" href="assets/img/itens/grass_block.png">
-  <link rel="stylesheet" href="css/home.css?v=20261013-2">
+  <link rel="preload" as="image" href="assets/img/fundos/inicio.jpg" media="(min-width: 834px)">
+  <link rel="preload" as="image" href="assets/img/fundos/inicio-m.jpg" media="(max-width: 833px)">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&display=swap">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/home.css">
+  <script>document.documentElement.classList.add("js")</script>
 </head>
-<body>
-  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
-  <div class="scroll-progress" aria-hidden="true"><span data-scroll-progress></span></div>
+<body class="home">
+  <a class="pular-conteudo" href="#guias">Pular para os guias</a>
 
-  <header class="site-header" data-header>
-    <nav class="nav-shell" aria-label="Navegação principal">
-      <a class="brand" href="index.html" aria-label="MineGuia — início">
-        <img src="assets/img/itens/grass_block.png" alt="">
-        <span>MineGuia</span>
+  <header class="gnav gnav--fixo">
+    <nav class="gnav-barra" aria-label="Principal">
+      <a class="gnav-marca" href="index.html" aria-label="MineGuia, página inicial">
+        <img src="assets/img/itens/grass_block.png" alt=""><span>MineGuia</span>
       </a>
-
-      <a class="nav-explore" href="#guias">Explorar guias</a>
+      <ul class="gnav-links" id="gnav-links">
+        <li><a href="superficie.html"><img src="assets/img/itens/oak_sapling.png" alt=""><span>Superfície</span></a></li>
+        <li><a href="minerios.html"><img src="assets/img/itens/diamond_pickaxe.png" alt=""><span>Minérios</span></a></li>
+        <li><a href="encantamentos.html"><img src="assets/img/itens/enchanted_book.png" alt=""><span>Encantamentos</span></a></li>
+        <li><a href="nether.html"><img src="assets/img/itens/netherrack.png" alt=""><span>Nether</span></a></li>
+        <li><a href="pocoes.html"><img src="assets/img/itens/potion_healing.png" alt=""><span>Poções</span></a></li>
+        <li><a href="end.html"><img src="assets/img/itens/eye_of_ender.png" alt=""><span>The End</span></a></li>
+      </ul>
+      <button class="gnav-abrir" type="button" aria-expanded="false" aria-controls="gnav-links" aria-label="Abrir menu"><span></span><span></span></button>
     </nav>
   </header>
 
   <main id="conteudo">
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-backdrop" aria-hidden="true"></div>
-      <div class="hero-glow hero-glow--one" aria-hidden="true"></div>
-      <div class="hero-glow hero-glow--two" aria-hidden="true"></div>
-
-      <div class="hero-copy" data-reveal>
-        <p class="eyebrow">O mundo é seu</p>
-        <h1 id="hero-title">Domine cada<br><span>bloco.</span></h1>
-        <p class="hero-lead">Do primeiro abrigo ao último portal. Guias visuais, diretos e feitos para você jogar melhor.</p>
-        <div class="hero-actions">
-          <a class="button button--primary" href="#guias">Começar a explorar <span aria-hidden="true">›</span></a>
-          <a class="text-link" href="superficie.html">Conhecer a Superfície <span aria-hidden="true">›</span></a>
+    <!-- ===== 1. Topo: título e uma foto que cresce enquanto você rola ===== -->
+    <section class="h-hero" aria-labelledby="h-titulo">
+      <div class="h-hero-texto">
+        <p class="h-olho"><img src="assets/img/itens/grass_block.png" alt="">MineGuia</p>
+        <h1 id="h-titulo">Domine cada bloco.</h1>
+        <p class="h-sub">Do primeiro abrigo ao último portal. Guias visuais, diretos e feitos para você jogar melhor.</p>
+        <div class="h-acoes">
+          <a class="btn btn--verde" href="#guias">Explorar os guias</a>
+          <a class="mais-link mais-link--claro" href="superficie.html">Começar pela Superfície</a>
         </div>
       </div>
 
-      <div class="hero-stage" data-hero-stage aria-hidden="true">
-        <div class="stage-halo"></div>
-        <div class="stage-card">
-          <img class="stage-scene" src="assets/img/superficie/cerejal.jpg" alt="">
-          <div class="stage-reflection"></div>
-        </div>
-        <img class="float-item float-item--diamond" src="assets/img/itens/diamond.png" alt="">
-        <img class="float-item float-item--pickaxe" src="assets/img/itens/diamond_pickaxe.png" alt="">
-        <img class="float-item float-item--apple" src="assets/img/itens/enchanted_golden_apple.png" alt="">
-      </div>
-
-      <a class="hero-scroll" href="#visao-geral">
-        <span>Role para descobrir</span>
-        <span class="mouse" aria-hidden="true"></span>
-      </a>
-    </section>
-
-    <section class="intro section" id="visao-geral">
-      <div class="section-heading" data-reveal>
-        <p class="eyebrow eyebrow--dark">Seu guia definitivo</p>
-        <h2>Grande no conteúdo.<br><span>Simples de usar.</span></h2>
-        <p>Informação organizada como o seu inventário: cada coisa no lugar certo, pronta para quando você precisar.</p>
-      </div>
-
-      <div class="metric-row" data-reveal>
-        <article><strong>6</strong><span>guias completos</span></article>
-        <article><strong>1</strong><span>mundo para dominar</span></article>
-        <article><strong>0</strong><span>enrolação</span></article>
+      <div class="h-palco" data-palco aria-hidden="true">
+        <figure class="h-palco-foto">
+          <picture>
+            <source media="(max-width: 833px)" srcset="assets/img/fundos/inicio-m.jpg">
+            <img src="assets/img/fundos/inicio.jpg" alt="" width="1920" height="1080">
+          </picture>
+        </figure>
+        <img class="h-item h-item--diamante" src="assets/img/itens/diamond.png" alt="" style="--vel: 0.18">
+        <img class="h-item h-item--picareta" src="assets/img/itens/diamond_pickaxe.png" alt="" style="--vel: -0.12">
+        <img class="h-item h-item--maca" src="assets/img/itens/enchanted_golden_apple.png" alt="" style="--vel: 0.08">
       </div>
     </section>
 
-    <section class="world-showcase section" id="mundos" aria-labelledby="world-title">
-      <div class="section-heading section-heading--center section-heading--light" data-reveal>
-        <p class="eyebrow">Três dimensões. Infinitas histórias.</p>
-        <h2 id="world-title">Escolha seu próximo destino.</h2>
+    <!-- ===== 2. Números ===== -->
+    <section class="h-numeros" aria-labelledby="h-numeros-titulo">
+      <div class="h-cabeca" data-reveal>
+        <h2 id="h-numeros-titulo">Tudo o que você precisa.<br><span>Num só lugar.</span></h2>
+        <p>Cada número aqui saiu dos arquivos do próprio jogo, na Java Edition 26.3, e está explicado do jeito mais simples possível.</p>
+      </div>
+      <ul class="h-contas">
+        <li data-reveal><img src="assets/img/itens/grass_block.png" alt=""><strong data-conta="56">56</strong><span>biomas do mundo normal</span></li>
+        <li data-reveal style="--atraso: 0.08s"><img src="assets/img/itens/enchanted_book.png" alt=""><strong data-conta="43">43</strong><span>encantamentos, nível por nível</span></li>
+        <li data-reveal style="--atraso: 0.16s"><img src="assets/img/itens/potion_healing.png" alt=""><strong data-conta="19">19</strong><span>poções, passo a passo</span></li>
+        <li data-reveal style="--atraso: 0.24s"><img src="assets/img/aldeoes/rosto-bibliotecario.png" alt=""><strong data-conta="14">14</strong><span>aldeões e todas as trocas</span></li>
+      </ul>
+    </section>
+
+    <!-- ===== 3. Os guias ===== -->
+    <section class="h-guias" id="guias" aria-labelledby="h-guias-titulo">
+      <div class="h-cabeca" data-reveal>
+        <h2 id="h-guias-titulo">Escolha sua próxima aventura.</h2>
+        <p>Seis guias completos, do primeiro dia até o fim do jogo.</p>
       </div>
 
-      <div class="world-tabs" role="tablist" aria-label="Dimensões" data-world-tabs data-reveal>
-        <button type="button" role="tab" id="tab-superficie" aria-controls="panel-superficie" aria-selected="true" data-world-tab="superficie">Superfície</button>
-        <button type="button" role="tab" id="tab-nether" aria-controls="panel-nether" aria-selected="false" data-world-tab="nether" tabindex="-1">Nether</button>
-        <button type="button" role="tab" id="tab-end" aria-controls="panel-end" aria-selected="false" data-world-tab="end" tabindex="-1">The End</button>
+      <div class="h-bento">
+        <a class="tile tile--superficie" href="superficie.html" data-reveal>
+          <img class="tile-foto" src="assets/img/fundos/superficie-m.jpg" alt="" loading="lazy" width="960" height="540">
+          <div class="tile-texto">
+            <img class="tile-ico" src="assets/img/itens/oak_sapling.png" alt="">
+            <p class="tile-olho">Explore</p>
+            <h3>A Superfície</h3>
+            <p>Todos os 56 biomas, os animais e monstros de cada um e as 20 estruturas — com tudo o que vem nos baús.</p>
+          </div>
+          <span class="tile-mais">Abrir guia</span>
+        </a>
+
+        <a class="tile tile--minerios" href="minerios.html" data-reveal style="--atraso: 0.06s">
+          <img class="tile-foto" src="assets/img/fundos/minerios-m.jpg" alt="" loading="lazy" width="960" height="540">
+          <div class="tile-texto">
+            <img class="tile-ico" src="assets/img/itens/diamond_pickaxe.png" alt="">
+            <p class="tile-olho">Evolua</p>
+            <h3>Guia até o Topo</h3>
+            <p>Do cobre à netherite, com calculadora de kit e as trocas dos aldeões.</p>
+          </div>
+          <span class="tile-mais">Abrir guia</span>
+        </a>
+
+        <a class="tile tile--encantamentos" href="encantamentos.html" data-reveal>
+          <img class="tile-foto" src="assets/img/fundos/encantamentos-m.jpg" alt="" loading="lazy" width="960" height="540">
+          <div class="tile-texto">
+            <img class="tile-ico" src="assets/img/itens/enchanted_book.png" alt="">
+            <p class="tile-olho">Encante</p>
+            <h3>Os Encantamentos</h3>
+            <p>O melhor para cada item, em um clique.</p>
+          </div>
+          <span class="tile-mais">Abrir guia</span>
+        </a>
+
+        <a class="tile tile--pocoes" href="pocoes.html" data-reveal style="--atraso: 0.06s">
+          <img class="tile-foto" src="assets/img/fundos/pocoes-m.jpg" alt="" loading="lazy" width="960" height="540">
+          <div class="tile-texto">
+            <img class="tile-ico" src="assets/img/itens/potion_healing.png" alt="">
+            <p class="tile-olho">Prepare</p>
+            <h3>As Poções</h3>
+            <p>Cada poção, do frasco de água à versão mais forte.</p>
+          </div>
+          <span class="tile-mais">Abrir guia</span>
+        </a>
+
+        <a class="tile tile--nether" href="nether.html" data-reveal style="--atraso: 0.12s">
+          <img class="tile-foto" src="assets/img/fundos/nether-m.jpg" alt="" loading="lazy" width="960" height="540">
+          <div class="tile-texto">
+            <img class="tile-ico" src="assets/img/itens/netherrack.png" alt="">
+            <p class="tile-olho">Sobreviva</p>
+            <h3>Rumo ao Nether</h3>
+            <p>Os 5 biomas, a fortaleza, o bastião e cada mob que vai cruzar o seu caminho.</p>
+          </div>
+          <span class="tile-mais">Abrir guia</span>
+        </a>
+
+        <a class="tile tile--end" href="end.html" data-reveal>
+          <img class="tile-foto" src="assets/img/fundos/end-m.jpg" alt="" loading="lazy" width="960" height="540">
+          <div class="tile-texto">
+            <img class="tile-ico" src="assets/img/itens/eye_of_ender.png" alt="">
+            <p class="tile-olho">Conquiste</p>
+            <h3>The End</h3>
+            <p>O jeito mais fácil de derrotar o Dragão de Ender — e onde achar os Élitros.</p>
+          </div>
+          <span class="tile-mais">Abrir guia</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ===== 4. As três dimensões ===== -->
+    <section class="h-mundos" aria-labelledby="h-mundos-titulo">
+      <div class="h-cabeca h-cabeca--centro" data-reveal>
+        <h2 id="h-mundos-titulo">Três dimensões.<br><span>Um mapa completo.</span></h2>
       </div>
 
-      <div class="world-panels" data-reveal>
-        <article class="world-panel is-active" id="panel-superficie" role="tabpanel" aria-labelledby="tab-superficie" data-world-panel="superficie">
-          <img src="assets/img/superficie/cerejal.jpg" alt="Um bosque de cerejeiras na Superfície">
-          <div class="world-overlay"></div>
-          <div class="world-copy">
-            <p class="world-number">01</p>
+      <div class="h-abas" role="tablist" aria-label="Dimensões" data-abas data-reveal>
+        <span class="h-abas-marcador" aria-hidden="true"></span>
+        <button type="button" role="tab" id="aba-superficie" aria-controls="painel-superficie" aria-selected="true" data-aba="superficie">Superfície</button>
+        <button type="button" role="tab" id="aba-nether" aria-controls="painel-nether" aria-selected="false" tabindex="-1" data-aba="nether">Nether</button>
+        <button type="button" role="tab" id="aba-end" aria-controls="painel-end" aria-selected="false" tabindex="-1" data-aba="end">The End</button>
+      </div>
+
+      <div class="h-paineis" data-reveal>
+        <article class="h-painel is-ativo" id="painel-superficie" role="tabpanel" aria-labelledby="aba-superficie" data-painel="superficie">
+          <img src="assets/img/fundos/superficie.jpg" alt="Montanhas e florestas do mundo normal" loading="lazy" width="1920" height="1080">
+          <div class="h-painel-texto">
             <h3>Onde toda aventura começa.</h3>
-            <p>Biomas, criaturas e estruturas para transformar seu primeiro dia em uma história inesquecível.</p>
-            <a class="button button--glass" href="superficie.html">Explorar a Superfície <span aria-hidden="true">›</span></a>
+            <p>Biomas, criaturas e estruturas para transformar o seu primeiro dia numa história inesquecível.</p>
+            <ul class="h-fatos">
+              <li><strong>56</strong> biomas</li>
+              <li><strong>20</strong> estruturas</li>
+              <li><strong>61</strong> mobs</li>
+            </ul>
+            <a class="btn btn--claro" href="superficie.html">Explorar a Superfície</a>
           </div>
         </article>
 
-        <article class="world-panel" id="panel-nether" role="tabpanel" aria-labelledby="tab-nether" data-world-panel="nether" hidden>
-          <img src="assets/img/nether/portal.jpg" alt="Um portal entre lava e rochas do Nether">
-          <div class="world-overlay"></div>
-          <div class="world-copy">
-            <p class="world-number">02</p>
+        <article class="h-painel" id="painel-nether" role="tabpanel" aria-labelledby="aba-nether" data-painel="nether" hidden>
+          <img src="assets/img/fundos/nether.jpg" alt="Colunas de lava no Nether" loading="lazy" width="1920" height="1080">
+          <div class="h-painel-texto">
             <h3>O perigo tem outra dimensão.</h3>
             <p>Fortalezas, bastiões e tudo o que você precisa levar para voltar inteiro — e mais forte.</p>
-            <a class="button button--glass" href="nether.html">Entrar no Nether <span aria-hidden="true">›</span></a>
+            <ul class="h-fatos">
+              <li><strong>5</strong> biomas</li>
+              <li><strong>4</strong> estruturas</li>
+              <li><strong>11</strong> mobs</li>
+            </ul>
+            <a class="btn btn--claro" href="nether.html">Entrar no Nether</a>
           </div>
         </article>
 
-        <article class="world-panel" id="panel-end" role="tabpanel" aria-labelledby="tab-end" data-world-panel="end" hidden>
-          <img src="assets/img/end/dragao.jpg" alt="O Dragão de Ender sobre a ilha central do End">
-          <div class="world-overlay"></div>
-          <div class="world-copy">
-            <p class="world-number">03</p>
+        <article class="h-painel" id="painel-end" role="tabpanel" aria-labelledby="aba-end" data-painel="end" hidden>
+          <img src="assets/img/fundos/end.jpg" alt="Um Navio do End ao lado de uma Cidade do End" loading="lazy" width="1920" height="1080">
+          <div class="h-painel-texto">
             <h3>O fim é só o começo.</h3>
-            <p>Derrote o Dragão, alcance as cidades distantes e conquiste o item que muda toda a exploração.</p>
-            <a class="button button--glass" href="end.html">Chegar ao The End <span aria-hidden="true">›</span></a>
+            <p>Derrote o dragão, alcance as cidades distantes e conquiste o item que muda toda a exploração.</p>
+            <ul class="h-fatos">
+              <li><strong>6</strong> passos até o dragão</li>
+              <li><strong>11</strong> itens raros</li>
+              <li><strong>5</strong> lugares</li>
+            </ul>
+            <a class="btn btn--claro" href="end.html">Chegar ao The End</a>
           </div>
         </article>
       </div>
     </section>
 
-    <section class="ore-story section" aria-labelledby="ore-title">
-      <div class="ore-copy" data-reveal>
-        <p class="eyebrow eyebrow--aqua">Evolução sem adivinhação</p>
-        <h2 id="ore-title">Do cobre à<br><span>netherite.</span></h2>
-        <p>Descubra onde encontrar cada minério, quanto você precisa e qual equipamento vale fabricar primeiro.</p>
-        <a class="text-link text-link--light" href="minerios.html">Abrir o guia de minérios <span aria-hidden="true">›</span></a>
+    <!-- ===== 5. As ferramentas de cada guia ===== -->
+    <section class="h-recursos" aria-labelledby="h-recursos-titulo">
+      <div class="h-cabeca" data-reveal>
+        <h2 id="h-recursos-titulo">Feito para jogar.<br><span>Não para decorar.</span></h2>
+        <p>Cada guia tem uma ferramenta que responde a pergunta na hora.</p>
       </div>
 
-      <div class="ore-visual" data-reveal aria-hidden="true">
-        <div class="ore-orbit ore-orbit--one"></div>
-        <div class="ore-orbit ore-orbit--two"></div>
-        <div class="ore-core">
-          <img src="assets/img/itens/netherite_ingot.png" alt="">
-          <span>Netherite</span>
-        </div>
-        <div class="ore-chip ore-chip--diamond"><img src="assets/img/itens/diamond.png" alt=""><span>Diamante</span></div>
-        <div class="ore-chip ore-chip--gold"><img src="assets/img/itens/gold_ingot.png" alt=""><span>Ouro</span></div>
-        <div class="ore-chip ore-chip--iron"><img src="assets/img/itens/iron_ingot.png" alt=""><span>Ferro</span></div>
+      <div class="h-recursos-grade">
+        <a class="recurso-tile recurso-tile--calc" href="minerios.html#calculadora" data-reveal>
+          <div class="recurso-texto">
+            <p class="tile-olho">Calculadora de kit</p>
+            <h3>Marque as peças. Ela soma tudo.</h3>
+            <span class="mais-link">Montar o meu kit</span>
+          </div>
+          <div class="mock mock-calc" aria-hidden="true">
+            <div class="mock-slots">
+              <span class="mock-slot is-on"><img src="assets/img/itens/diamond_helmet.png" alt=""></span>
+              <span class="mock-slot is-on"><img src="assets/img/itens/diamond_chestplate.png" alt=""></span>
+              <span class="mock-slot is-on"><img src="assets/img/itens/diamond_leggings.png" alt=""></span>
+              <span class="mock-slot is-on"><img src="assets/img/itens/diamond_boots.png" alt=""></span>
+              <span class="mock-slot"><img src="assets/img/itens/diamond_sword.png" alt=""></span>
+              <span class="mock-slot is-on is-netherite"><img src="assets/img/itens/netherite_pickaxe.png" alt=""></span>
+            </div>
+            <div class="mock-total">
+              <span><img src="assets/img/itens/diamond.png" alt=""><b>27</b> diamantes</span>
+              <span><img src="assets/img/itens/ancient_debris.png" alt=""><b>4</b> detritos</span>
+              <span><img src="assets/img/itens/stick.png" alt=""><b>2</b> gravetos</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="recurso-tile recurso-tile--enc" href="encantamentos.html#melhor" data-reveal style="--atraso: 0.08s">
+          <div class="recurso-texto">
+            <p class="tile-olho">Melhor encantamento</p>
+            <h3>Clique no item. Veja a combinação perfeita.</h3>
+            <span class="mais-link">Encantar a minha espada</span>
+          </div>
+          <div class="mock mock-enc" aria-hidden="true">
+            <div class="mock-itens">
+              <span><img src="assets/img/itens/bow.png" alt=""></span>
+              <span class="is-on"><img src="assets/img/itens/diamond_sword.png" alt=""></span>
+              <span><img src="assets/img/itens/trident.png" alt=""></span>
+              <span><img src="assets/img/itens/mace.png" alt=""></span>
+              <span><img src="assets/img/itens/elytra.png" alt=""></span>
+            </div>
+            <ul class="mock-lista">
+              <li><img src="assets/img/itens/enchanted_book.png" alt="">Afiação V</li>
+              <li><img src="assets/img/itens/enchanted_book.png" alt="">Inquebrável III</li>
+              <li><img src="assets/img/itens/enchanted_book.png" alt="">Remendo</li>
+            </ul>
+          </div>
+        </a>
+
+        <a class="recurso-tile recurso-tile--pocao" href="pocoes.html#escolher" data-reveal>
+          <div class="recurso-texto">
+            <p class="tile-olho">Passo a passo</p>
+            <h3>Da água à poção, sem errar um ingrediente.</h3>
+            <span class="mais-link">Fazer uma poção</span>
+          </div>
+          <div class="mock mock-pocao" aria-hidden="true">
+            <span class="mock-slot"><img src="assets/img/itens/potion_water.png" alt=""></span>
+            <i>+</i>
+            <span class="mock-slot"><img src="assets/img/itens/nether_wart.png" alt=""></span>
+            <i class="mock-seta"></i>
+            <span class="mock-slot"><img src="assets/img/itens/potion_awkward.png" alt=""></span>
+            <i>+</i>
+            <span class="mock-slot"><img src="assets/img/itens/sugar.png" alt=""></span>
+            <i class="mock-seta"></i>
+            <span class="mock-slot is-on"><img src="assets/img/itens/potion_swiftness.png" alt=""></span>
+          </div>
+        </a>
+
+        <a class="recurso-tile recurso-tile--vila" href="minerios.html#aldeoes" data-reveal style="--atraso: 0.08s">
+          <div class="recurso-texto">
+            <p class="tile-olho">Trocas com os aldeões</p>
+            <h3>Quem vende o quê, do Novato ao Mestre.</h3>
+            <span class="mais-link">Visitar a vila</span>
+          </div>
+          <div class="mock mock-vila" aria-hidden="true">
+            <img src="assets/img/aldeoes/bibliotecario.png" alt="">
+            <img src="assets/img/aldeoes/armeiro-armaduras.png" alt="">
+            <img src="assets/img/aldeoes/cartografo.png" alt="">
+          </div>
+        </a>
       </div>
     </section>
 
-    <section class="guide-section section" id="guias" aria-labelledby="guide-title">
-      <div class="guide-header" data-reveal>
-        <div>
-          <p class="eyebrow eyebrow--dark">Explore mais</p>
-          <h2 id="guide-title">Um guia para cada jornada.</h2>
-        </div>
-        <div class="carousel-controls" aria-label="Controles da lista de guias">
-          <button type="button" data-carousel-prev aria-label="Guias anteriores">‹</button>
-          <button type="button" data-carousel-next aria-label="Próximos guias">›</button>
-        </div>
-      </div>
-
-      <div class="guide-track" data-guide-track data-reveal>
-        <a class="guide-card guide-card--surface" href="superficie.html">
-          <div class="guide-card-copy"><span>Explore</span><h3>A Superfície</h3><p>Biomas, mobs e estruturas.</p></div>
-          <img src="assets/img/itens/oak_sapling.png" alt="">
-          <span class="card-arrow" aria-hidden="true">↗</span>
-        </a>
-        <a class="guide-card guide-card--ore" href="minerios.html">
-          <div class="guide-card-copy"><span>Evolua</span><h3>Minérios</h3><p>Do carvão à netherite.</p></div>
-          <img src="assets/img/itens/diamond_pickaxe.png" alt="">
-          <span class="card-arrow" aria-hidden="true">↗</span>
-        </a>
-        <a class="guide-card guide-card--enchant" href="encantamentos.html">
-          <div class="guide-card-copy"><span>Encante</span><h3>Encantamentos</h3><p>O melhor para cada item.</p></div>
-          <img src="assets/img/itens/enchanted_book.png" alt="">
-          <span class="card-arrow" aria-hidden="true">↗</span>
-        </a>
-        <a class="guide-card guide-card--potion" href="pocoes.html">
-          <div class="guide-card-copy"><span>Prepare</span><h3>Poções</h3><p>Receitas passo a passo.</p></div>
-          <img src="assets/img/itens/potion_healing.png" alt="">
-          <span class="card-arrow" aria-hidden="true">↗</span>
-        </a>
-        <a class="guide-card guide-card--nether" href="nether.html">
-          <div class="guide-card-copy"><span>Sobreviva</span><h3>Nether</h3><p>Cinco biomas. Muitos perigos.</p></div>
-          <img src="assets/img/itens/blaze_rod.png" alt="">
-          <span class="card-arrow" aria-hidden="true">↗</span>
-        </a>
-        <a class="guide-card guide-card--end" href="end.html">
-          <div class="guide-card-copy"><span>Conquiste</span><h3>The End</h3><p>Do Dragão aos Élitros.</p></div>
-          <img src="assets/img/itens/elytra.png" alt="">
-          <span class="card-arrow" aria-hidden="true">↗</span>
-        </a>
+    <!-- ===== 6. Você sabia? ===== -->
+    <section class="h-curiosidade" aria-labelledby="h-curiosidade-titulo">
+      <div class="h-curiosidade-cartao" data-curiosidade data-reveal>
+        <img src="assets/img/itens/enchanted_book.png" alt="">
+        <h2 id="h-curiosidade-titulo">Você sabia?</h2>
+        <p class="h-curiosidade-texto" data-curiosidade-texto aria-live="polite">Um dia inteiro no Minecraft dura 20 minutos na vida real.</p>
+        <button class="btn btn--escuro" type="button" data-curiosidade-botao>Outra curiosidade</button>
       </div>
     </section>
 
-    <section class="did-you-know section" aria-labelledby="fact-title">
-      <div class="fact-card" data-curiosidade data-reveal>
-        <img src="assets/img/itens/enchanted_book.png" alt="" aria-hidden="true">
-        <p class="eyebrow">Descubra algo novo</p>
-        <h2 id="fact-title">Você sabia?</h2>
-        <p class="fact-text" data-curiosidade-texto aria-live="polite">Um dia inteiro no Minecraft dura 20 minutos na vida real.</p>
-        <button class="button button--dark" type="button" data-curiosidade-botao>Outra curiosidade <span aria-hidden="true">↻</span></button>
-      </div>
-    </section>
-
-    <section class="final-cta">
-      <div data-reveal>
-        <p class="eyebrow">Pronto para começar?</p>
-        <h2>Seu próximo mundo<br>espera por você.</h2>
-        <a class="button button--light" href="superficie.html">Começar pela Superfície <span aria-hidden="true">›</span></a>
+    <!-- ===== 7. Chamada final ===== -->
+    <section class="h-final" aria-labelledby="h-final-titulo">
+      <picture>
+        <source media="(max-width: 833px)" srcset="assets/img/fundos/cta-m.jpg">
+        <img class="h-final-foto" src="assets/img/fundos/cta.jpg" alt="" loading="lazy" width="1920" height="1080">
+      </picture>
+      <div class="h-final-texto" data-reveal>
+        <h2 id="h-final-titulo">Seu próximo mundo<br>espera por você.</h2>
+        <a class="btn btn--claro" href="superficie.html">Começar pela Superfície</a>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="footer-main">
-      <a class="brand brand--footer" href="index.html"><img src="assets/img/itens/grass_block.png" alt=""><span>MineGuia</span></a>
-      <p>Minecraft explicado do jeito que você gostaria de ter encontrado no primeiro dia.</p>
-      <nav aria-label="Links do rodapé">
-        <a href="superficie.html">Superfície</a>
-        <a href="minerios.html">Minérios</a>
-        <a href="encantamentos.html">Encantamentos</a>
-        <a href="nether.html">Nether</a>
-        <a href="pocoes.html">Poções</a>
-        <a href="end.html">The End</a>
+  <footer class="gfoot">
+    <div class="gfoot-dentro">
+      <div class="gfoot-topo">
+        <a class="gfoot-marca" href="index.html"><img src="assets/img/itens/grass_block.png" alt=""><span>MineGuia</span></a>
+        <p class="gfoot-frase">Você chegou na bedrock. Não dá pra cavar mais fundo!</p>
+      </div>
+      <nav class="gfoot-colunas" aria-label="Todos os guias">
+        <div>
+          <h2>Explorar</h2>
+          <ul>
+            <li><a href="superficie.html">A Superfície</a></li>
+            <li><a href="nether.html">Rumo ao Nether</a></li>
+            <li><a href="end.html">The End</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Evoluir</h2>
+          <ul>
+            <li><a href="minerios.html">Guia até o Topo</a></li>
+            <li><a href="encantamentos.html">Os Encantamentos</a></li>
+            <li><a href="pocoes.html">As Poções</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Atalhos</h2>
+          <ul>
+            <li><a href="minerios.html#calculadora">Calculadora de kit</a></li>
+            <li><a href="minerios.html#aldeoes">Trocas com os aldeões</a></li>
+            <li><a href="end.html#passo-dragao">Como derrotar o dragão</a></li>
+          </ul>
+        </div>
       </nav>
-    </div>
-    <div class="footer-meta">
-      <span>© <span data-ano>2026</span> MineGuia · Feito por Allan Freire.</span>
-      <span>Projeto de fãs não afiliado à Mojang Studios.</span>
+      <div class="gfoot-meta">
+        <p>© <span data-ano>2026</span> MineGuia — feito por Allan Freire, para fãs.</p>
+        <p>Valores da Java Edition 26.3 · Imagens: <a href="https://minecraft.wiki" target="_blank" rel="noopener">Minecraft Wiki</a> · © Mojang Studios.</p>
+      </div>
     </div>
   </footer>
 
   <script src="js/main.js"></script>
-  <script src="js/home.js?v=20261013-2"></script>
+  <script src="js/site.js"></script>
+  <script src="js/home.js"></script>
 </body>
 </html>

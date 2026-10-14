@@ -8,7 +8,7 @@
 Site oficial: MineGuia.vercel.app
 
 Guias rápidos e visuais para quem quer entender o Minecraft de verdade:<br>
-imagens dos itens do próprio jogo, números conferidos e uma interface que parece um inventário.
+imagens dos itens do próprio jogo, números conferidos e um visual limpo, no estilo das páginas da Apple.
 
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS](https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=css&logoColor=white)
@@ -17,7 +17,7 @@ imagens dos itens do próprio jogo, números conferidos e uma interface que pare
 
 </div>
 
-![Página inicial atual do MineGuia, com o título Domine cada bloco, chamadas para ação e uma paisagem do Minecraft](docs/img/inicio.png)
+![Página inicial atual do MineGuia, com o título Domine cada bloco, chamadas para ação e uma paisagem do Minecraft](docs/img/inicio.jpg)
 
 ## Sumário
 
@@ -51,17 +51,17 @@ O **MineGuia** junta essas respostas em guias curtos, organizados por assunto. A
 O projeto segue seis princípios:
 
 - **Direto ao ponto.** Cada guia responde perguntas práticas do jogo, com números e passos claros, sem textão.
-- **Visual de Minecraft.** Painéis de inventário, slots, botões de pedra, tooltips roxas e "conquistas" no canto da tela. Quem joga se sente em casa.
+- **Bonito e fácil de ler.** Fotos do jogo em tela cheia, títulos grandes, cards limpos e os itens em pixel art no meio de tudo. Quem joga reconhece cada coisa na hora.
 - **Imagens reais.** Todos os itens, blocos e texturas são os do próprio jogo, então você reconhece na hora o que precisa procurar.
 - **Números confiáveis.** Custos, proteção, durabilidade e alturas conferidos na Minecraft Wiki (Java Edition).
-- **Descontraído.** Frase amarela pulsando como na tela inicial do jogo, um creeper que "explode" a sua lista e conquistas quando você completa um conjunto.
+- **Descontraído.** Um creeper que "explode" a sua lista, conquistas quando você completa um conjunto e curiosidades do jogo a cada clique.
 - **Para qualquer tela.** Funciona no celular, no tablet e no computador — e até sem servidor, abrindo o arquivo direto.
 
 ## O que tem no site
 
 | Parte | O que faz |
 |:--|:--|
-| **Página inicial** | Apresentação editorial inspirada na Apple, com chamadas claras, animações suaves e uma vitrine visual para acessar os seis guias. |
+| **Página inicial** | Uma foto do jogo que cresce enquanto você rola, os números do site, os seis guias em mosaico, as três dimensões e as ferramentas de cada guia. |
 | **A Superfície** | Todos os biomas do mundo normal com os animais e os monstros de cada um, e as 20 estruturas — com onde encontrar cada uma, quem mora lá e o que vem nos baús —, mais um guia rápido para ir direto a cada uma. |
 | **Guia até o Topo** | Do cobre à netherite: quanto minério cada armadura e cada ferramenta pedem, onde achar cada minério, que picareta usar e o passo a passo da netherite. |
 | **Calculadora de kit** | Você marca as peças que quer e ela soma só o que você precisa — até o carvão da fornalha. |
@@ -75,16 +75,18 @@ O projeto segue seis princípios:
 
 ## Página inicial e os guias
 
-![Vitrine atual dos seis guias na página inicial, com imagens, ícones e chamadas para cada mundo do MineGuia](docs/img/abas.png)
+![Mosaico com os seis guias na página inicial, cada um com uma foto do jogo](docs/img/abas.jpg)
 
-- **Apresentação direta.** O topo destaca a mensagem “Domine cada bloco” e leva o jogador para a exploração dos conteúdos ou diretamente para A Superfície.
-- **Navegação simplificada.** Na Home aparecem apenas a marca MineGuia e o botão **Explorar guias**, reduzindo distrações e deixando a entrada no site mais clara.
-- **Vitrine dos guias.** A Superfície, Minérios, Encantamentos, Nether, Poções e The End aparecem em cards editoriais com imagens, ícones, cores próprias e links visíveis.
-- **Movimento suave.** Elementos entram durante a rolagem, as imagens ganham profundidade e os botões respondem às interações sem prejudicar a leitura.
+- **Topo de cinema.** O título "Domine cada bloco." e, logo abaixo, uma foto do jogo que começa como um cartão e cresce até ocupar a tela inteira enquanto você rola, com um diamante, uma picareta e uma maçã dourada flutuando por cima.
+- **Os números do site.** 56 biomas, 43 encantamentos, 19 poções e 14 aldeões, que contam até o valor quando aparecem na tela.
+- **Os seis guias em mosaico.** Cada guia ganha um cartão com uma foto do jogo, um ícone, uma frase e o atalho para abrir.
+- **As três dimensões.** Um seletor desliza entre Superfície, Nether e The End, com uma foto grande e os números de cada uma.
+- **As ferramentas de cada guia.** A calculadora de kit, o melhor encantamento, o passo a passo das poções e as trocas da vila, desenhados com os itens de verdade.
+- **Você sabia?** Uma curiosidade do jogo que muda a cada clique.
 
 ## A Superfície
 
-![Topo da página A Superfície com o guia rápido de estruturas e biomas](docs/img/superficie.png)
+![Topo da página A Superfície com o guia rápido de estruturas e biomas](docs/img/superficie.jpg)
 
 O guia da Superfície, em `superficie.html`, segue o mesmo visual atual das demais páginas e dá acesso rápido a estruturas e biomas.
 
@@ -98,7 +100,7 @@ O guia da Superfície, em `superficie.html`, segue o mesmo visual atual das dema
 
 ## Guia até o Topo
 
-![Topo do Guia até o Topo, com a trilha de picaretas da madeira à netherite](docs/img/guia.png)
+![Topo do Guia até o Topo, com a trilha de picaretas da madeira à netherite](docs/img/guia.jpg)
 
 O primeiro guia leva o jogador da picareta de madeira até o material mais forte do jogo, a **netherite**. A página funciona como uma descida pelo subsolo: cada minério fica numa "camada" com a textura de onde ele aparece (pedra, ardósia ou netherrack) e uma etiqueta com a melhor altura para minerar.
 
@@ -225,7 +227,7 @@ As combinações recomendadas partiram de uma imagem de "melhores encantamentos"
 
 ## Rumo ao Nether
 
-![Topo da página do Nether com o guia rápido de biomas e estruturas](docs/img/nether.png)
+![Topo da página do Nether com o guia rápido de biomas e estruturas](docs/img/nether.jpg)
 
 O guia do Nether fica em `nether.html`, com identidade visual própria e acesso rápido a biomas e estruturas.
 
@@ -242,7 +244,7 @@ Os mobs, os biomas e as estruturas são chips clicáveis: do bioma você vai par
 
 ## As Poções
 
-![Topo da página As Poções com o seletor de poções](docs/img/pocoes.png)
+![Topo da página As Poções com o seletor de poções](docs/img/pocoes.jpg)
 
 O guia de poções fica em `pocoes.html`, com um seletor visual que abre cada receita passo a passo.
 
@@ -254,7 +256,7 @@ O guia de poções fica em `pocoes.html`, com um seletor visual que abre cada re
 
 ## The End
 
-![Topo da página The End com o guia rápido](docs/img/end.png)
+![Topo da página The End com o guia rápido](docs/img/end.jpg)
 
 O guia do End fica em `end.html`, com um painel rápido para navegar pela progressão, recompensas e lugares dessa dimensão.
 
@@ -267,23 +269,25 @@ O guia do End fica em `end.html`, com um painel rápido para navegar pela progre
 
 ## No celular
 
-![O site no celular: página inicial, seletor das Poções e guia rápido do The End](docs/img/celular.png)
+![O site no celular: página inicial, seletor das Poções e guia rápido do The End](docs/img/celular.jpg)
 
-O layout se adapta de 320 px até telas grandes. A Home reorganiza título, botões e imagem principal; nas páginas internas, o menu vira um botão compacto. A trilha de picaretas, o painel dos aldeões, os seletores e os guias rápidos passam a usar faixas horizontais, enquanto cards e calculadora se empilham para preservar leitura e toque confortável.
+O layout se adapta de 320 px até telas grandes. O menu vira um botão que abre uma tela cheia com os guias, e a barra de seções de cada guia mostra as seções numa lista que abre e fecha. A trilha de picaretas, o painel dos aldeões, os seletores e os guias rápidos passam a usar faixas horizontais, enquanto cards e calculadora se empilham para preservar leitura e toque confortável.
 
 ## Identidade visual
 
-- **Interface de inventário.** Painéis cinza com relevo e cantos "pixelados", slots afundados, botões de pedra que ganham borda branca ao passar o mouse e botões verdes para as ações principais.
-- **Texturas reais como cenário.** Terra escurecida no fundo (como na tela de opções do jogo), pedra, ardósia e netherrack nas camadas dos minérios, tábuas de carvalho na calculadora e bedrock no rodapé.
-- **Pixel art nítida.** Todas as imagens usam `image-rendering: pixelated` e aparecem em múltiplos de 16 px.
-- **Cores do jogo.** O amarelo da frase da tela inicial, o roxo das tooltips, o azul dos atributos e o dourado dos custos.
-- **Fontes legíveis.** Rubik nos títulos e no logo, Nunito nos textos — as duas com números bem claros.
+- **No estilo da Apple.** Fundo claro, cards brancos com cantos arredondados, títulos grandes e muito espaço em branco. Os topos das páginas são escuros, com uma foto do jogo em tela cheia e um painel de vidro com o guia rápido.
+- **Uma cor por guia.** Verde na Superfície, azul nos Minérios, roxo nos Encantamentos, laranja no Nether, rosa nas Poções e lilás no End — usada com moderação, só nos destaques.
+- **Barra de seções.** Em cada guia, uma barra fixa no topo mostra o nome do guia, as seções (a da tela fica marcada) e um botão de atalho. Ela fica escura sobre o topo e clara sobre o conteúdo.
+- **Menu igual em todas as páginas.** No celular, ele vira uma tela cheia com os ícones de cada guia.
+- **Pixel art nítida.** Os itens usam `image-rendering: pixelated` e aparecem em múltiplos de 16 px; as fotos ficam suaves.
+- **Fonte Inter.** Feita para telas, com números bem claros e boa leitura em qualquer tamanho.
+- **Movimento na medida.** Títulos que sobem ao aparecer, cards que se erguem ao passar o mouse e a foto do topo que cresce — tudo desligado se o sistema pedir menos movimento.
 
 ### Acessibilidade e desempenho
 
 - Dá para usar tudo pelo teclado, com foco visível; os slots da calculadora são botões com `aria-pressed`.
 - As imagens que trazem informação têm texto alternativo; as ilustrações decorativas ficam escondidas dos leitores de tela.
-- Respeita a opção "reduzir movimento" do sistema, desligando nuvens, itens boiando e animações.
+- Respeita a opção "reduzir movimento" do sistema, desligando o zoom da foto, os itens flutuando e as animações.
 - É leve para o tanto de conteúdo: 859 imagens que somam cerca de 4,5 MB, sem frameworks e sem etapa de build. As capturas de tela só carregam quando aparecem na tela.
 
 ## Como rodar
@@ -315,7 +319,7 @@ E acesse `http://localhost:8000` (ou o endereço que o `serve` mostrar).
 
 ```text
 SITE-MINECRAFT/
-├── index.html             Página inicial: céu, logo, abas dos guias e curiosidades
+├── index.html             Página inicial: topo com a foto que cresce, números, mosaico dos guias, dimensões e curiosidades
 ├── minerios.html          Guia até o Topo: quantidades, calculadora, receitas, aldeões e dicas
 ├── encantamentos.html     Os Encantamentos: melhor combinação por item, como encantar e todos os encantamentos
 ├── nether.html            Rumo ao Nether: guia rápido, biomas, estruturas com os baús e mobs
@@ -323,17 +327,22 @@ SITE-MINECRAFT/
 ├── pocoes.html            As Poções: seletor com o passo a passo, como fazer poções e todas as poções
 ├── end.html               The End: guia rápido, como derrotar o dragão, o que dá para conseguir e os lugares do End
 ├── css/
-│   ├── style.css          Estilo global: cores, painéis, slots, botões, tooltip, conquistas e página inicial
+│   ├── base.css           Base de todas as páginas: cores, fonte, menu do topo, barra de seções, rodapé e botões
+│   ├── home.css           Visual da página inicial
+│   ├── guias.css          Visual dos guias: topo com foto, seções e a aparência de todos os componentes
+│   ├── style.css          Estrutura dos componentes comuns: slots, painéis, tooltip e conquistas
 │   ├── minerios.css       Estilo do guia, das camadas de minério, da calculadora e das receitas
 │   ├── aldeoes.css        Estilo do painel da vila e dos cards dos aldeões
 │   ├── encantamentos.css  Estilo da página de encantamentos
 │   ├── mundo.css          Peças dos guias de mundo (Nether e Superfície): guia rápido, cards, chips de mobs e baús
-│   ├── nether.css         Estilo da página do Nether: céu vermelho, faíscas e a seção de mobs
+│   ├── nether.css         Estilo da página do Nether: a seção de mobs
 │   ├── superficie.css     Estilo da página da Superfície: cards dos biomas e grupos de estruturas
-│   ├── pocoes.css         Estilo da página das Poções: céu roxo, passo a passo, tabela de durações e cards
-│   └── end.css            Estilo da página do End: céu estrelado, torres, passos, kit e itens
+│   ├── pocoes.css         Estilo da página das Poções: seletor, passo a passo, tabela de durações e cards
+│   └── end.css            Estilo da página do End: passos, kit, caixas do jeito fácil e itens
 ├── js/
-│   ├── main.js            Usado em todas as páginas: frase amarela, tooltips, conquistas e curiosidades
+│   ├── main.js            Usado em todas as páginas: tooltips, conquistas e curiosidades
+│   ├── site.js            Usado em todas as páginas: menu do celular, barra de seções dos guias e entrada suave
+│   ├── home.js            Página inicial: a foto que cresce, os números que contam e as abas das dimensões
 │   ├── dados-minerios.js  Todos os números e textos do guia (é aqui que se edita)
 │   ├── minerios.js        Monta o guia, a calculadora e as receitas a partir dos dados
 │   ├── dados-aldeoes.js   Todas as trocas dos aldeões, uma por linha, com os nomes oficiais em português
@@ -349,6 +358,7 @@ SITE-MINECRAFT/
 │   ├── dados-end.js       Passos, kit, itens e lugares do End, com os baús das Cidades do End
 │   └── end.js             Monta o guia rápido, os passos, os itens e os lugares
 ├── assets/img/
+│   ├── fundos/            Fotos do jogo em tela cheia do topo de cada página (versão grande e de celular)
 │   ├── itens/             Ícones de itens e blocos, com o ID do jogo no nome (ex.: diamond_sword.png)
 │   ├── texturas/          Texturas de fundo: terra, pedra, ardósia, netherrack, tijolos do Nether, lava, bedrock...
 │   ├── nether/            Capturas de tela dos biomas e das estruturas e o rosto de cada mob do Nether
@@ -385,10 +395,10 @@ SITE-MINECRAFT/
 ## Tecnologias
 
 - **HTML5** semântico.
-- **CSS3**: variáveis, Grid, Flexbox, `clip-path` para os cantos de pixel e animações.
+- **CSS3**: variáveis, Grid, Flexbox, `backdrop-filter` para o efeito de vidro, `color-mix` para as cores de cada guia e animações.
 - **JavaScript puro**, sem frameworks: o conteúdo do guia é gerado a partir de um arquivo de dados.
 - **localStorage** para lembrar a lista da calculadora.
-- **Google Fonts**: Rubik e Nunito.
+- **Google Fonts**: Inter.
 - Sem dependências e sem etapa de build: o que está no repositório é o site.
 
 ## Autor e créditos
@@ -396,4 +406,4 @@ SITE-MINECRAFT/
 Feito por **Allan Freire** ([@AllanFreire](https://github.com/AllanFreire)).
 
 - Imagens dos itens, blocos, texturas e capturas de tela: [Minecraft Wiki](https://minecraft.wiki) · © Mojang Studios.
-- Fontes: [Rubik](https://fonts.google.com/specimen/Rubik) e [Nunito](https://fonts.google.com/specimen/Nunito), via Google Fonts (SIL Open Font License).
+- Fonte: [Inter](https://fonts.google.com/specimen/Inter), via Google Fonts (SIL Open Font License).

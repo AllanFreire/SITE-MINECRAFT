@@ -6,33 +6,34 @@
   <title>Guia até o Topo — MineGuia</title>
   <meta name="description" content="Quantos minérios você precisa para a armadura completa e as ferramentas de cobre, ferro, ouro, diamante e netherite — com calculadora e as trocas de cada aldeão.">
   <link rel="icon" type="image/png" href="assets/img/itens/diamond_pickaxe.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400..900&family=Rubik:wght@500..900&display=swap">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/minerios.css">
   <link rel="stylesheet" href="css/aldeoes.css">
-  <link rel="stylesheet" href="css/guide-modern.css?v=20261013-4">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&display=swap">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/guias.css">
+  <script>document.documentElement.classList.add("js")</script>
 </head>
-<body class="pagina-minerios">
+<body class="pagina-minerios guia" data-subnav-acao="Guia rápido|#guia-rapido">
   <a class="pular-conteudo" href="#quantidades">Pular para as quantidades</a>
 
-  <header class="topo">
-    <div class="container">
-      <a class="marca" href="index.html">
-        <img src="assets/img/itens/grass_block.png" alt="">
-        <span>MineGuia</span>
+  <header class="gnav">
+    <nav class="gnav-barra" aria-label="Principal">
+      <a class="gnav-marca" href="index.html" aria-label="MineGuia, página inicial">
+        <img src="assets/img/itens/grass_block.png" alt=""><span>MineGuia</span>
       </a>
-      <nav class="menu" aria-label="Principal">
-        <a href="index.html"><img src="assets/img/itens/crafting_table.png" alt=""><span>Início</span></a>
-        <a href="superficie.html"><img src="assets/img/itens/oak_sapling.png" alt=""><span>Superfície</span></a>
-        <a href="minerios.html" aria-current="page"><img src="assets/img/itens/diamond_pickaxe.png" alt=""><span>Minérios</span></a>
-        <a href="encantamentos.html"><img src="assets/img/itens/enchanted_book.png" alt=""><span>Encantamentos</span></a>
-        <a href="nether.html"><img src="assets/img/itens/netherrack.png" alt=""><span>Nether</span></a>
-        <a href="pocoes.html"><img src="assets/img/itens/potion_healing.png" alt=""><span>Poções</span></a>
-        <a href="end.html"><img src="assets/img/itens/ender_eye.png" alt=""><span>The End</span></a>
-      </nav>
-    </div>
+      <ul class="gnav-links" id="gnav-links">
+        <li><a href="superficie.html"><img src="assets/img/itens/oak_sapling.png" alt=""><span>Superfície</span></a></li>
+        <li><a href="minerios.html" aria-current="page"><img src="assets/img/itens/diamond_pickaxe.png" alt=""><span>Minérios</span></a></li>
+        <li><a href="encantamentos.html"><img src="assets/img/itens/enchanted_book.png" alt=""><span>Encantamentos</span></a></li>
+        <li><a href="nether.html"><img src="assets/img/itens/netherrack.png" alt=""><span>Nether</span></a></li>
+        <li><a href="pocoes.html"><img src="assets/img/itens/potion_healing.png" alt=""><span>Poções</span></a></li>
+        <li><a href="end.html"><img src="assets/img/itens/eye_of_ender.png" alt=""><span>The End</span></a></li>
+      </ul>
+      <button class="gnav-abrir" type="button" aria-expanded="false" aria-controls="gnav-links" aria-label="Abrir menu"><span></span><span></span></button>
+    </nav>
   </header>
 
   <main>
@@ -48,7 +49,7 @@
         <h1 class="guia-titulo">Guia até o Topo</h1>
         <p class="guia-intro chat">Do cobre à netherite em um só lugar. Veja quantos minérios cada armadura e cada ferramenta pedem, onde achar cada um, monte o <a href="#calculadora">seu próprio kit na calculadora</a> e descubra <a href="#aldeoes">o que cada aldeão troca</a>.</p>
 
-        <div class="jornada">
+        <div class="jornada" id="guia-rapido">
           <h2 class="jornada-titulo">Sua jornada de picaretas</h2>
           <ol class="trilha">
             <li class="passo">
@@ -111,7 +112,7 @@
     </section>
 
     <!-- ===== Quantidades: cada minério numa camada do subsolo ===== -->
-    <section class="secao secao--quantidades" id="quantidades" aria-labelledby="titulo-quantidades">
+    <section class="secao secao--quantidades" id="quantidades" data-subnav="Quantidades" aria-labelledby="titulo-quantidades">
       <div class="container">
         <h2 class="titulo-secao" id="titulo-quantidades"><img src="assets/img/itens/iron_ingot.png" alt="">Quanto minério eu preciso?</h2>
         <p class="secao-desc">Primeiro, a regra que vale para quase tudo: a receita de cada peça é sempre a mesma, só muda o material. Passe o mouse nos itens para ver os detalhes.</p>
@@ -123,7 +124,7 @@
     </section>
 
     <!-- ===== Calculadora ===== -->
-    <section class="secao secao--oficina" id="calculadora" aria-labelledby="titulo-calc">
+    <section class="secao secao--oficina" id="calculadora" data-subnav="Calculadora" aria-labelledby="titulo-calc">
       <div class="container">
         <h2 class="titulo-secao" id="titulo-calc"><img src="assets/img/itens/crafting_table.png" alt="">Calculadora: monte o seu kit</h2>
         <p class="secao-desc">Clique nas peças que você quer fazer (clique de novo para tirar). A calculadora soma só o que você escolheu e mostra o total de minérios, gravetos e até o carvão da fornalha.</p>
@@ -132,7 +133,7 @@
     </section>
 
     <!-- ===== Receitas na bancada ===== -->
-    <section class="secao" id="receitas" aria-labelledby="titulo-receitas">
+    <section class="secao" id="receitas" data-subnav="Receitas" aria-labelledby="titulo-receitas">
       <div class="container">
         <h2 class="titulo-secao" id="titulo-receitas"><img src="assets/img/itens/smithing_table.png" alt="">Bônus: como montar cada peça</h2>
         <p class="secao-desc">Escolha o material e veja onde colocar cada item na grade 3×3 da bancada. A netherite é feita na mesa de ferraria.</p>
@@ -141,7 +142,7 @@
     </section>
 
     <!-- ===== Aldeões e trocas (montado por js/aldeoes.js) ===== -->
-    <section class="secao secao--vila" id="aldeoes" aria-labelledby="titulo-aldeoes">
+    <section class="secao secao--vila" id="aldeoes" data-subnav="Aldeões" aria-labelledby="titulo-aldeoes">
       <div class="container">
         <h2 class="titulo-secao" id="titulo-aldeoes"><img src="assets/img/itens/emerald.png" alt="">Trocas com os aldeões</h2>
         <p class="secao-desc">Os aldeões também levam você até o topo: dá para comprar até armadura e ferramentas de diamante encantadas. Aqui está o que cada um faz e todas as trocas, em ordem, do nível Novato ao Mestre.</p>
@@ -150,7 +151,7 @@
     </section>
 
     <!-- ===== Dicas ===== -->
-    <section class="secao" id="dicas" aria-labelledby="titulo-dicas">
+    <section class="secao" id="dicas" data-subnav="Dicas" aria-labelledby="titulo-dicas">
       <div class="container">
         <h2 class="titulo-secao" id="titulo-dicas"><img src="assets/img/itens/torch.png" alt="">Dicas de minerador</h2>
         <p class="secao-desc">Pequenos truques que poupam tempo, diamantes e algumas vidas.</p>
@@ -202,17 +203,47 @@
     </section>
   </main>
 
-  <footer class="rodape">
-    <div class="container">
-      <p class="fim">Você chegou na bedrock.<br>Não dá pra cavar mais fundo!</p>
-      <p>MineGuia · <span data-ano>2026</span> — feito por Allan Freire, para fãs.</p>
-      <p>Valores da Java Edition (no Bedrock a durabilidade é 1 ponto maior).</p>
-      <p>Imagens dos itens e texturas: <a href="https://minecraft.wiki" target="_blank" rel="noopener">Minecraft Wiki</a> · © Mojang Studios.</p>
+  <footer class="gfoot">
+    <div class="gfoot-dentro">
+      <div class="gfoot-topo">
+        <a class="gfoot-marca" href="index.html"><img src="assets/img/itens/grass_block.png" alt=""><span>MineGuia</span></a>
+        <p class="gfoot-frase">Você chegou na bedrock. Não dá pra cavar mais fundo!</p>
+      </div>
+      <nav class="gfoot-colunas" aria-label="Todos os guias">
+        <div>
+          <h2>Explorar</h2>
+          <ul>
+            <li><a href="superficie.html">A Superfície</a></li>
+            <li><a href="nether.html">Rumo ao Nether</a></li>
+            <li><a href="end.html">The End</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Evoluir</h2>
+          <ul>
+            <li><a href="minerios.html">Guia até o Topo</a></li>
+            <li><a href="encantamentos.html">Os Encantamentos</a></li>
+            <li><a href="pocoes.html">As Poções</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Atalhos</h2>
+          <ul>
+            <li><a href="minerios.html#calculadora">Calculadora de kit</a></li>
+            <li><a href="minerios.html#aldeoes">Trocas com os aldeões</a></li>
+            <li><a href="end.html#passo-dragao">Como derrotar o dragão</a></li>
+          </ul>
+        </div>
+      </nav>
+      <div class="gfoot-meta">
+        <p>© <span data-ano>2026</span> MineGuia — feito por Allan Freire, para fãs.</p>
+        <p>Valores da Java Edition 26.3 · Imagens: <a href="https://minecraft.wiki" target="_blank" rel="noopener">Minecraft Wiki</a> · © Mojang Studios.</p>
+      </div>
     </div>
   </footer>
 
   <script src="js/main.js"></script>
-  <script src="js/guide-shell.js"></script>
+  <script src="js/site.js"></script>
   <script src="js/dados-minerios.js"></script>
   <script src="js/minerios.js"></script>
   <script src="js/dados-aldeoes.js"></script>

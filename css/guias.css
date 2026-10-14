@@ -1,0 +1,1593 @@
+/* =============================================================
+   MineGuia — visual das páginas de guia
+   -------------------------------------------------------------
+   Vem depois de style.css, minerios.css e do CSS de cada guia:
+   aqui fica só a "pele" (cores, cantos, tipografia, espaços) de
+   todos os componentes. A disposição de cada um continua nos
+   arquivos de origem.
+
+   1. Variáveis e base         6. Minérios, calculadora e receitas
+   2. Topo do guia             7. Aldeões
+   3. Seções e títulos         8. Encantamentos e poções
+   4. Componentes comuns       9. Biomas, estruturas e baús
+   5. Tooltip e conquistas    10. The End
+                              11. Celular
+   ============================================================= */
+
+/* ---------- 1. Variáveis e base ---------- */
+.guia {
+  /* variáveis antigas da interface "de inventário", agora claras */
+  --gui: #ffffff;
+  --gui-luz: #ffffff;
+  --gui-sombra: #e8e8ed;
+  --gui-texto: var(--texto);
+  --gui-texto-suave: var(--texto-2);
+  --slot: #ffffff;
+  --slot-escuro: rgba(0, 0, 0, 0.08);
+  --slot-claro: rgba(0, 0, 0, 0.08);
+  --mc-amarelo: #ffd60a;
+  --largura: 1180px;
+  --cartao: #ffffff;
+  --cartao-2: var(--fundo-2);
+  --barra-chance: #ff9f0a;
+
+  background: var(--fundo-2);
+  background-image: none;
+  color: var(--texto);
+}
+
+.pagina-superficie { --acento: #30d158; --acento-texto: #248a3d; --hero-foto: url("../assets/img/fundos/superficie.jpg"); --hero-foto-m: url("../assets/img/fundos/superficie-m.jpg"); }
+.pagina-minerios { --acento: #64d2ff; --acento-texto: #0071a4; --hero-foto: url("../assets/img/fundos/minerios.jpg"); --hero-foto-m: url("../assets/img/fundos/minerios-m.jpg"); }
+.pagina-encantamentos { --acento: #bf5af2; --acento-texto: #8944ab; --hero-foto: url("../assets/img/fundos/encantamentos.jpg"); --hero-foto-m: url("../assets/img/fundos/encantamentos-m.jpg"); }
+.pagina-nether { --acento: #ff6b4a; --acento-texto: #c4361b; --hero-foto: url("../assets/img/fundos/nether.jpg"); --hero-foto-m: url("../assets/img/fundos/nether-m.jpg"); }
+.pagina-pocoes { --acento: #ff6ec7; --acento-texto: #b8297a; --hero-foto: url("../assets/img/fundos/pocoes.jpg"); --hero-foto-m: url("../assets/img/fundos/pocoes-m.jpg"); }
+.pagina-end { --acento: #c79bff; --acento-texto: #7d4ccf; --hero-foto: url("../assets/img/fundos/end.jpg"); --hero-foto-m: url("../assets/img/fundos/end-m.jpg"); }
+
+html:has(.guia) {
+  scroll-padding-top: calc(var(--subnav) + 18px);
+}
+
+/* as sombras de texto e os chanfros "de pixel" saem de todo o conteúdo */
+.guia main *,
+.guia main *::before,
+.guia main *::after {
+  text-shadow: none !important;
+}
+
+.guia h1,
+.guia h2,
+.guia h3,
+.guia h4,
+.guia h5 {
+  font-family: var(--fonte);
+  letter-spacing: -0.02em;
+}
+
+.guia .container {
+  width: min(var(--largura), calc(100% - 48px));
+  margin-inline: auto;
+}
+
+.guia :where(.painel) a {
+  color: var(--link);
+}
+
+/* ---------- 2. Topo do guia ---------- */
+.guia .subnav {
+  margin-bottom: calc(-1 * var(--subnav));
+}
+
+.guia .ceu.guia-hero {
+  position: relative;
+  margin-top: calc(-1 * var(--gnav));
+  padding: calc(var(--gnav) + var(--subnav) + clamp(64px, 10vw, 140px)) 0 clamp(72px, 9vw, 120px);
+  color: var(--texto-claro);
+  background: #000;
+  overflow: hidden;
+  overflow: clip;
+  isolation: isolate;
+}
+
+/* a foto ocupa o topo inteiro e se apaga no preto */
+.guia .ceu.guia-hero::before {
+  content: "";
+  position: absolute;
+  z-index: -2;
+  inset: 0 0 auto;
+  height: min(100svh, 1040px);
+  background: var(--hero-foto) center 35% / cover no-repeat;
+  animation: foto-entra 1.8s var(--ease) both;
+}
+
+.guia .ceu.guia-hero::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.72) 0%, rgba(0, 0, 0, 0.35) 45%, rgba(0, 0, 0, 0) 75%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.12) 22%, rgba(0, 0, 0, 0.5) 52%, #000 min(100svh, 1040px));
+}
+
+@keyframes foto-entra {
+  from {
+    opacity: 0;
+    transform: scale(1.06);
+  }
+}
+
+.guia .guia-hero > .container {
+  position: relative;
+  z-index: 1;
+}
+
+.guia .ceu.guia-hero :is(.sol, .nuvem, .lua, .bolhas, .cinzas, .pendurado, .estrelas, .torre, .chao) {
+  display: none;
+}
+
+.guia .migalhas {
+  margin: 0 0 18px;
+  color: rgba(245, 245, 247, 0.62);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+.guia .migalhas a {
+  color: rgba(245, 245, 247, 0.86);
+  text-decoration: none;
+}
+
+.guia .migalhas a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.guia .guia-titulo {
+  max-width: 980px;
+  margin: 0 0 22px;
+  color: #fff;
+  font-size: clamp(48px, 8.4vw, 112px);
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+  animation: sobe 1s var(--ease) both;
+}
+
+.guia .guia-intro.chat {
+  display: block;
+  max-width: 700px;
+  margin: 0 0 clamp(48px, 6vw, 80px);
+  padding: 0;
+  color: rgba(245, 245, 247, 0.84);
+  background: none;
+  font-size: clamp(19px, 2.1vw, 24px);
+  font-weight: 450;
+  line-height: 1.38;
+  letter-spacing: -0.015em;
+  animation: sobe 1s 0.12s var(--ease) both;
+}
+
+.guia .guia-intro.chat a {
+  color: var(--acento);
+  font-weight: 550;
+  text-decoration: none;
+}
+
+.guia .guia-intro.chat a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@keyframes sobe {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+}
+
+/* painel de vidro com o guia rápido */
+.guia .jornada {
+  padding: clamp(22px, 3vw, 36px);
+  color: var(--texto-claro);
+  background: rgba(28, 28, 30, 0.62);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--raio-xl);
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.45);
+  backdrop-filter: saturate(160%) blur(30px);
+  -webkit-backdrop-filter: saturate(160%) blur(30px);
+  animation: sobe 1s 0.24s var(--ease) both;
+}
+
+.guia .jornada + .jornada {
+  margin-top: 20px;
+}
+
+.guia .jornada-titulo {
+  margin: 0 0 22px;
+  color: #fff;
+  font-size: clamp(19px, 2vw, 24px);
+  font-weight: 650;
+  line-height: 1.25;
+}
+
+.guia .atalhos-titulo,
+.guia .grupo-escolha-titulo {
+  margin: 6px 0 14px;
+  color: rgba(245, 245, 247, 0.56);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.guia .grupo-escolha-titulo small {
+  color: rgba(245, 245, 247, 0.5);
+  font-size: 13px;
+  font-weight: 450;
+  letter-spacing: 0;
+}
+
+.guia .atalhos-titulo::after {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* ícones do guia rápido (escuros dentro do topo, claros no conteúdo) */
+.guia .passo-icone {
+  width: 64px;
+  height: 64px;
+  background: var(--fundo-2);
+  border: 0;
+  border-radius: 18px;
+  box-shadow: none;
+  transition: background 0.25s ease, transform 0.35s var(--ease), box-shadow 0.25s ease;
+}
+
+.guia .passo-icone img {
+  width: 40px;
+  height: 40px;
+}
+
+.guia .guia-hero .passo-icone {
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.guia .guia-hero :is(.atalho, .passo > a, .escolha-item, .morador > a):hover .passo-icone,
+.guia .guia-hero :is(.atalho, .passo > a, .escolha-item, .morador > a):focus-visible .passo-icone {
+  background: rgba(255, 255, 255, 0.16);
+  border: 0;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.3);
+  transform: translateY(-3px);
+}
+
+.guia .guia-hero .passo--desvio .passo-icone {
+  background: rgba(255, 214, 10, 0.16);
+  box-shadow: inset 0 0 0 1px rgba(255, 214, 10, 0.5);
+}
+
+.guia .guia-hero .passo--final .passo-icone,
+.guia .guia-hero .escolha-item[aria-pressed="true"] .passo-icone {
+  background: color-mix(in srgb, var(--acento) 26%, transparent);
+  box-shadow: inset 0 0 0 1.5px var(--acento), 0 0 28px color-mix(in srgb, var(--acento) 35%, transparent);
+}
+
+.guia .guia-hero :is(.passo b, .atalho b, .escolha-item b, .morador b) {
+  color: #f5f5f7;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.guia .guia-hero .escolha-item[aria-pressed="true"] b {
+  color: var(--acento);
+}
+
+.guia .guia-hero :is(.passo small, .atalho small, .morador small) {
+  color: rgba(245, 245, 247, 0.55);
+  font-size: 12px;
+}
+
+.guia .guia-hero :is(.passo a:hover b, .atalho:hover b, .morador a:hover b) {
+  color: #fff;
+}
+
+.guia .passo + .passo::before {
+  top: 32px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.18);
+  box-shadow: none;
+}
+
+.guia .trilha-dica {
+  color: rgba(245, 245, 247, 0.5);
+  font-size: 13px;
+}
+
+/* ---------- 3. Seções e títulos ---------- */
+.guia .secao,
+.guia .secao:is(.secao--pedra, .secao--oficina, .secao--vila, .secao--estante, .secao--pocoes, .secao--tijolos, .secao--end, .secao--quantidades) {
+  padding: clamp(80px, 10vw, 140px) 0;
+  color: var(--texto);
+  background: var(--fundo-2);
+  border: 0;
+}
+
+/* uma linha fina separa as seções */
+.guia .secao + .secao {
+  box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.06);
+}
+
+.guia .titulo-secao {
+  display: block;
+  max-width: 900px;
+  margin: 0 0 18px;
+  color: var(--texto);
+  font-size: clamp(40px, 5.6vw, 64px);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+}
+
+/* o ícone do título vira um "ícone de app" em cima do texto */
+.guia .titulo-secao img {
+  display: block;
+  width: 80px;
+  height: 80px;
+  margin: 0 0 26px;
+  padding: 16px;
+  background: #fff;
+  border-radius: 22px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 10px 30px rgba(0, 0, 0, 0.07);
+}
+
+.guia .secao-desc,
+.guia .secao:is(.secao--pedra, .secao--oficina, .secao--vila, .secao--estante, .secao--pocoes, .secao--tijolos, .secao--end) .secao-desc {
+  max-width: 760px;
+  margin: 0 0 clamp(40px, 5vw, 64px);
+  color: var(--texto-2);
+  font-size: clamp(19px, 2vw, 23px);
+  font-weight: 450;
+  line-height: 1.42;
+  letter-spacing: -0.015em;
+}
+
+.guia :is(.grupo-titulo, .grupo-enc-titulo, .vila-grupo-titulo, .grupo-mobs-titulo) {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 18px;
+  padding: 0;
+  color: var(--texto);
+  font-size: clamp(24px, 2.6vw, 32px);
+  font-weight: 650;
+  letter-spacing: -0.025em;
+  border: 0;
+}
+
+.guia :is(.grupo-titulo, .grupo-enc-titulo) img {
+  width: 32px;
+  height: 32px;
+}
+
+.guia :is(.grupo-enc-titulo, .grupo-mobs-titulo) small {
+  color: var(--texto-3);
+  font-size: 17px;
+  font-weight: 450;
+  letter-spacing: -0.01em;
+}
+
+/* ---------- 4. Componentes comuns ---------- */
+.guia .painel {
+  color: var(--texto);
+  background: var(--cartao);
+  border: 0;
+  border-radius: var(--raio-l);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03), 0 6px 24px rgba(0, 0, 0, 0.045);
+  clip-path: none;
+}
+
+.guia :where(.painel) :where(h2, h3, h4) {
+  color: var(--texto);
+}
+
+/* cards pequenos sobem um pouco ao passar o mouse */
+.guia :is(.enc, .pocao-card, .item-end, .mob, .bioma, .dica-card, .como, .receita, .aldeao:not([open])) {
+  transition: transform 0.45s var(--ease), box-shadow 0.45s var(--ease);
+}
+
+.guia :is(.enc, .pocao-card, .item-end, .mob, .bioma, .dica-card, .aldeao:not([open])):hover {
+  transform: translateY(-4px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04), 0 18px 44px rgba(0, 0, 0, 0.1);
+}
+
+/* card que pisca quando um atalho leva até ele */
+.guia .piscar {
+  animation: destaque 1.9s var(--ease) !important;
+}
+
+@keyframes destaque {
+  0%,
+  30% {
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--acento) 70%, transparent), 0 18px 44px rgba(0, 0, 0, 0.12);
+  }
+}
+
+/* slot de inventário: um quadrado branco com cantos suaves */
+.guia .slot {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+  box-shadow: none;
+}
+
+.guia .slot .qtd {
+  right: 2px;
+  bottom: 0;
+  color: var(--texto);
+  font-family: var(--fonte);
+  font-size: 13px;
+  font-weight: 700;
+  text-shadow: 0 0 2px #fff, 0 0 3px #fff, 0 0 4px #fff !important;
+}
+
+.guia .slot .qtd.faixa {
+  color: #fff;
+  background: rgba(0, 0, 0, 0.72);
+  border-radius: 4px;
+  text-shadow: none !important;
+}
+
+.guia .slot--r {
+  border-radius: 8px;
+}
+
+.guia .grade3 {
+  gap: 4px;
+}
+
+.guia .seta {
+  background: #c7c7cc;
+}
+
+/* botões em formato de pílula */
+.guia .botao {
+  --b-fundo: var(--escuro-3);
+  gap: 8px;
+  min-height: 40px;
+  padding: 8px 18px;
+  color: #fff;
+  background: var(--b-fundo);
+  border: 0;
+  border-radius: 999px;
+  box-shadow: none;
+  font-family: var(--fonte);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  transition: background 0.2s ease, transform 0.2s var(--ease), filter 0.2s ease;
+}
+
+.guia .botao img {
+  width: 20px;
+  height: 20px;
+}
+
+.guia .botao:hover,
+.guia .botao:focus-visible {
+  color: #fff;
+  border: 0;
+  filter: brightness(1.18);
+}
+
+.guia .botao:active {
+  transform: scale(0.97);
+}
+
+.guia .botao--pequeno {
+  min-height: 34px;
+  padding: 6px 14px;
+  font-size: 14px;
+}
+
+.guia a.botao {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* grupos de opções viram um controle segmentado */
+.guia :is(.bau-abas, .abas-mat, .filtro-ordem, .calc-atalhos) .botao {
+  --b-fundo: var(--fundo-3);
+  color: var(--texto);
+}
+
+.guia :is(.bau-abas, .abas-mat, .filtro-ordem, .calc-atalhos) .botao:hover {
+  color: var(--texto);
+  filter: brightness(0.96);
+}
+
+.guia :is(.bau-abas, .abas-mat, .filtro-ordem, .calc-atalhos) .botao[aria-pressed="true"],
+.guia .aba-mat[aria-pressed="true"] {
+  --b-fundo: var(--escuro-3);
+  color: #fff;
+}
+
+/* etiquetas */
+.guia :is(.tag, .tag-nova, .tag-tipo, .freq, .efeito-tag, .kit-tag, .regra-total) {
+  display: inline-block;
+  padding: 2px 9px;
+  border: 0;
+  border-radius: 999px;
+  font-family: var(--fonte);
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: 0.03em;
+  line-height: 1.5;
+}
+
+/* dicas */
+.guia .minerio-dica,
+.guia .card-mundo .minerio-dica,
+.guia .bioma .minerio-dica,
+.guia .receita-painel .minerio-dica,
+.guia .melhor-painel .minerio-dica,
+.guia .passo-end .minerio-dica {
+  align-items: center;
+  margin: 16px 0 0;
+  padding: 14px 16px;
+  color: var(--texto);
+  background: color-mix(in srgb, var(--cor, var(--acento)) 11%, #fff);
+  border: 0;
+  border-radius: 16px;
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+.guia .minerio-dica img {
+  width: 28px;
+  height: 28px;
+}
+
+/* chips (mobs, biomas, estruturas) */
+.guia .painel .chip,
+.guia .chip {
+  gap: 8px;
+  padding: 4px 12px 4px 4px;
+  color: var(--texto);
+  background: var(--fundo-2);
+  border: 0 !important;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 550;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.guia .chip img,
+.guia .chips--p .chip img {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+}
+
+.guia a.chip:hover,
+.guia .painel .chip:hover {
+  background: var(--fundo-3);
+}
+
+/* bolinha com a cor do comportamento do mob */
+.guia :is(.chip--passivo, .chip--neutro, .chip--hostil)::before {
+  content: "";
+  flex: none;
+  width: 8px;
+  height: 8px;
+  margin-left: 6px;
+  border-radius: 50%;
+}
+
+.guia .chip--passivo::before { background: #30d158; }
+.guia .chip--neutro::before { background: #ffcc00; }
+.guia .chip--hostil::before { background: #ff3b30; }
+
+.guia .tag-tipo--passivo { color: #fff; background: #248a3d; }
+.guia .tag-tipo--neutro { color: #3d2e00; background: #ffd60a; }
+.guia .tag-tipo--hostil { color: #fff; background: #d70015; }
+
+.guia :is(.rotulo, .card-mundo .rotulo, .bioma .rotulo, .mob-rotulo, .ficha-titulo, .melhor-rotulo, .minerio-apelido, .aldeao-apelido) {
+  color: var(--texto-2);
+  font-family: var(--fonte);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+
+.guia .apelido {
+  color: var(--acento-texto);
+  font-family: var(--fonte);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.guia .nenhum {
+  color: var(--texto-3);
+}
+
+/* tabelas */
+.guia table {
+  border-collapse: collapse;
+}
+
+/* ---------- 5. Tooltip e conquistas ---------- */
+.tooltip {
+  padding: 9px 12px 10px;
+  color: #f5f5f7;
+  background: rgba(28, 28, 30, 0.96);
+  border: 1px solid rgba(191, 90, 242, 0.45);
+  border-image: none;
+  outline: 0;
+  border-radius: 12px;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.3);
+  font-family: var(--fonte);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+  text-shadow: none;
+}
+
+.tooltip span,
+.tooltip .t-titulo {
+  text-shadow: none !important;
+}
+
+.tooltip .t-titulo {
+  font-weight: 650;
+}
+
+.tooltip .t-cinza { color: #a1a1a6; }
+.tooltip .t-azul { color: #9aa5ff; }
+.tooltip .t-verde { color: #30d158; }
+.tooltip .t-ouro { color: #ffb340; }
+.tooltip .t-aqua { color: #64d2ff; }
+
+.toasts {
+  top: calc(var(--subnav) + 14px);
+}
+
+.toast {
+  padding: 12px 16px 12px 12px;
+  color: #f5f5f7;
+  background: rgba(28, 28, 30, 0.92);
+  border: 0;
+  border-radius: 18px;
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.toast b {
+  color: #ffd60a;
+  font-weight: 650;
+  text-shadow: none;
+}
+
+.toast span {
+  color: rgba(245, 245, 247, 0.86);
+  font-size: 15px;
+  text-shadow: none;
+}
+
+/* ---------- 6. Minérios, calculadora e receitas ---------- */
+.guia .regra-item {
+  padding: 4px 14px 4px 4px;
+  background: var(--fundo-2);
+  border-radius: 999px;
+  box-shadow: none;
+}
+
+.guia .regra-item .slot {
+  border-radius: 999px;
+}
+
+.guia .regra-item b,
+.guia .kit-custo b {
+  color: var(--texto);
+  font-weight: 700;
+}
+
+.guia .regra-total {
+  color: #fff;
+  background: var(--escuro-3);
+  font-size: 0.85em;
+}
+
+.guia .camada {
+  padding: 22px 0;
+  background: none;
+  border: 0;
+}
+
+.guia .profundidade {
+  margin-bottom: 14px;
+  padding: 5px 14px 5px 6px;
+  color: #fff;
+  background: var(--escuro-3);
+  border: 0;
+  border-radius: 999px;
+  box-shadow: none;
+  font-family: var(--fonte);
+  font-size: 14px;
+  font-weight: 650;
+}
+
+.guia .profundidade img {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+}
+
+.guia .minerio {
+  overflow: hidden;
+  padding: clamp(26px, 3vw, 40px);
+}
+
+.guia .minerio::before {
+  inset: 0 0 auto;
+  height: 6px;
+  box-shadow: none;
+}
+
+.guia .minerio-blocos img {
+  filter: drop-shadow(0 10px 14px rgba(0, 0, 0, 0.18));
+}
+
+.guia .minerio-nome h3 {
+  color: var(--texto);
+  font-size: clamp(32px, 4.4vw, 48px);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+}
+
+.guia .ficha,
+.guia .processo li {
+  padding: 14px 16px;
+  background: var(--fundo-2);
+  border-radius: 16px;
+  box-shadow: none;
+}
+
+.guia .processo-n {
+  width: 32px;
+  height: 32px;
+  color: #fff;
+  background: var(--escuro-3);
+  border-radius: 50%;
+  font-family: var(--fonte);
+  font-size: 15px;
+  font-weight: 650;
+}
+
+.guia .seta-mini {
+  color: var(--texto-3);
+}
+
+.pagina-minerios .kit {
+  padding: 18px;
+  background: var(--fundo-2);
+  border-radius: 20px;
+  box-shadow: none;
+}
+
+.pagina-minerios .kit h4 {
+  font-size: 19px;
+  font-weight: 650;
+}
+
+.pagina-minerios .kit-item {
+  padding: 4px 12px 4px 4px;
+  background: #fff;
+  border-radius: 12px;
+}
+
+.pagina-minerios .kit-item:hover {
+  background: #fff;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+}
+
+.guia .kit-nome {
+  font-weight: 550;
+}
+
+.guia .tag-nova {
+  margin-left: 6px;
+  color: #0b3d0b;
+  background: #30d158;
+}
+
+.guia .kit-total b {
+  color: var(--texto);
+  font-weight: 700;
+}
+
+.guia .icones-hud {
+  padding: 4px 6px;
+  background: var(--escuro-3);
+  border-radius: 8px;
+}
+
+.guia .barra-dur {
+  height: 8px;
+  padding: 0;
+  background: var(--fundo-3);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.guia .barra-dur i {
+  border-radius: 999px;
+}
+
+.guia .kit-completo {
+  padding: 14px 18px;
+  color: var(--texto);
+  background: color-mix(in srgb, var(--cor, var(--acento)) 14%, #fff);
+  border-radius: 16px;
+  box-shadow: none;
+  font-size: 16px;
+}
+
+.guia .kit-completo b {
+  color: var(--texto);
+  font-weight: 700;
+}
+
+/* calculadora */
+.guia .calc {
+  padding: clamp(22px, 3vw, 36px);
+}
+
+.guia .calc-h {
+  font-size: 22px;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+}
+
+.guia .calc-linha {
+  padding: 14px 16px;
+  background: var(--fundo-2);
+  border-radius: 18px;
+  box-shadow: none;
+}
+
+.guia .calc-mat b {
+  font-size: 19px;
+  font-weight: 650;
+}
+
+.guia .calc-mat .slot {
+  border-radius: 999px;
+}
+
+.guia .slot--botao {
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s var(--ease);
+}
+
+.guia .slot--botao:hover::after {
+  inset: 0;
+  background: rgba(0, 0, 0, 0.04);
+  border-radius: 9px;
+}
+
+.guia .slot--botao[aria-pressed="true"] {
+  background: color-mix(in srgb, var(--cor, var(--acento)) 26%, #fff);
+  border-color: color-mix(in srgb, var(--cor, var(--acento)) 75%, #000);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--cor, var(--acento)) 75%, #000);
+}
+
+.guia .calc-opcoes {
+  padding: 20px 22px;
+  color: var(--texto-claro);
+  background: var(--escuro-3);
+  border-radius: 20px;
+  box-shadow: none;
+}
+
+.guia .calc-opcoes .calc-h {
+  color: #fff;
+}
+
+.guia .check input {
+  accent-color: var(--verde-vivo);
+}
+
+.guia .stepper {
+  padding: 2px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 0;
+  border-radius: 999px;
+}
+
+.guia .stepper button {
+  color: #fff;
+  background: transparent;
+  border-radius: 50%;
+  box-shadow: none;
+  font-family: var(--fonte);
+  font-weight: 500;
+}
+
+.guia .stepper button:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.guia .stepper button:disabled {
+  color: rgba(255, 255, 255, 0.3);
+  background: transparent;
+}
+
+.guia .stepper output {
+  color: #fff;
+  font-family: var(--fonte);
+  font-weight: 650;
+}
+
+.guia .calc-total,
+.guia .calc-lista {
+  padding: 22px;
+  background: var(--fundo-2);
+  border-radius: 20px;
+  box-shadow: none;
+}
+
+.guia .recurso-txt b {
+  color: var(--texto);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.guia .calc-detalhes li,
+.guia .calc-escolhidos li {
+  background: #fff;
+  border-radius: 12px;
+}
+
+.guia .calc-detalhes li.alerta {
+  background: #fff4d6;
+  box-shadow: none;
+}
+
+.guia .calc-escolhidos li.calc-vazio {
+  background: none;
+}
+
+.guia .remover {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  color: #fff;
+  background: #ff3b30;
+  border: 0;
+  border-radius: 50%;
+  box-shadow: none;
+  font-family: var(--fonte);
+  font-weight: 600;
+}
+
+.guia .remover:hover {
+  background: #d70015;
+}
+
+.guia .calc.explodindo::after {
+  border-radius: inherit;
+}
+
+/* receitas */
+.guia .receita {
+  padding: 16px;
+  background: var(--fundo-2);
+  border-radius: 20px;
+  box-shadow: none;
+}
+
+.guia .receita figcaption b {
+  font-weight: 650;
+}
+
+/* dicas do fim do guia */
+.guia .dica-card {
+  padding: 24px;
+}
+
+.guia .dica-card h3 {
+  font-size: 19px;
+  font-weight: 650;
+}
+
+/* ---------- 7. Aldeões ---------- */
+.guia .morador .passo-icone {
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1), inset 0 -3px 0 var(--cor);
+}
+
+.guia .vila-niveis li,
+.guia .amostra {
+  background: var(--fundo-2);
+  border-radius: 12px;
+}
+
+.guia .amostra--ganha { box-shadow: inset 4px 0 0 #30d158; }
+.guia .amostra--gasta { box-shadow: inset 4px 0 0 #ffcc00; }
+
+.guia :is(.amostra--nota, .troca--nota)::after,
+.guia .nivel-notas li::before {
+  color: #3d2e00;
+  background: #ffd60a;
+  border: 0;
+  border-radius: 6px;
+}
+
+.guia .vila-grupo-titulo {
+  border-left: 0;
+}
+
+.guia .vila-grupo-titulo::before {
+  content: "";
+  flex: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--cor);
+}
+
+.guia .vila-grupo-desc {
+  margin-top: -10px;
+  color: var(--texto-2);
+}
+
+.guia .aldeao {
+  overflow: hidden;
+}
+
+.guia .aldeao::before {
+  inset: 0 0 auto;
+  height: 5px;
+  box-shadow: none;
+}
+
+.guia .aldeao-nome {
+  color: var(--texto);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+.guia .aldeao-resumo:hover .aldeao-nome {
+  color: var(--texto);
+}
+
+.guia .aldeao-corpo {
+  border-top: 1px solid var(--linha);
+}
+
+.guia .aldeao-retrato {
+  filter: drop-shadow(0 12px 16px rgba(0, 0, 0, 0.16));
+}
+
+.guia .aldeao-destaque {
+  padding: 12px 14px;
+  background: var(--fundo-2);
+  border-radius: 14px;
+  box-shadow: none;
+}
+
+.guia .aldeao-estacao {
+  background: var(--fundo-2);
+  border-radius: 18px;
+  box-shadow: none;
+}
+
+.guia .nivel-linha {
+  border-top: 1px solid var(--linha);
+}
+
+.guia .troca {
+  background: var(--fundo-2);
+  border-radius: 12px;
+  box-shadow: inset 3px 0 0 var(--tipo);
+}
+
+.guia .troca:hover {
+  background: var(--fundo-3);
+}
+
+.guia .troca-seta {
+  background: #c7c7cc;
+}
+
+.guia .troca-mais {
+  color: var(--texto-3);
+}
+
+/* ---------- 8. Encantamentos e poções ---------- */
+.guia .melhor-painel,
+.guia .receita-painel {
+  padding: clamp(22px, 3vw, 36px);
+  animation: sobe 0.6s var(--ease) both;
+}
+
+.guia .melhor-topo h3 {
+  font-weight: 700;
+  letter-spacing: -0.035em;
+}
+
+.guia .melhor-lista a {
+  padding: 8px 12px 8px 8px;
+  background: var(--fundo-2);
+  border-radius: 14px;
+  transition: background 0.2s ease;
+}
+
+.guia .melhor-lista a:hover {
+  background: var(--fundo-3);
+}
+
+.guia .melhor-lista b {
+  color: var(--acento-texto);
+  font-weight: 650;
+}
+
+.guia .melhor-lista .ou {
+  color: var(--texto-3);
+  font-weight: 600;
+}
+
+.guia .melhor-escolha {
+  border: 1px solid var(--linha);
+  border-radius: 18px;
+}
+
+.guia .onde-encantar--bigorna {
+  color: #b25000;
+}
+
+.guia .como h3 {
+  font-size: 21px;
+  font-weight: 650;
+}
+
+.guia .como-lista li::marker {
+  color: var(--texto-3);
+}
+
+.guia .estantes-grade .vazio {
+  background: var(--fundo-3);
+}
+
+.guia .romanos span {
+  padding: 3px 12px;
+  background: var(--fundo-2);
+  border-radius: 999px;
+}
+
+.guia .filtros {
+  padding: 14px 18px;
+  background: #fff;
+  border: 0;
+  border-radius: 20px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03), 0 6px 24px rgba(0, 0, 0, 0.045);
+}
+
+.guia .filtro-item select {
+  min-height: 38px;
+  padding: 6px 34px 6px 14px;
+  color: var(--texto);
+  background: var(--fundo-2) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 4.5l4 4 4-4' fill='none' stroke='%236e6e73' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E") right 12px center / 12px no-repeat;
+  border: 0;
+  border-radius: 999px;
+  font: 500 15px var(--fonte);
+  appearance: none;
+}
+
+.guia .filtro-item,
+.guia .filtro-ordem {
+  font-weight: 550;
+}
+
+.guia .contagem {
+  color: var(--texto-3);
+  font-weight: 500;
+}
+
+.guia .enc {
+  padding: 22px;
+}
+
+.guia .enc-topo h4 {
+  color: var(--texto);
+  font-weight: 700;
+}
+
+.guia .tag--tesouro {
+  color: #3d2e00;
+  background: #ffd60a;
+}
+
+.guia .tag--maldicao {
+  color: #fff;
+  background: #d70015;
+}
+
+.guia .enc-niveis li {
+  background: var(--fundo-2);
+  border-radius: 12px;
+}
+
+.guia .romano {
+  color: #fff;
+  background: var(--acento-texto);
+  border-radius: 8px;
+  font-family: var(--fonte);
+  font-weight: 650;
+}
+
+.guia .enc-conflito,
+.guia .enc-conflito a {
+  color: #c4342b;
+}
+
+/* poções */
+.guia .efeito-tag {
+  color: #fff;
+  background: var(--acento-texto);
+  font-size: 12px;
+  letter-spacing: 0.01em;
+}
+
+.guia .passo-pocao,
+.guia .variantes li {
+  background: var(--fundo-2);
+  border-radius: 18px;
+}
+
+.guia .passo-num {
+  color: #fff;
+  background: var(--escuro-3);
+  border-radius: 50%;
+  box-shadow: none;
+  font-family: var(--fonte);
+  font-weight: 650;
+}
+
+.guia .mais {
+  color: var(--texto-3);
+  font-family: var(--fonte);
+  font-weight: 500;
+}
+
+.guia .peca small {
+  font-weight: 550;
+}
+
+.guia .tabela-rolagem {
+  border-radius: 16px;
+  background: var(--fundo-2);
+  padding: 4px 14px;
+}
+
+.guia .tempos th,
+.guia .tempos td {
+  padding: 11px 10px;
+  border: 0;
+  border-bottom: 1px solid var(--linha);
+  background: none;
+}
+
+.guia .tempos tr:last-child :is(th, td) {
+  border-bottom: 0;
+}
+
+.guia .tempos tr:first-child th {
+  color: var(--texto-2);
+  background: none;
+  font-family: var(--fonte);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.guia .tempos td {
+  font-family: var(--fonte);
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+}
+
+.guia .pocao-card {
+  padding: 22px;
+}
+
+.guia .pocao-topo h4 {
+  color: var(--texto);
+  font-weight: 650;
+}
+
+.guia .pocao-tempos li {
+  background: var(--fundo-2);
+  border-radius: 999px;
+}
+
+.guia .pocao-tempos b {
+  color: var(--acento-texto);
+  font-family: var(--fonte);
+  font-weight: 650;
+}
+
+/* ---------- 9. Biomas, estruturas e baús ---------- */
+.guia .card-mundo {
+  padding: clamp(22px, 3vw, 36px);
+}
+
+.guia .card-topo h3,
+.guia .card-topo h4 {
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.guia .card-foto {
+  overflow: hidden;
+  border: 0;
+  border-radius: 20px;
+  box-shadow: none;
+}
+
+.guia .card-foto figcaption {
+  left: 12px;
+  top: 12px;
+  padding: 3px 10px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 999px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  font-family: var(--fonte);
+  font-size: 11px;
+  font-weight: 650;
+}
+
+.guia .card-ficha {
+  padding: 16px 18px 18px;
+  background: var(--fundo-2);
+  border: 0;
+  border-radius: 20px;
+}
+
+.guia .perigo b {
+  color: #c4342b;
+  font-family: var(--fonte);
+  font-weight: 650;
+}
+
+.guia .card-mundo .amostra,
+.guia .bioma .amostra {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 6px;
+}
+
+.guia .freq--muito-comum { background: #ff3b30; }
+.guia .freq--comum { background: #ff9500; }
+.guia .freq--pouco-comum { background: #a2845e; }
+.guia .freq--raro { background: #8e8e93; }
+.guia .freq--na-lava { background: #ff6b00; }
+.guia .freq--o-unico-monstro { background: #8944ab; }
+
+.guia .baus {
+  padding-top: 26px;
+  border-top: 1px solid var(--linha);
+}
+
+.guia .baus-titulo {
+  font-size: 22px;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+}
+
+.guia .bau-desc {
+  font-weight: 550;
+}
+
+.guia .loot {
+  padding: 8px 12px 10px 8px;
+  background:
+    linear-gradient(90deg, var(--barra-chance) var(--p), rgba(0, 0, 0, 0.07) var(--p)) left bottom / 100% 3px no-repeat,
+    var(--fundo-2);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.guia .loot-chance {
+  color: var(--texto);
+  font-family: var(--fonte);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.guia .baus-legenda {
+  color: var(--texto-3);
+}
+
+.guia .mob {
+  padding: 22px;
+}
+
+.guia .mob-topo .passo-icone {
+  box-shadow: none;
+}
+
+.guia .mob-topo h4 {
+  font-weight: 650;
+}
+
+/* superfície */
+.guia .comuns {
+  padding: 20px 22px;
+}
+
+.guia .bioma {
+  overflow: hidden;
+}
+
+.guia .bioma-foto {
+  overflow: hidden;
+  border: 0;
+}
+
+.guia .bioma-foto img {
+  transition: transform 0.8s var(--ease);
+}
+
+.guia .bioma:hover .bioma-foto img {
+  transform: scale(1.04);
+}
+
+.guia .bioma-corpo {
+  padding: 18px 20px 22px;
+}
+
+.guia .bioma .minerio-dica {
+  border-left-color: transparent;
+}
+
+.guia .sem-monstros {
+  color: #1d6b31;
+  background: #e3f6e8;
+  border: 0;
+  border-radius: 12px;
+}
+
+/* ---------- 10. The End ---------- */
+.pagina-end .passo-end {
+  padding: clamp(22px, 3vw, 36px);
+}
+
+.pagina-end .passo-end-topo h3 {
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.pagina-end .passo-num {
+  background: var(--acento-texto);
+}
+
+.pagina-end .passo-foto {
+  overflow: hidden;
+  border: 0;
+  border-radius: 20px;
+}
+
+.pagina-end .lista-passo li::marker {
+  color: var(--acento-texto);
+}
+
+.pagina-end .kit-item {
+  padding: 10px 12px 10px 10px;
+  background: var(--fundo-2);
+  border: 0;
+  border-radius: 16px;
+}
+
+.pagina-end .kit-tag {
+  background: #248a3d;
+}
+
+.pagina-end .kit-item--extra .kit-tag {
+  background: #8e8e93;
+}
+
+.pagina-end .caixa-facil {
+  background: #e3f6e8;
+  border: 0;
+  border-radius: 20px;
+}
+
+.pagina-end .caixa-avancado {
+  background: #fff1e0;
+  border: 0;
+  border-radius: 20px;
+}
+
+.pagina-end .caixa-facil h4,
+.pagina-end .caixa-avancado h4 {
+  font-weight: 650;
+}
+
+.pagina-end .item-end {
+  padding: 22px;
+}
+
+.pagina-end .item-end-topo h3 {
+  color: var(--texto);
+  font-weight: 650;
+}
+
+.pagina-end .biomas-end li {
+  padding: 3px 12px;
+  background: var(--fundo-2);
+  border: 0;
+  border-radius: 999px;
+}
+
+/* ---------- 11. Celular ---------- */
+@media (max-width: 833px) {
+  .guia .ceu.guia-hero::before {
+    height: min(88svh, 760px);
+    background-image: var(--hero-foto-m);
+  }
+
+  .guia .ceu.guia-hero::after {
+    background:
+      linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.25) 24%, rgba(0, 0, 0, 0.62) 48%, #000 min(88svh, 760px));
+  }
+}
+
+@media (max-width: 560px) {
+  .guia .container {
+    width: min(var(--largura), calc(100% - 32px));
+  }
+
+  .guia .ceu.guia-hero {
+    padding-top: calc(var(--gnav) + var(--subnav) + 56px);
+  }
+
+  .guia .jornada {
+    margin-inline: -4px;
+    padding: 20px 16px;
+    border-radius: 24px;
+  }
+
+  .guia .titulo-secao img {
+    width: 64px;
+    height: 64px;
+    padding: 8px;
+    border-radius: 18px;
+  }
+
+  .guia .painel {
+    border-radius: 20px;
+  }
+
+  .guia .passo-icone {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+  }
+
+  .guia .passo + .passo::before {
+    top: 28px;
+  }
+
+  .guia .minerio,
+  .guia .card-mundo,
+  .guia .calc,
+  .pagina-end .passo-end {
+    padding: 18px;
+  }
+}

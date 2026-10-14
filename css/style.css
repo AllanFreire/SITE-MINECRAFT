@@ -37,9 +37,9 @@
   --diamante: #4aedd9;
   --netherite: #9b8a91;
 
-  /* Fontes: Nunito nos textos (arredondada e fácil de ler) e Rubik nos títulos */
-  --fonte: "Nunito", "Segoe UI", system-ui, sans-serif;
-  --fonte-titulo: "Rubik", "Nunito", "Segoe UI", system-ui, sans-serif;
+  /* Fonte: Inter (carregada em cada página; css/base.css define a mesma) */
+  --fonte: "Inter", -apple-system, "Segoe UI", system-ui, sans-serif;
+  --fonte-titulo: var(--fonte);
   --largura: 1140px;
   --altura-topo: 68px;
 }

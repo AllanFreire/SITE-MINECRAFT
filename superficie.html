@@ -6,34 +6,35 @@
   <title>A Superfície — MineGuia</title>
   <meta name="description" content="Todos os biomas do mundo normal do Minecraft, os animais e monstros de cada um e todas as estruturas, da vila à Cidade Ancestral, com onde encontrar e o que vem em cada baú.">
   <link rel="icon" type="image/png" href="assets/img/itens/oak_sapling.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400..900&family=Rubik:wght@500..900&display=swap">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/minerios.css">
   <link rel="stylesheet" href="css/mundo.css">
   <link rel="stylesheet" href="css/superficie.css">
-  <link rel="stylesheet" href="css/guide-modern.css?v=20261013-4">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&display=swap">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/guias.css">
+  <script>document.documentElement.classList.add("js")</script>
 </head>
-<body class="pagina-superficie">
+<body class="pagina-superficie guia" data-subnav-acao="Guia rápido|#guia-rapido">
   <a class="pular-conteudo" href="#biomas">Pular para os biomas</a>
 
-  <header class="topo">
-    <div class="container">
-      <a class="marca" href="index.html">
-        <img src="assets/img/itens/grass_block.png" alt="">
-        <span>MineGuia</span>
+  <header class="gnav">
+    <nav class="gnav-barra" aria-label="Principal">
+      <a class="gnav-marca" href="index.html" aria-label="MineGuia, página inicial">
+        <img src="assets/img/itens/grass_block.png" alt=""><span>MineGuia</span>
       </a>
-      <nav class="menu" aria-label="Principal">
-        <a href="index.html"><img src="assets/img/itens/crafting_table.png" alt=""><span>Início</span></a>
-        <a href="superficie.html" aria-current="page"><img src="assets/img/itens/oak_sapling.png" alt=""><span>Superfície</span></a>
-        <a href="minerios.html"><img src="assets/img/itens/diamond_pickaxe.png" alt=""><span>Minérios</span></a>
-        <a href="encantamentos.html"><img src="assets/img/itens/enchanted_book.png" alt=""><span>Encantamentos</span></a>
-        <a href="nether.html"><img src="assets/img/itens/netherrack.png" alt=""><span>Nether</span></a>
-        <a href="pocoes.html"><img src="assets/img/itens/potion_healing.png" alt=""><span>Poções</span></a>
-        <a href="end.html"><img src="assets/img/itens/ender_eye.png" alt=""><span>The End</span></a>
-      </nav>
-    </div>
+      <ul class="gnav-links" id="gnav-links">
+        <li><a href="superficie.html" aria-current="page"><img src="assets/img/itens/oak_sapling.png" alt=""><span>Superfície</span></a></li>
+        <li><a href="minerios.html"><img src="assets/img/itens/diamond_pickaxe.png" alt=""><span>Minérios</span></a></li>
+        <li><a href="encantamentos.html"><img src="assets/img/itens/enchanted_book.png" alt=""><span>Encantamentos</span></a></li>
+        <li><a href="nether.html"><img src="assets/img/itens/netherrack.png" alt=""><span>Nether</span></a></li>
+        <li><a href="pocoes.html"><img src="assets/img/itens/potion_healing.png" alt=""><span>Poções</span></a></li>
+        <li><a href="end.html"><img src="assets/img/itens/eye_of_ender.png" alt=""><span>The End</span></a></li>
+      </ul>
+      <button class="gnav-abrir" type="button" aria-expanded="false" aria-controls="gnav-links" aria-label="Abrir menu"><span></span><span></span></button>
+    </nav>
   </header>
 
   <main>
@@ -68,7 +69,7 @@
     </section>
 
     <!-- ===== Biomas ===== -->
-    <section class="secao" id="biomas" aria-labelledby="titulo-biomas">
+    <section class="secao" id="biomas" data-subnav="Biomas" aria-labelledby="titulo-biomas">
       <div class="container">
         <h2 class="titulo-secao" id="titulo-biomas"><img src="assets/img/itens/grass_block.png" alt="">Os biomas do mundo normal</h2>
         <div id="biomas-intro"></div>
@@ -77,7 +78,7 @@
     </section>
 
     <!-- ===== Estruturas ===== -->
-    <section class="secao secao--pedra" id="estruturas" aria-labelledby="titulo-estruturas">
+    <section class="secao secao--pedra" id="estruturas" data-subnav="Estruturas" aria-labelledby="titulo-estruturas">
       <div class="container">
         <h2 class="titulo-secao" id="titulo-estruturas"><img src="assets/img/itens/chest.png" alt="">As estruturas</h2>
         <p class="secao-desc">São as construções que o jogo espalha pelo mundo: em cima da terra, debaixo d'água e lá no fundo das cavernas. Veja onde procurar cada uma, quem mora lá e o que tem nos baús — com a chance de cada item aparecer.</p>
@@ -86,17 +87,47 @@
     </section>
   </main>
 
-  <footer class="rodape">
-    <div class="container">
-      <p class="fim">Você chegou na bedrock.<br>Não dá pra cavar mais fundo!</p>
-      <p>MineGuia · <span data-ano>2026</span> — feito por Allan Freire, para fãs.</p>
-      <p>Valores da Java Edition 26.3.</p>
-      <p>Imagens dos itens, texturas e capturas de tela: <a href="https://minecraft.wiki" target="_blank" rel="noopener">Minecraft Wiki</a> · © Mojang Studios.</p>
+  <footer class="gfoot">
+    <div class="gfoot-dentro">
+      <div class="gfoot-topo">
+        <a class="gfoot-marca" href="index.html"><img src="assets/img/itens/grass_block.png" alt=""><span>MineGuia</span></a>
+        <p class="gfoot-frase">Você chegou na bedrock. Não dá pra cavar mais fundo!</p>
+      </div>
+      <nav class="gfoot-colunas" aria-label="Todos os guias">
+        <div>
+          <h2>Explorar</h2>
+          <ul>
+            <li><a href="superficie.html">A Superfície</a></li>
+            <li><a href="nether.html">Rumo ao Nether</a></li>
+            <li><a href="end.html">The End</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Evoluir</h2>
+          <ul>
+            <li><a href="minerios.html">Guia até o Topo</a></li>
+            <li><a href="encantamentos.html">Os Encantamentos</a></li>
+            <li><a href="pocoes.html">As Poções</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Atalhos</h2>
+          <ul>
+            <li><a href="minerios.html#calculadora">Calculadora de kit</a></li>
+            <li><a href="minerios.html#aldeoes">Trocas com os aldeões</a></li>
+            <li><a href="end.html#passo-dragao">Como derrotar o dragão</a></li>
+          </ul>
+        </div>
+      </nav>
+      <div class="gfoot-meta">
+        <p>© <span data-ano>2026</span> MineGuia — feito por Allan Freire, para fãs.</p>
+        <p>Valores da Java Edition 26.3 · Imagens: <a href="https://minecraft.wiki" target="_blank" rel="noopener">Minecraft Wiki</a> · © Mojang Studios.</p>
+      </div>
     </div>
   </footer>
 
   <script src="js/main.js"></script>
-  <script src="js/guide-shell.js"></script>
+  <script src="js/site.js"></script>
   <script src="js/dados-superficie.js"></script>
   <script src="js/superficie.js"></script>
 </body>
