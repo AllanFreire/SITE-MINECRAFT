@@ -276,7 +276,7 @@
   grid-template-areas:
     "sup sup min"
     "enc poc net"
-    "end end net";
+    "bea end net";
   gap: 20px;
   width: var(--pagina);
   margin: 0 auto;
@@ -301,6 +301,7 @@
 .tile--pocoes { grid-area: poc; }
 .tile--nether { grid-area: net; }
 .tile--end { grid-area: end; }
+.tile--beacon { grid-area: bea; }
 
 .tile-foto {
   position: absolute;
@@ -869,7 +870,8 @@ html:not(.js) .h-abas button[aria-selected="true"] {
       "sup sup"
       "min enc"
       "poc net"
-      "end net";
+      "bea net"
+      "end end";
   }
 
   .h-contas {
@@ -923,7 +925,7 @@ html:not(.js) .h-abas button[aria-selected="true"] {
 @media (max-width: 640px) {
   .h-bento {
     grid-template-columns: minmax(0, 1fr);
-    grid-template-areas: "sup" "min" "enc" "poc" "net" "end";
+    grid-template-areas: "sup" "min" "enc" "poc" "net" "end" "bea";
     gap: 14px;
   }
 

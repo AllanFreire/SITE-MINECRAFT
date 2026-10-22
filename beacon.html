@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07151b">
+  <title>Beacon — MineGuia</title>
+  <meta name="description" content="Guia completo do Beacon no Minecraft: receita, Estrela do Nether, pirâmides, materiais, quantidades, alcance, poderes e como ativar cada benefício.">
+  <link rel="icon" type="image/png" href="assets/img/itens/nether_star.png">
+  <link rel="preload" as="image" href="assets/img/fundos/beacon.jpg">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/minerios.css">
+  <link rel="stylesheet" href="css/beacon.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&display=swap">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/guias.css">
+  <script>document.documentElement.classList.add("js")</script>
+</head>
+<body class="pagina-beacon guia" data-subnav-acao="Calcular pirâmide|#calculadora">
+  <a class="pular-conteudo" href="#como-funciona">Pular para o guia</a>
+
+  <header class="gnav">
+    <nav class="gnav-barra" aria-label="Principal">
+      <a class="gnav-marca" href="index.html" aria-label="MineGuia, página inicial">
+        <img src="assets/img/itens/grass_block.png" alt=""><span>MineGuia</span>
+      </a>
+      <ul class="gnav-links" id="gnav-links">
+        <li><a href="superficie.html"><img src="assets/img/itens/oak_sapling.png" alt=""><span>Superfície</span></a></li>
+        <li><a href="minerios.html"><img src="assets/img/itens/diamond_pickaxe.png" alt=""><span>Minérios</span></a></li>
+        <li><a href="encantamentos.html"><img src="assets/img/itens/enchanted_book.png" alt=""><span>Encantamentos</span></a></li>
+        <li><a href="nether.html"><img src="assets/img/itens/netherrack.png" alt=""><span>Nether</span></a></li>
+        <li><a href="pocoes.html"><img src="assets/img/itens/potion_healing.png" alt=""><span>Poções</span></a></li>
+        <li><a href="end.html"><img src="assets/img/itens/eye_of_ender.png" alt=""><span>The End</span></a></li>
+        <li><a href="beacon.html" aria-current="page"><img src="assets/img/itens/nether_star.png" alt=""><span>Beacon</span></a></li>
+      </ul>
+      <button class="gnav-abrir" type="button" aria-expanded="false" aria-controls="gnav-links" aria-label="Abrir menu"><span></span><span></span></button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="ceu guia-hero beacon-hero">
+      <div class="container">
+        <nav class="migalhas" aria-label="Você está aqui">
+          <a href="index.html">Início</a> <span aria-hidden="true">›</span> <span>Beacon</span>
+        </nav>
+        <p class="beacon-selo"><img src="assets/img/itens/nether_star.png" alt=""> Poder permanente para a sua base</p>
+        <h1 class="guia-titulo">O Beacon</h1>
+        <p class="guia-intro chat">Da <a href="#estrela">Estrela do Nether</a> ao feixe no céu: veja <a href="#calculadora">quantos blocos usar</a>, quais materiais funcionam e <a href="#poderes">como ativar cada benefício</a>.</p>
+
+        <div class="jornada" id="guia-rapido">
+          <h2 class="jornada-titulo">Tudo sobre Beacon, sem pular nenhuma etapa</h2>
+          <div class="beacon-atalhos">
+            <a href="#como-funciona"><span><img src="assets/img/itens/beacon.png" alt=""></span><b>Como funciona</b><small>Do craft ao feixe</small></a>
+            <a href="#calculadora"><span><img src="assets/img/itens/iron_block.png" alt=""></span><b>Pirâmide</b><small>Níveis e quantidades</small></a>
+            <a href="#materiais"><span><img src="assets/img/itens/emerald_block.png" alt=""></span><b>Materiais</b><small>Os 5 que funcionam</small></a>
+            <a href="#poderes"><span><img src="assets/img/itens/potion_regeneration.png" alt=""></span><b>Benefícios</b><small>Todos os 6 efeitos</small></a>
+            <a href="#estrela"><span><img src="assets/img/itens/wither_skeleton_skull.png" alt=""></span><b>Estrela do Nether</b><small>Como invocar o Wither</small></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="secao beacon-como" id="como-funciona" data-subnav="Como funciona" aria-labelledby="titulo-como">
+      <div class="container">
+        <h2 class="titulo-secao" id="titulo-como"><img src="assets/img/itens/beacon.png" alt="">Do zero ao feixe</h2>
+        <p class="secao-desc">O Beacon precisa de uma receita rara, uma pirâmide sólida e visão livre para o céu. Depois disso, um único item ativa o poder escolhido.</p>
+
+        <ol class="beacon-passos">
+          <li><span>1</span><img src="assets/img/itens/nether_star.png" alt=""><div><h3>Derrote o Wither</h3><p>Ele sempre entrega a Estrela do Nether necessária para o Beacon.</p></div></li>
+          <li><span>2</span><img src="assets/img/itens/beacon.png" alt=""><div><h3>Fabrique o Beacon</h3><p>Use 5 vidros, 3 obsidianas e 1 Estrela do Nether.</p></div></li>
+          <li><span>3</span><img src="assets/img/itens/iron_block.png" alt=""><div><h3>Monte a pirâmide</h3><p>Faça de 1 a 4 camadas completas com blocos minerais válidos.</p></div></li>
+          <li><span>4</span><img src="assets/img/itens/emerald.png" alt=""><div><h3>Escolha o poder</h3><p>Pague 1 item aceito, selecione o efeito e confirme no botão verde.</p></div></li>
+        </ol>
+
+        <div class="beacon-receita painel">
+          <div class="receita-texto">
+            <p class="beacon-rotulo">Receita na bancada</p>
+            <h3>1 Beacon</h3>
+            <p>O vidro fica na linha de cima e nos cantos do meio; a Estrela do Nether vai no centro e a obsidiana fecha a linha de baixo.</p>
+            <ul>
+              <li><img src="assets/img/itens/glass.png" alt=""><strong>5</strong> blocos de vidro</li>
+              <li><img src="assets/img/itens/nether_star.png" alt=""><strong>1</strong> Estrela do Nether</li>
+              <li><img src="assets/img/itens/obsidian.png" alt=""><strong>3</strong> blocos de obsidiana</li>
+            </ul>
+          </div>
+          <div class="receita-montagem" aria-label="Receita do Beacon: cinco vidros, uma Estrela do Nether e três obsidianas">
+            <div class="receita-grade">
+              <span><img src="assets/img/itens/glass.png" alt=""></span><span><img src="assets/img/itens/glass.png" alt=""></span><span><img src="assets/img/itens/glass.png" alt=""></span>
+              <span><img src="assets/img/itens/glass.png" alt=""></span><span><img src="assets/img/itens/nether_star.png" alt=""></span><span><img src="assets/img/itens/glass.png" alt=""></span>
+              <span><img src="assets/img/itens/obsidian.png" alt=""></span><span><img src="assets/img/itens/obsidian.png" alt=""></span><span><img src="assets/img/itens/obsidian.png" alt=""></span>
+            </div>
+            <i aria-hidden="true"></i>
+            <span class="receita-resultado"><img src="assets/img/itens/beacon.png" alt="Beacon"></span>
+          </div>
+        </div>
+
+        <div class="beacon-regras">
+          <article><strong>Céu livre</strong><p>O feixe precisa subir sem um bloco opaco no caminho. Vidro e vidro tingido deixam a luz passar.</p></article>
+          <article><strong>Base completa</strong><p>Não pode faltar nenhum bloco em uma camada. O Beacon fica no centro, um bloco acima do quadrado 3×3.</p></article>
+          <article><strong>Materiais misturados</strong><p>Ferro, ouro, esmeralda, diamante e netherite podem aparecer juntos em qualquer posição.</p></article>
+          <article><strong>Sem combustível contínuo</strong><p>O pagamento serve para confirmar a configuração. O Beacon não consome itens enquanto permanece ligado.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="secao secao--beacon calculadora-beacon" id="calculadora" data-subnav="Calculadora" aria-labelledby="titulo-calculadora">
+      <div class="container">
+        <h2 class="titulo-secao" id="titulo-calculadora"><img src="assets/img/itens/iron_block.png" alt="">Calculadora da pirâmide</h2>
+        <p class="secao-desc">Escolha o nível. A calculadora mostra as camadas, os blocos, a quantidade de barras ou gemas, o alcance e os poderes liberados.</p>
+
+        <div class="nivel-seletor" role="group" aria-label="Nível da pirâmide">
+          <button type="button" data-nivel="1" aria-pressed="false"><span>Nível</span><strong>1</strong><small>3×3</small></button>
+          <button type="button" data-nivel="2" aria-pressed="false"><span>Nível</span><strong>2</strong><small>5×5</small></button>
+          <button type="button" data-nivel="3" aria-pressed="false"><span>Nível</span><strong>3</strong><small>7×7</small></button>
+          <button type="button" data-nivel="4" aria-pressed="true" class="is-ativo"><span>Nível</span><strong>4</strong><small>9×9</small></button>
+        </div>
+
+        <div class="calculadora-grade painel">
+          <div class="piramide-palco" id="beacon-piramide-visual" aria-live="polite"></div>
+          <div class="calculadora-dados">
+            <p class="beacon-rotulo">Pirâmide de nível <strong id="beacon-nivel-numero">4</strong></p>
+            <div class="numeros-beacon">
+              <div><span id="beacon-total-blocos">164</span><small>blocos minerais</small></div>
+              <div><span id="beacon-total-itens">1.476</span><small>barras ou gemas</small></div>
+              <div><span id="beacon-alcance">50 blocos</span><small>de alcance horizontal</small></div>
+              <div><span id="beacon-duracao">17 segundos</span><small>após sair da área</small></div>
+            </div>
+            <p class="calculadora-pilhas"><b>Em stacks:</b> <span id="beacon-total-pilhas">23 stacks + 4</span></p>
+            <p id="beacon-resumo">A pirâmide completa: alcance máximo e a fileira secundária.</p>
+            <div class="desbloqueios"><strong>Este nível libera</strong><ul id="beacon-desbloqueia"></ul></div>
+          </div>
+        </div>
+
+        <div class="tabela-niveis-wrap">
+          <table class="tabela-niveis">
+            <caption>Comparação de todos os níveis</caption>
+            <thead><tr><th>Nível</th><th>Camadas</th><th>Blocos</th><th>Barras/gemas</th><th>Alcance</th><th>Duração</th></tr></thead>
+            <tbody>
+              <tr><th>1</th><td>3×3</td><td>9</td><td>81</td><td>20 blocos</td><td>11 s</td></tr>
+              <tr><th>2</th><td>5×5 + 3×3</td><td>34</td><td>306</td><td>30 blocos</td><td>13 s</td></tr>
+              <tr><th>3</th><td>7×7 + 5×5 + 3×3</td><td>83</td><td>747</td><td>40 blocos</td><td>15 s</td></tr>
+              <tr><th>4</th><td>9×9 + 7×7 + 5×5 + 3×3</td><td>164</td><td>1.476</td><td>50 blocos</td><td>17 s</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="secao" id="materiais" data-subnav="Materiais" aria-labelledby="titulo-materiais">
+      <div class="container">
+        <h2 class="titulo-secao" id="titulo-materiais"><img src="assets/img/itens/emerald_block.png" alt="">Todos os materiais válidos</h2>
+        <p class="secao-desc">Clique num material para aplicá-lo à calculadora. O tipo do bloco não muda o alcance, a duração ou os poderes — ele muda apenas o custo e a aparência.</p>
+        <div class="material-aviso"><strong>Pode misturar.</strong> Uma mesma pirâmide pode combinar os cinco materiais, até dentro da mesma camada.</div>
+        <div class="lista-materiais" id="lista-materiais"></div>
+      </div>
+    </section>
+
+    <section class="secao secao--beacon" id="poderes" data-subnav="Benefícios" aria-labelledby="titulo-poderes">
+      <div class="container">
+        <h2 class="titulo-secao" id="titulo-poderes"><img src="assets/img/itens/potion_regeneration.png" alt="">Poderes e benefícios</h2>
+        <p class="secao-desc">O nível da pirâmide decide quais opções aparecem. O efeito é reaplicado a cada poucos segundos enquanto o jogador estiver dentro da área.</p>
+        <div class="lista-poderes" id="lista-poderes"></div>
+
+        <div class="ativacao painel">
+          <div class="ativacao-cabeca">
+            <img src="assets/img/itens/beacon.png" alt="">
+            <div><p class="beacon-rotulo">Tela do Beacon</p><h3>Como ativar cada benefício</h3></div>
+          </div>
+          <ol>
+            <li><span>1</span><p><strong>Abra o Beacon</strong> depois que o feixe aparecer.</p></li>
+            <li><span>2</span><p><strong>Coloque um pagamento:</strong> 1 barra de ferro, 1 barra de ouro, 1 esmeralda, 1 diamante ou 1 barra de netherite.</p></li>
+            <li><span>3</span><p><strong>Escolha o poder primário.</strong> As opções dependem do nível da pirâmide.</p></li>
+            <li><span>4</span><p>No nível 4, escolha <strong>Regeneração I</strong> ou clique novamente no poder primário para torná-lo <strong>nível II</strong>.</p></li>
+            <li><span>5</span><p><strong>Confirme no botão verde.</strong> Mudar a configuração depois pede outro item de pagamento.</p></li>
+          </ol>
+          <div class="pagamentos" aria-label="Itens aceitos como pagamento">
+            <span><img src="assets/img/itens/iron_ingot.png" alt="Barra de ferro"></span>
+            <span><img src="assets/img/itens/gold_ingot.png" alt="Barra de ouro"></span>
+            <span><img src="assets/img/itens/emerald.png" alt="Esmeralda"></span>
+            <span><img src="assets/img/itens/diamond.png" alt="Diamante"></span>
+            <span><img src="assets/img/itens/netherite_ingot.png" alt="Barra de netherite"></span>
+            <p><strong>Todos fazem a mesma coisa.</strong> Pagar com netherite não melhora o efeito.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="secao" id="estrela" data-subnav="Estrela do Nether" aria-labelledby="titulo-estrela">
+      <div class="container">
+        <h2 class="titulo-secao" id="titulo-estrela"><img src="assets/img/itens/nether_star.png" alt="">Como conseguir a Estrela do Nether</h2>
+        <p class="secao-desc">Ela não aparece em baús e não pode ser fabricada. A única forma no modo sobrevivência é invocar e derrotar o Wither.</p>
+
+        <div class="wither-fluxo">
+          <article><span class="wither-num">1</span><img src="assets/img/itens/wither_skeleton_skull.png" alt=""><h3>Consiga 3 crânios</h3><p>Mate esqueletos Wither em Fortalezas do Nether. A chance base é 2,5%; Saque III eleva para 5,5% na Java Edition.</p><a href="nether.html#estrutura-fortaleza" class="mais-link">Abrir guia do Nether</a></article>
+          <article><span class="wither-num">2</span><img src="assets/img/itens/soul_sand.png" alt=""><h3>Junte 4 blocos</h3><p>Areia das almas ou terra das almas funcionam. Elas aparecem no Nether, especialmente no Vale de Areia das Almas.</p></article>
+          <article><span class="wither-num">3</span><div class="wither-forma" aria-label="Forma de T feita com quatro blocos de areia das almas e três crânios"><b>☠</b><b>☠</b><b>☠</b><i></i><i></i><i></i><i></i></div><h3>Monte o T</h3><p>Faça um T com os quatro blocos e coloque os três crânios por último. Deixe espaço para o boss nascer.</p></article>
+          <article><span class="wither-num">4</span><img src="assets/img/itens/nether_star.png" alt=""><h3>Derrote o Wither</h3><p>Leve bom equipamento, leite para remover o efeito Wither e poções. Ao morrer, ele deixa 1 Estrela do Nether.</p></article>
+        </div>
+
+        <div class="wither-preparo painel">
+          <div><p class="beacon-rotulo">Antes de invocar</p><h3>Prepare a luta longe da sua base</h3><p>O Wither explode ao nascer e destrói muitos blocos durante o combate. Na metade da vida, ele cria uma armadura e deixa de receber dano de flechas.</p></div>
+          <ul>
+            <li><img src="assets/img/itens/diamond_sword.png" alt=""><span><strong>Espada forte</strong> para a segunda fase</span></li>
+            <li><img src="assets/img/itens/bow.png" alt=""><span><strong>Arco</strong> para a primeira fase</span></li>
+            <li><img src="assets/img/itens/milk_bucket.png" alt=""><span><strong>Leite</strong> contra o efeito Wither</span></li>
+            <li><img src="assets/img/itens/potion_regeneration.png" alt=""><span><strong>Poções</strong> de cura e regeneração</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="secao secao--beacon" id="dicas" data-subnav="Dicas" aria-labelledby="titulo-dicas">
+      <div class="container">
+        <h2 class="titulo-secao" id="titulo-dicas"><img src="assets/img/itens/light_blue_stained_glass_pane.png" alt="">Feixe, cores e projetos avançados</h2>
+        <p class="secao-desc">Depois que o Beacon está funcionando, ainda dá para personalizar o feixe e combinar várias unidades na mesma base.</p>
+        <div class="dicas-beacon">
+          <article class="dica-feixe"><div class="feixes-demo" aria-hidden="true"><i></i><i></i><i></i></div><h3>Mude a cor do feixe</h3><p>Coloque vidro tingido ou painel de vidro tingido sobre o Beacon. Sobrepor cores cria novas tonalidades ao longo do feixe.</p></article>
+          <article><img src="assets/img/itens/iron_block.png" alt=""><h3>Compartilhe a pirâmide</h3><p>Vários Beacons podem usar os mesmos blocos minerais. Uma base de nível 4 para 6 Beacons usa 244 blocos e consegue manter todos os seis efeitos.</p></article>
+          <article><img src="assets/img/itens/diamond_pickaxe.png" alt=""><h3>Use Pressa II para minerar</h3><p>O clássico projeto de mineração combina uma pirâmide completa, Pressa II e uma picareta com Eficiência V.</p></article>
+          <article><img src="assets/img/itens/beacon.png" alt=""><h3>O Beacon também ilumina</h3><p>Mesmo sem feixe ativo, o bloco emite nível de luz 15. Ele não pode ser empurrado nem puxado por pistões.</p></article>
+        </div>
+
+        <div class="erros-beacon">
+          <h3>Se o Beacon não ligar, confira isto</h3>
+          <ul>
+            <li><span>01</span>A pirâmide está inteira, sem buracos ou blocos inválidos?</li>
+            <li><span>02</span>O Beacon está exatamente no centro da camada 3×3?</li>
+            <li><span>03</span>Existe algum bloco opaco interrompendo o caminho até o céu?</li>
+            <li><span>04</span>Você inseriu um item de pagamento, escolheu um poder e confirmou?</li>
+            <li><span>05</span>O jogador está dentro do alcance e na mesma dimensão?</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="gfoot">
+    <div class="gfoot-dentro">
+      <div class="gfoot-topo">
+        <a class="gfoot-marca" href="index.html"><img src="assets/img/itens/grass_block.png" alt=""><span>MineGuia</span></a>
+        <p class="gfoot-frase">Você chegou na bedrock. Não dá pra cavar mais fundo!</p>
+      </div>
+      <nav class="gfoot-colunas" aria-label="Todos os guias">
+        <div><h2>Explorar</h2><ul><li><a href="superficie.html">A Superfície</a></li><li><a href="nether.html">Rumo ao Nether</a></li><li><a href="end.html">The End</a></li></ul></div>
+        <div><h2>Evoluir</h2><ul><li><a href="minerios.html">Guia até o Topo</a></li><li><a href="encantamentos.html">Os Encantamentos</a></li><li><a href="pocoes.html">As Poções</a></li><li><a href="beacon.html">O Beacon</a></li></ul></div>
+        <div><h2>Atalhos</h2><ul><li><a href="beacon.html#calculadora">Calculadora do Beacon</a></li><li><a href="minerios.html#calculadora">Calculadora de kit</a></li></ul></div>
+      </nav>
+      <div class="gfoot-meta">
+        <p>© <span data-ano>2026</span> MineGuia — feito por Allan Freire, para fãs.</p>
+        <p>Valores da Java Edition 26.3 · Imagens: <a href="https://minecraft.wiki" target="_blank" rel="noopener">Minecraft Wiki</a> · © Mojang Studios.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/site.js"></script>
+  <script src="js/dados-beacon.js"></script>
+  <script src="js/beacon.js"></script>
+</body>
+</html>
