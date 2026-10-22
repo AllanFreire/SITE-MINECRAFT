@@ -1,0 +1,225 @@
+/* =============================================================
+   MineGuia — Farms automáticas
+   Catálogo, filtros e rota de progressão
+   ============================================================= */
+
+.pagina-farms {
+  --acento: #8eea63;
+  --acento-texto: #287c27;
+  --hero-foto: url("../assets/img/fundos/farms.jpg");
+  --hero-foto-m: url("../assets/img/fundos/farms.jpg");
+}
+
+.pagina-farms .guia-hero::before { background-position: center 48%; }
+.pagina-farms .guia-hero::after {
+  background:
+    linear-gradient(90deg, rgba(1, 11, 8, .94) 0%, rgba(1, 11, 8, .73) 36%, rgba(1, 11, 8, .12) 68%),
+    linear-gradient(180deg, rgba(0, 0, 0, .25), rgba(0, 8, 6, .08) 35%, #000 min(100svh, 1040px));
+}
+
+.farms-selo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 16px;
+  color: #b8ffa0;
+  font-size: 13px;
+  font-weight: 750;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.farms-selo img { width: 24px; height: 24px; image-rendering: pixelated; }
+
+.farms-atalhos {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.farms-atalhos a {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px 10px;
+  color: #fff;
+  background: rgba(255, 255, 255, .06);
+  border: 1px solid rgba(255, 255, 255, .1);
+  border-radius: 18px;
+  text-align: center;
+  text-decoration: none;
+  transition: background .2s ease, border-color .2s ease, transform .2s ease;
+}
+
+.farms-atalhos a:hover,
+.farms-atalhos a:focus-visible { background: rgba(142, 234, 99, .14); border-color: rgba(142, 234, 99, .56); transform: translateY(-3px); }
+.farms-atalhos a > span { display: grid; place-items: center; width: 62px; height: 62px; margin-bottom: 11px; background: rgba(255, 255, 255, .08); border-radius: 18px; }
+.farms-atalhos img { width: 42px; height: 42px; object-fit: contain; image-rendering: pixelated; }
+.farms-atalhos b { font-size: 15px; }
+.farms-atalhos small { margin-top: 3px; color: rgba(255, 255, 255, .58); font-size: 12px; }
+
+.farms-rotulo {
+  margin: 0 0 8px;
+  color: var(--acento-texto);
+  font-size: 12px;
+  font-weight: 750;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.secao--farms { background: #eef5eb; }
+
+/* Filtros */
+.farm-filtros {
+  display: grid;
+  grid-template-columns: minmax(260px, 1fr) minmax(190px, .35fr);
+  gap: 18px 14px;
+  align-items: end;
+  margin-bottom: 18px;
+  padding: 22px;
+}
+
+.farm-busca,
+.farm-select { display: grid; gap: 7px; }
+.farm-busca > span,
+.farm-select > span { color: var(--texto-2); font-size: 12px; font-weight: 700; }
+.farm-busca input,
+.farm-select select {
+  width: 100%;
+  min-height: 50px;
+  padding: 0 16px;
+  color: var(--texto);
+  background: #f5f5f7;
+  border: 1px solid #d8d8dc;
+  border-radius: 13px;
+  font: inherit;
+  outline: 0;
+}
+.farm-busca input:focus,
+.farm-select select:focus { border-color: #63b949; box-shadow: 0 0 0 4px rgba(99, 185, 73, .15); }
+
+.farm-categorias { display: flex; grid-column: 1 / -1; flex-wrap: wrap; gap: 8px; }
+.farm-categorias button {
+  padding: 9px 14px;
+  color: #404044;
+  background: #f1f1f3;
+  border: 0;
+  border-radius: 999px;
+  font: 650 13px/1 var(--fonte);
+  cursor: pointer;
+}
+.farm-categorias button:hover { background: #e7e7e9; }
+.farm-categorias button.is-ativo { color: #fff; background: #246d27; }
+.farm-contador { grid-column: 1 / -1; margin: 0; color: var(--texto-2); font-size: 13px; font-weight: 650; }
+
+.farms-aviso {
+  margin-bottom: 24px;
+  padding: 15px 18px;
+  color: #245322;
+  background: #e6f7df;
+  border: 1px solid #b9e4a9;
+  border-radius: 14px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Cards */
+.farms-lista { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.farm-card {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  padding: clamp(22px, 3vw, 30px);
+  background: #fff;
+  border: 1px solid var(--borda);
+  border-radius: 24px;
+  box-shadow: 0 12px 38px rgba(20, 35, 20, .06);
+}
+.farm-card__cabeca { display: flex; align-items: center; gap: 14px; }
+.farm-card__icone { display: grid; flex: 0 0 64px; width: 64px; height: 64px; place-items: center; background: #eff8eb; border-radius: 18px; }
+.farm-card__icone img { width: 46px; height: 46px; object-fit: contain; image-rendering: pixelated; }
+.farm-card__cabeca p { margin: 0 0 4px; color: #5a9350; font-size: 11px; font-weight: 750; letter-spacing: .06em; text-transform: uppercase; }
+.farm-card__cabeca h3 { margin: 0; font-size: clamp(22px, 2.6vw, 30px); line-height: 1.08; }
+.farm-card__selos { display: flex; flex-wrap: wrap; gap: 7px; margin: 18px 0 14px; }
+.farm-card__selos span { padding: 6px 10px; color: #31542c; background: #eff8eb; border-radius: 999px; font-size: 11px; font-weight: 700; }
+.farm-card__selos .farm-card__versao { color: #fff; background: #246d27; }
+.farm-card__serve { margin: 0 0 18px; color: var(--texto); font-size: 16px; font-weight: 600; line-height: 1.48; }
+.farm-card__bloco { padding: 15px; background: var(--fundo-2); border-radius: 14px; }
+.farm-card h4 { margin: 0 0 7px; color: #66666b; font-size: 11px; font-weight: 750; letter-spacing: .07em; text-transform: uppercase; }
+.farm-card__bloco p { margin: 0; color: var(--texto-2); font-size: 14px; line-height: 1.52; }
+.farm-card__grade { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin: 20px 0 15px; }
+.farm-card ul { margin: 0; padding: 0; list-style: none; }
+.farm-produtos { display: flex; flex-wrap: wrap; gap: 6px; }
+.farm-produtos li { padding: 5px 8px; color: #275a24; background: #e9f7e4; border-radius: 7px; font-size: 12px; font-weight: 650; }
+.farm-requisitos { display: grid; gap: 5px; }
+.farm-requisitos li { position: relative; padding-left: 13px; color: var(--texto-2); font-size: 12px; line-height: 1.35; }
+.farm-requisitos li::before { content: ""; position: absolute; top: .55em; left: 0; width: 5px; height: 5px; background: #70bd55; border-radius: 50%; }
+.farm-card__edicao { margin: auto 0 0; padding-top: 14px; color: #6d6d72; border-top: 1px solid #ececef; font-size: 12px; line-height: 1.45; }
+.farm-card footer { display: flex; gap: 8px; margin-top: 16px; }
+.farm-link { display: inline-flex; flex: 1; align-items: center; justify-content: center; gap: 6px; min-height: 42px; padding: 9px 12px; color: #255a22; background: #edf7e9; border-radius: 11px; font-size: 13px; font-weight: 700; text-align: center; text-decoration: none; }
+.farm-link:hover { background: #dff1d8; }
+.farm-link--guia { color: #fff; background: #266b29; }
+.farm-link--guia:hover { background: #1e5721; }
+.farms-vazio { padding: 54px 20px; text-align: center; }
+.farms-vazio img { width: 54px; height: 54px; image-rendering: pixelated; }
+.farms-vazio h3 { margin: 12px 0 5px; }
+.farms-vazio p { margin: 0; color: var(--texto-2); }
+
+/* Rota */
+.rota-farms { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
+.rota-farms > li { display: grid; grid-template-columns: 76px minmax(0, 1fr) auto; gap: 22px; align-items: center; padding: 24px 28px; background: #fff; border: 1px solid #dce8d8; border-radius: 20px; }
+.rota-farms > li > span { color: #93b38b; font-size: 34px; font-weight: 750; letter-spacing: -.06em; }
+.rota-farms small { color: var(--acento-texto); font-size: 11px; font-weight: 750; letter-spacing: .08em; text-transform: uppercase; }
+.rota-farms h3 { margin: 4px 0 7px; font-size: clamp(21px, 2.5vw, 29px); }
+.rota-farms p { max-width: 690px; margin: 0; color: var(--texto-2); line-height: 1.5; }
+.rota-icones { display: flex; gap: 6px; }
+.rota-icones img { width: 44px; height: 44px; padding: 7px; background: #eff6ec; border-radius: 12px; object-fit: contain; image-rendering: pixelated; }
+
+/* Mecânicas e checklist */
+.mecanicas-farms { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.mecanicas-farms article { min-height: 235px; padding: 25px; background: #fff; border: 1px solid var(--borda); border-radius: 21px; }
+.mecanicas-farms span { color: #72a766; font-size: 12px; font-weight: 750; }
+.mecanicas-farms h3 { margin: 42px 0 9px; font-size: 21px; }
+.mecanicas-farms p { margin: 0; color: var(--texto-2); font-size: 14px; line-height: 1.53; }
+
+.checklist-farms { display: grid; grid-template-columns: minmax(0, .9fr) minmax(360px, 1.1fr); gap: 48px; padding: clamp(25px, 5vw, 56px); }
+.checklist-farms h2 { margin: 0 0 16px; font-size: clamp(34px, 5vw, 58px); line-height: 1.03; letter-spacing: -.045em; }
+.checklist-farms > div > p:last-child { margin: 0; color: var(--texto-2); font-size: 16px; line-height: 1.55; }
+.checklist-farms ol { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.checklist-farms li { display: flex; gap: 12px; align-items: flex-start; padding: 13px 14px; background: #f5f7f3; border-radius: 13px; }
+.checklist-farms li span { display: grid; flex: 0 0 28px; width: 28px; height: 28px; place-items: center; color: #fff; background: #2d742d; border-radius: 50%; font-size: 12px; font-weight: 750; }
+.checklist-farms li p { margin: 3px 0 0; color: var(--texto-2); font-size: 13px; line-height: 1.45; }
+.checklist-farms li strong { color: var(--texto); }
+.fontes-farms { max-width: 760px; margin: 20px auto 0; color: var(--texto-2); font-size: 12px; line-height: 1.5; text-align: center; }
+
+@media (max-width: 980px) {
+  .farms-lista { grid-template-columns: minmax(0, 1fr); }
+  .mecanicas-farms { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .farms-atalhos { grid-auto-columns: minmax(160px, 1fr); grid-template-columns: none; grid-auto-flow: column; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+  .farms-atalhos a { scroll-snap-align: start; }
+  .farms-atalhos::-webkit-scrollbar { display: none; }
+}
+
+@media (max-width: 760px) {
+  .pagina-farms .guia-hero::before { background-position: 62% center; }
+  .pagina-farms .guia-hero::after { background: linear-gradient(180deg, rgba(0, 8, 5, .42), rgba(0, 8, 5, .78) 42%, #000 min(100svh, 1040px)); }
+  .farm-filtros,
+  .checklist-farms { grid-template-columns: minmax(0, 1fr); }
+  .rota-farms > li { grid-template-columns: 50px minmax(0, 1fr); }
+  .rota-icones { grid-column: 2; }
+}
+
+@media (max-width: 600px) {
+  .farm-filtros { margin-inline: -4px; padding: 16px; }
+  .farm-categorias { flex-wrap: nowrap; margin-inline: -16px; padding: 0 16px 4px; overflow-x: auto; scrollbar-width: none; }
+  .farm-categorias::-webkit-scrollbar { display: none; }
+  .farm-categorias button { flex: 0 0 auto; }
+  .farm-card__grade,
+  .mecanicas-farms { grid-template-columns: minmax(0, 1fr); }
+  .farm-card footer { flex-direction: column; }
+  .rota-farms > li { grid-template-columns: minmax(0, 1fr); gap: 10px; padding: 22px; }
+  .rota-farms > li > span { font-size: 24px; }
+  .rota-icones { grid-column: 1; }
+  .checklist-farms { gap: 28px; }
+}

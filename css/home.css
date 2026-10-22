@@ -276,7 +276,8 @@
   grid-template-areas:
     "sup sup min"
     "enc poc net"
-    "bea end net";
+    "bea end net"
+    "far far far";
   gap: 20px;
   width: var(--pagina);
   margin: 0 auto;
@@ -302,6 +303,8 @@
 .tile--nether { grid-area: net; }
 .tile--end { grid-area: end; }
 .tile--beacon { grid-area: bea; }
+.tile--farms { grid-area: far; min-height: 520px; }
+.tile--farms .tile-foto { object-position: center 52%; }
 
 .tile-foto {
   position: absolute;
@@ -871,7 +874,8 @@ html:not(.js) .h-abas button[aria-selected="true"] {
       "min enc"
       "poc net"
       "bea net"
-      "end end";
+      "end end"
+      "far far";
   }
 
   .h-contas {
@@ -925,7 +929,7 @@ html:not(.js) .h-abas button[aria-selected="true"] {
 @media (max-width: 640px) {
   .h-bento {
     grid-template-columns: minmax(0, 1fr);
-    grid-template-areas: "sup" "min" "enc" "poc" "net" "end" "bea";
+    grid-template-areas: "sup" "min" "enc" "poc" "net" "end" "bea" "far";
     gap: 14px;
   }
 

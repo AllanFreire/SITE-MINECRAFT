@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07140f">
+  <title>Farms automáticas para Java 26.3 — MineGuia</title>
+  <meta name="description" content="As melhores farms automáticas compatíveis com Minecraft Java Edition 26.3: produção, funcionamento, requisitos, dificuldade e tutoriais atuais.">
+  <link rel="icon" type="image/png" href="assets/img/itens/redstone.png">
+  <link rel="preload" as="image" href="assets/img/fundos/farms.jpg">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/minerios.css">
+  <link rel="stylesheet" href="css/farms.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&display=swap">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/guias.css">
+  <script>document.documentElement.classList.add("js")</script>
+</head>
+<body class="pagina-farms guia" data-subnav-acao="Escolher uma farm|#catalogo">
+  <a class="pular-conteudo" href="#catalogo">Pular para o catálogo</a>
+
+  <header class="gnav">
+    <nav class="gnav-barra" aria-label="Principal">
+      <a class="gnav-marca" href="index.html" aria-label="MineGuia, página inicial"><img src="assets/img/itens/grass_block.png" alt=""><span>MineGuia</span></a>
+      <ul class="gnav-links" id="gnav-links">
+        <li><a href="superficie.html"><img src="assets/img/itens/oak_sapling.png" alt=""><span>Superfície</span></a></li>
+        <li><a href="minerios.html"><img src="assets/img/itens/diamond_pickaxe.png" alt=""><span>Minérios</span></a></li>
+        <li><a href="encantamentos.html"><img src="assets/img/itens/enchanted_book.png" alt=""><span>Encantamentos</span></a></li>
+        <li><a href="nether.html"><img src="assets/img/itens/netherrack.png" alt=""><span>Nether</span></a></li>
+        <li><a href="pocoes.html"><img src="assets/img/itens/potion_healing.png" alt=""><span>Poções</span></a></li>
+        <li><a href="end.html"><img src="assets/img/itens/eye_of_ender.png" alt=""><span>The End</span></a></li>
+        <li><a href="beacon.html"><img src="assets/img/itens/nether_star.png" alt=""><span>Beacon</span></a></li>
+        <li><a href="farms.html" aria-current="page"><img src="assets/img/itens/redstone.png" alt=""><span>Farms</span></a></li>
+      </ul>
+      <button class="gnav-abrir" type="button" aria-expanded="false" aria-controls="gnav-links" aria-label="Abrir menu"><span></span><span></span></button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="ceu guia-hero farms-hero">
+      <div class="container">
+        <nav class="migalhas" aria-label="Você está aqui"><a href="index.html">Início</a> <span aria-hidden="true">›</span> <span>Farms</span></nav>
+        <p class="farms-selo"><img src="assets/img/itens/redstone.png" alt=""> Revisado para Java Edition 26.3</p>
+        <h1 class="guia-titulo">Farms automáticas 26.3</h1>
+        <p class="guia-intro chat">Um catálogo exclusivo da versão atual para escolher <a href="#catalogo">o próximo projeto</a>, entender como ele funciona e abrir um <a href="#catalogo">tutorial específico para Java 26.3</a> antes de gastar recursos.</p>
+
+        <div class="jornada" id="guia-rapido">
+          <h2 class="jornada-titulo">Da primeira horta à megafarm do endgame</h2>
+          <div class="farms-atalhos">
+            <a href="#catalogo"><span><img src="assets/img/itens/chest.png" alt=""></span><b>23 projetos</b><small>Filtre e compare</small></a>
+            <a href="#rota"><span><img src="assets/img/itens/iron_ingot.png" alt=""></span><b>Rota ideal</b><small>Começo, meio e fim</small></a>
+            <a href="#mecanicas"><span><img src="assets/img/itens/redstone.png" alt=""></span><b>Como rendem</b><small>Spawn, AFK e coleta</small></a>
+            <a href="#checklist"><span><img src="assets/img/itens/totem_of_undying.png" alt=""></span><b>Construa seguro</b><small>Checklist antes do bloco 1</small></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="secao farms-catalogo" id="catalogo" data-subnav="Catálogo" aria-labelledby="titulo-catalogo">
+      <div class="container">
+        <p class="farms-rotulo">Escolha pelo resultado</p>
+        <h2 class="titulo-secao" id="titulo-catalogo"><img src="assets/img/itens/chest.png" alt="">As melhores farms para sua base</h2>
+        <p class="secao-desc">Pesquise pelo item que precisa ou filtre por objetivo. A seleção considera apenas mecânicas disponíveis na Java Edition 26.3; a prioridade sugere uma ordem geral.</p>
+
+        <div class="farm-filtros painel" role="search" aria-label="Filtrar catálogo de farms">
+          <label class="farm-busca"><span>Buscar farm ou item</span><input id="farms-busca" type="search" placeholder="Ex.: ferro, pólvora, XP…" autocomplete="off"></label>
+          <label class="farm-select"><span>Dimensão</span><select id="farms-dimensao"><option value="todas">Todas</option><option value="superficie">Superfície</option><option value="nether">Nether</option><option value="end">The End</option></select></label>
+          <div class="farm-categorias" aria-label="Categoria">
+            <button class="is-ativo" type="button" data-filtro-farm="todas" aria-pressed="true">Todas</button>
+            <button type="button" data-filtro-farm="essenciais" aria-pressed="false">Essenciais</button>
+            <button type="button" data-filtro-farm="recursos" aria-pressed="false">Recursos</button>
+            <button type="button" data-filtro-farm="mobs" aria-pressed="false">Mobs</button>
+            <button type="button" data-filtro-farm="xp" aria-pressed="false">XP</button>
+            <button type="button" data-filtro-farm="endgame" aria-pressed="false">Endgame</button>
+          </div>
+          <p id="farms-contador" class="farm-contador" aria-live="polite"></p>
+        </div>
+
+        <div class="farms-aviso"><strong>Regra deste catálogo:</strong> todos os projetos são para <b>Java Edition 26.3</b>. Os links de vídeo já pesquisam a versão 26.3. Não use um projeto se o autor indicar outra edição ou uma versão anterior sem confirmar compatibilidade.</div>
+        <div class="farms-lista" id="farms-lista"></div>
+        <div class="farms-vazio" id="farms-vazio" hidden><img src="assets/img/itens/barrier.png" alt=""><h3>Nenhuma farm encontrada</h3><p>Tente outro item, categoria ou dimensão.</p></div>
+        <noscript><p class="farms-vazio">Ative o JavaScript para ver e filtrar o catálogo completo.</p></noscript>
+      </div>
+    </section>
+
+    <section class="secao secao--farms" id="rota" data-subnav="Rota recomendada" aria-labelledby="titulo-rota">
+      <div class="container">
+        <p class="farms-rotulo">Construa na ordem certa</p>
+        <h2 class="titulo-secao" id="titulo-rota"><img src="assets/img/itens/diamond_pickaxe.png" alt="">Uma rota que multiplica recursos</h2>
+        <p class="secao-desc">Cada etapa alimenta a seguinte. Comece barato, automatize os materiais de construção e só então parta para projetos enormes.</p>
+        <ol class="rota-farms">
+          <li><span>01</span><div><small>Primeiros dias</small><h3>Comida, ferro e aldeões</h3><p>Plantação → criador de aldeões → ferro → trading hall. Esse núcleo sustenta ferramentas, trocas e toda a redstone que vem depois.</p></div><div class="rota-icones"><img src="assets/img/itens/carrot.png" alt=""><img src="assets/img/itens/iron_ingot.png" alt=""><img src="assets/img/itens/emerald.png" alt=""></div></li>
+          <li><span>02</span><div><small>Base estabelecida</small><h3>Papel, combustível e drops</h3><p>Cana, bambu, lã e uma torre de mobs criam o estoque para livros, foguetes, camas, fornalhas e encantamentos.</p></div><div class="rota-icones"><img src="assets/img/itens/sugar_cane.png" alt=""><img src="assets/img/itens/bamboo.png" alt=""><img src="assets/img/itens/bone.png" alt=""></div></li>
+          <li><span>03</span><div><small>Depois do dragão</small><h3>XP, ouro e mobilidade</h3><p>Enderman para XP, creeper para foguetes e ouro para escambo: três farms que aceleram todos os grandes projetos.</p></div><div class="rota-icones"><img src="assets/img/itens/ender_pearl.png" alt=""><img src="assets/img/itens/gunpowder.png" alt=""><img src="assets/img/itens/gold_ingot.png" alt=""></div></li>
+          <li><span>04</span><div><small>Endgame</small><h3>Totens, Beacons e shulkers</h3><p>Invasão, esqueletos Wither e shulkers exigem precisão, mas entregam segurança, poderes e armazenamento para qualquer megabase.</p></div><div class="rota-icones"><img src="assets/img/itens/totem_of_undying.png" alt=""><img src="assets/img/itens/nether_star.png" alt=""><img src="assets/img/itens/shulker_shell.png" alt=""></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="secao" id="mecanicas" data-subnav="Como rendem" aria-labelledby="titulo-mecanicas">
+      <div class="container">
+        <p class="farms-rotulo">Rendimento sem mistério</p>
+        <h2 class="titulo-secao" id="titulo-mecanicas"><img src="assets/img/itens/redstone.png" alt="">O que faz uma farm funcionar</h2>
+        <p class="secao-desc">Copiar os blocos não basta. A posição do jogador, as áreas carregadas e os limites de entidades decidem se o projeto rende ou para.</p>
+        <div class="mecanicas-farms">
+          <article><span>01</span><h3>Chunks carregados</h3><p>Plantações e a maioria dos mobs só avançam quando a área está sendo simulada. O ponto AFK precisa manter toda a farm ativa.</p></article>
+          <article><span>02</span><h3>Esfera de spawn</h3><p>Em farms hostis, cavernas e superfícies concorrentes roubam o limite de mobs. Isole o projeto no oceano, no céu ou faça spawn-proof.</p></article>
+          <article><span>03</span><h3>Transporte rápido</h3><p>Água, trilhos, funis e portais devem retirar entidades da área de spawn rapidamente para abrir espaço para a próxima leva.</p></article>
+          <article><span>04</span><h3>Abate e coleta</h3><p>Queda, lava, fogueiras e dano do jogador mudam drops e experiência. Escolha o método compatível com o resultado desejado.</p></article>
+          <article><span>05</span><h3>Armazenamento</h3><p>Uma farm eficiente enche baús depressa. Planeje silos, filtros e descarte de excedentes antes de ligar a máquina.</p></article>
+          <article><span>06</span><h3>Lag e segurança</h3><p>Evite milhares de itens no chão e relógios sempre ligados. Use interruptor, overflow e distância segura de outras farms.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="secao secao--farms" id="checklist" data-subnav="Checklist" aria-labelledby="titulo-checklist">
+      <div class="container">
+        <div class="checklist-farms painel">
+          <div>
+            <p class="farms-rotulo">Antes do primeiro bloco</p>
+            <h2 id="titulo-checklist">Evite perder horas com o projeto errado.</h2>
+            <p>Farms são máquinas baseadas nas regras internas do jogo. Uma única diferença de edição, versão, bioma ou altura pode mudar tudo.</p>
+          </div>
+          <ol>
+            <li><span>1</span><p><strong>Exija “Java Edition 26.3”</strong> no título ou na descrição do tutorial em vídeo.</p></li>
+            <li><span>2</span><p><strong>Ignore projetos desatualizados</strong> quando o autor ou os comentários relatarem quebra na 26.3.</p></li>
+            <li><span>3</span><p><strong>Teste a localização:</strong> bioma, estrutura, altura, chunks e distância da base.</p></li>
+            <li><span>4</span><p><strong>Monte no criativo</strong> se o projeto for caro, usar portais ou depender de alinhamento.</p></li>
+            <li><span>5</span><p><strong>Inclua acesso, desligamento e overflow</strong> no planejamento, não depois.</p></li>
+          </ol>
+        </div>
+        <p class="fontes-farms">Compatibilidade revisada em 22 de outubro de 2026. Os guias escritos explicam a mecânica; para copiar um projeto bloco a bloco, use “Vídeos 26.3” e confirme que o autor demonstra a Java Edition 26.3.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="gfoot">
+    <div class="gfoot-dentro">
+      <div class="gfoot-topo"><a class="gfoot-marca" href="index.html"><img src="assets/img/itens/grass_block.png" alt=""><span>MineGuia</span></a><p class="gfoot-frase">Você chegou na bedrock. Não dá pra cavar mais fundo!</p></div>
+      <nav class="gfoot-colunas" aria-label="Todos os guias">
+        <div><h2>Explorar</h2><ul><li><a href="superficie.html">A Superfície</a></li><li><a href="nether.html">Rumo ao Nether</a></li><li><a href="end.html">The End</a></li></ul></div>
+        <div><h2>Evoluir</h2><ul><li><a href="minerios.html">Guia até o Topo</a></li><li><a href="encantamentos.html">Os Encantamentos</a></li><li><a href="pocoes.html">As Poções</a></li><li><a href="beacon.html">O Beacon</a></li><li><a href="farms.html">Farms automáticas</a></li></ul></div>
+        <div><h2>Atalhos</h2><ul><li><a href="farms.html#catalogo">Catálogo de farms</a></li><li><a href="beacon.html#calculadora">Calculadora do Beacon</a></li><li><a href="minerios.html#calculadora">Calculadora de kit</a></li></ul></div>
+      </nav>
+      <div class="gfoot-meta"><p>© <span data-ano>2026</span> MineGuia — feito por Allan Freire, para fãs.</p><p>Farms revisadas para Java Edition 26.3 · Referências: <a href="https://minecraft.wiki" target="_blank" rel="noopener">Minecraft Wiki</a> · © Mojang Studios.</p></div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/site.js"></script>
+  <script src="js/dados-farms.js"></script>
+  <script src="js/farms.js"></script>
+</body>
+</html>
